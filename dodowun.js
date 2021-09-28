@@ -6,7 +6,7 @@
 ui.layout(
   <vertical>
     <appbar>
-      <toolbar title="抖音联系获取 2021/09/27-2更新 " />
+      <toolbar title="抖音联系获取 2021/09/28更新 " />
       <tabs id="tabs" />
     </appbar>
     <card w="500" h="60" margin="10 5" cardCornerRadius="1dp" cardElevation="1dp" gravity="center_vertical">
