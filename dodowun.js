@@ -233,7 +233,7 @@ ui.layout(
 threads.start(function () {
   var window = floaty.window(
     <frame>
-      <button id='action' text='退出脚本' bg='#ffc107' w="200px" h="100px" ></button>
+      <button id='action' text='退出脚本' bg='#ffc107' w="150px" h="80px" ></button>
       
     </frame>
   );
