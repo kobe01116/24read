@@ -93,7 +93,7 @@ threads.start(空)
 
 
 
-
+toastLog("版本1.0")
 function 空(){
 
   while(true){
