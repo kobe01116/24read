@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("變數版 5.0")
+toastLog("變數版 6.0")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("變數版 5.0")
+  toastLog("變數版 6.0")
 
 
   while (true) {
@@ -154,7 +154,7 @@ function 開始() {
 
 
     var 保證金
-    var 保證金倍數
+   
     id("com.binance.dev:id/ivHistory").findOne().click()
 
     sleep(1000)
@@ -174,18 +174,57 @@ function 開始() {
     if (已實現盈虧 < 0) {
       toastLog("虧錢")
 
-      // toastLog(id("com.binance.dev:id/2131375579").findOne().text())
+    
+      保證金x = id("com.binance.dev:id/2131375579").findOne().text()
 
-      // toastLog(id("com.binance.dev:id/2131375579").depth(13).drawingOrder(8).indexInParent(6).findOne().text())
-      if (id("com.binance.dev:id/2131375579").findOne().text() > 100) {
-        保證金倍數 = 1
-      } else {
-        保證金倍數 = 2.2
-      }
       sleep(1000)
-      保證金 = id("com.binance.dev:id/2131375579").findOne().text() * 保證金倍數
 
+  
+  toastLog(保證金x)
+  sleep(1000)
+  
+ 
+      if(Number(保證金x)>5 && Number(保證金x)<7){保證金=7.5
       toastLog(保證金)
+      
+      }
+      
+      if(Number(保證金x)>6.8 && Number(保證金x)<10){保證金=16
+      toastLog(保證金)
+      
+      }
+      
+if(Number(保證金x)>14 && Number(保證金x)<18){保證金=32
+      toastLog(保證金)
+      
+      }
+  
+  
+  if(Number(保證金x)>25 && Number(保證金x)<35){保證金=66
+      toastLog(保證金)
+      
+      }
+  
+  if(Number(保證金x)>50 && Number(保證金x)<70){保證金=135
+      toastLog(保證金)
+      
+      }
+
+
+ if(Number(保證金x)>100){保證金=6.5
+      toastLog(保證金)
+      
+      }
+
+
+
+  
+
+
+
+
+
+
       back()
 
     } else {
@@ -221,10 +260,12 @@ function 開始() {
     id("com.binance.dev:id/2131362797").findOne().click()
     sleep(2000)
     下滑动()
-    sleep(6000)
+    sleep(1000)
     ///下單下單下單下單下單下單下單下單下單
 
     ////倉位止盈止損///
+    
+    fun.waitId("com.binance.dev:id/stop_btn")
     id("com.binance.dev:id/stop_btn").findOne().click()
     fun.wait("倉位止盈止損")
 
@@ -481,3 +522,10 @@ var fun = {
     sleep(1000)
   }
 }     
+
+
+
+
+
+
+
