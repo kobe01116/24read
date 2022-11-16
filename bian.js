@@ -7,14 +7,14 @@
 app.launchApp("币安");
 
 
-toastLog("變數版 2.0")
+toastLog("變數版 3.0")
 
 //================
 
 
 
 
-//=======做空按钮========
+//=======開始按钮========
 
 threads.start(function () {
   var window = floaty.window(
@@ -101,14 +101,13 @@ function 開始() {
 
   while (true) {
 
-
+    //判斷交易中
     while (true) {
       if (className("android.widget.TextView").text("持有倉位 (1)").exists()) {
         toastLog("交易中")
-
-        sleep(8000)
+        
         下滑动()
-        sleep(8000)
+        sleep(6000)
 
       } else {
         break
@@ -116,6 +115,9 @@ function 開始() {
 
 
     }
+    //判斷交易中
+
+
 
     var 變數
 
@@ -150,15 +152,77 @@ function 開始() {
 
     sleep(1000)
 
-    var 保證金 = 6.5
-    id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
 
-    ///下單按鈕
+    var 保證金
+    var 保證金倍數
+    id("com.binance.dev:id/ivHistory").findOne().click()
+
+    sleep(1000)
+
+    className("android.widget.TextView").depth(9).text("歷史成交").findOne().click()
+
+    sleep(1000)
+
+    fun.waitId("com.binance.dev:id/2131374996")
+
+    sleep(2000)
+
+    var 已實現盈虧 = id("com.binance.dev:id/2131374996").depth(13).drawingOrder(14).findOne().text()
+
+
+    //toastLog(已實現盈虧)
+    if (已實現盈虧 < 0) {
+      toastLog("虧錢")
+
+      // toastLog(id("com.binance.dev:id/2131375579").findOne().text())
+
+      // toastLog(id("com.binance.dev:id/2131375579").depth(13).drawingOrder(8).indexInParent(6).findOne().text())
+      if (id("com.binance.dev:id/2131375579").findOne().text() > 1.5) {
+        保證金倍數 = 1
+      } else {
+        保證金倍數 = 2.2
+      }
+      sleep(1000)
+      保證金 = id("com.binance.dev:id/2131375579").findOne().text() * 保證金倍數
+
+      toastLog(保證金)
+      back()
+
+    } else {
+
+      toastLog("賺錢")
+
+      保證金 = 6.5
+
+      toastLog(保證金)
+
+      back()
+
+
+    }
+
+
+    sleep(1000)
+
+
+
+
+
+
+
+
+    // var 保證金 = 6.5
+    // id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
+
+
+
+
+    ///下單下單下單下單下單下單下單
     id("com.binance.dev:id/2131362797").findOne().click()
     sleep(2000)
     下滑动()
     sleep(6000)
-    ///下單按鈕
+    ///下單下單下單下單下單下單下單下單下單
 
     ////倉位止盈止損///
     id("com.binance.dev:id/stop_btn").findOne().click()
@@ -197,13 +261,14 @@ function 開始() {
 
     sleep(1000)
 
+
+    //判斷交易中
     while (true) {
       if (className("android.widget.TextView").text("持有倉位 (1)").exists()) {
         toastLog("交易中")
-
-        sleep(8000)
+        
         下滑动()
-        sleep(8000)
+        sleep(6000)
 
       } else {
         break
@@ -211,7 +276,7 @@ function 開始() {
 
 
     }
-
+    //判斷交易中
 
 
   }
@@ -228,9 +293,11 @@ function 開始() {
 
 
 
-//========撤銷=======
 
 
+
+
+/////////////更新////////////////////////
 threads.start(function () {
   var window = floaty.window(
     <frame>
@@ -307,6 +374,8 @@ threads.start(function () {
 });
 
 
+
+
 function 更新() {
 
 
@@ -344,10 +413,10 @@ function 更新() {
 
 }
 
+////////////更新/////////////////////////
 
 
-
-
+//////////////////////////////////////
 function 上滑动() {
   //获得手机分辨率
   var width = device.width;
@@ -379,117 +448,7 @@ function 左滑动2() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
+//////////////////////////////////////
 var fun = {
   //等待出现，文本
   wait: function (str) {
