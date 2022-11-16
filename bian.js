@@ -177,7 +177,7 @@ function 開始() {
       // toastLog(id("com.binance.dev:id/2131375579").findOne().text())
 
       // toastLog(id("com.binance.dev:id/2131375579").depth(13).drawingOrder(8).indexInParent(6).findOne().text())
-      if (id("com.binance.dev:id/2131375579").findOne().text() > 1.5) {
+      if (id("com.binance.dev:id/2131375579").findOne().text() > 150) {
         保證金倍數 = 1
       } else {
         保證金倍數 = 2.2
