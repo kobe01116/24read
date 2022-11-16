@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("變數版 3.0")
+toastLog("變數版 4.0")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("變數版 2.0")
+  toastLog("變數版 4.0")
 
 
   while (true) {
@@ -212,7 +212,7 @@ function 開始() {
 
 
     // var 保證金 = 6.5
-    // id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
+    id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
 
 
 
