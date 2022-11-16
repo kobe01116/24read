@@ -6,7 +6,7 @@
 
 app.launchApp("币安");
 
-sleep(1000)
+
 toastLog("變數版 2.0")
 
 //================
