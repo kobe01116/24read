@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("變數版 4.0")
+toastLog("變數版 5.0")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("變數版 4.0")
+  toastLog("變數版 5.0")
 
 
   while (true) {
@@ -177,7 +177,7 @@ function 開始() {
       // toastLog(id("com.binance.dev:id/2131375579").findOne().text())
 
       // toastLog(id("com.binance.dev:id/2131375579").depth(13).drawingOrder(8).indexInParent(6).findOne().text())
-      if (id("com.binance.dev:id/2131375579").findOne().text() > 150) {
+      if (id("com.binance.dev:id/2131375579").findOne().text() > 100) {
         保證金倍數 = 1
       } else {
         保證金倍數 = 2.2
