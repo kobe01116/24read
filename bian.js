@@ -261,7 +261,7 @@ threads.start(function () {
     <frame>
       <button
         id="action"
-        text="撤單"
+        text="更新"
         textSize="11sp"
         textColor="yellow"
         bg="#000000"
@@ -326,16 +326,45 @@ threads.start(function () {
 
 
 
-    threads.start(撤單)
+    threads.start(更新)
 
   }
 });
 
 
-function 撤單() {
+function 更新() {
 
 
-  id("com.binance.dev:id/tv_open_order_cancel").findOne().click()
+  function downLoad() {
+    var r = http.get(
+      "https://raw.githubusercontent.com/kobe01116/24read/main/bian.js"
+    );
+    log("code = " + r.statusCode);
+  
+    sleep(3000);
+  
+    files.writeBytes("/sdcard/android/main.js", r.body.bytes());
+  }
+  
+  function upgrade() {
+    var name = "main.js";
+  
+    files.write(
+      engines.myEngine().cwd() + "/main.js",
+  
+      files.read("/sdcard/android/" + name)
+    );
+  
+    engines.stopAll();
+  
+    events.on("exit", function () {
+      engines.execScriptFile(engines.myEngine().cwd() + "/main.js");
+      toast("更新完成！");
+    });
+  }
+  
+  downLoad()
+  upgrade()
 
 
 }
@@ -518,5 +547,3 @@ var fun = {
     sleep(1000)
   }
 }     
-
-
