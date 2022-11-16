@@ -6,7 +6,7 @@
 
 app.launchApp("币安");
 
-toastLog("變數版")
+
 //================
 
 
@@ -94,7 +94,26 @@ threads.start(function () {
 
 function 開始() {
 
+  toastLog("變數版 2.0")
+
+  
   while (true) {
+
+
+    while (true) {
+      if (className("android.widget.TextView").text("持有倉位 (1)").exists()) {
+        toastLog("交易中")
+
+        sleep(8000)
+        下滑动()
+        sleep(8000)
+
+      } else {
+        break
+      }
+
+
+    }
 
     var 變數
 
@@ -171,9 +190,10 @@ function 開始() {
     sleep(500)
     fun.点击文本("確認")
 
+    fun.waitId("com.binance.dev:id/2131362797")
     ////倉位止盈止損///
 
-
+    sleep(1000)
 
     while (true) {
       if (className("android.widget.TextView").text("持有倉位 (1)").exists()) {
