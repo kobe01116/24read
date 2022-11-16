@@ -244,7 +244,7 @@ function 開始() {
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
 
     sleep(500)
-    id("et_tp_trigger_price").findOne().setText("30")
+    id("et_tp_trigger_price").findOne().setText("35")
     sleep(500)
     fun.点击id("iv_sl_input_type")
     sleep(500)
