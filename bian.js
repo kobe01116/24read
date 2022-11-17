@@ -203,32 +203,32 @@ function 開始() {
       }
 
 
-      // if (Number(保證金x) > 22 && Number(保證金x) < 40) {
-      //   保證金 = 81.32
-      //   toastLog(保證金)
+       if (Number(保證金x) > 22 && Number(保證金x) < 40) {
+       保證金 = 81.32
+        toastLog(保證金)
 
-      // }
+      }
 
-      // if (Number(保證金x) > 70 && Number(保證金x) < 90) {
-      //   保證金 = 178.9
-      //   toastLog(保證金)
+      if (Number(保證金x) > 70 && Number(保證金x) < 90) {
+        保證金 = 178.9
+       toastLog(保證金)
 
-      // }
+      }
 
-      // if (Number(保證金x) > 140 && Number(保證金x) < 200) {
-      //   保證金 = 393.58
-      //   toastLog(保證金)
+      if (Number(保證金x) > 140 && Number(保證金x) < 200) {
+        保證金 = 393.58
+         toastLog(保證金)
 
-      // }
-      // if (Number(保證金x) > 300 && Number(保證金x) < 500) {
-      //   保證金 = 865.87
-      //   toastLog(保證金)
+      }
+       if (Number(保證金x) > 300 && Number(保證金x) < 500) {
+         保證金 = 865.87
+        toastLog(保證金)
 
-      // }
+       }
 
 
 
-      if (Number(保證金x) > 30) {
+      if (Number(保證金x) > 600) {
         保證金 = 6.5
         toastLog(保證金)
 
@@ -303,7 +303,7 @@ function 開始() {
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
 
     sleep(500)
-    id("et_tp_trigger_price").findOne().setText("34")
+    id("et_tp_trigger_price").findOne().setText("35")
     sleep(500)
     fun.点击id("iv_sl_input_type")
     sleep(500)
