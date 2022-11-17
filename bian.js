@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("變數版 7.1")
+toastLog("變數版 7.2")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("變數版 7.1")
+  toastLog("變數版 7.2")
 
 
   while (true) {
