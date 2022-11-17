@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("變數版 7.0")
+toastLog("變數版 7.1")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("變數版 7.0")
+  toastLog("變數版 7.1")
 
 
   while (true) {
@@ -203,32 +203,32 @@ function 開始() {
       }
 
 
-      if (Number(保證金x) > 22 && Number(保證金x) < 40) {
-        保證金 = 81.32
-        toastLog(保證金)
+      // if (Number(保證金x) > 22 && Number(保證金x) < 40) {
+      //   保證金 = 81.32
+      //   toastLog(保證金)
 
-      }
+      // }
 
-      if (Number(保證金x) > 70 && Number(保證金x) < 90) {
-        保證金 = 178.9
-        toastLog(保證金)
+      // if (Number(保證金x) > 70 && Number(保證金x) < 90) {
+      //   保證金 = 178.9
+      //   toastLog(保證金)
 
-      }
+      // }
 
-      if (Number(保證金x) > 140 && Number(保證金x) < 200) {
-        保證金 = 393.58
-        toastLog(保證金)
+      // if (Number(保證金x) > 140 && Number(保證金x) < 200) {
+      //   保證金 = 393.58
+      //   toastLog(保證金)
 
-      }
-      if (Number(保證金x) > 300 && Number(保證金x) < 500) {
-        保證金 = 865.87
-        toastLog(保證金)
+      // }
+      // if (Number(保證金x) > 300 && Number(保證金x) < 500) {
+      //   保證金 = 865.87
+      //   toastLog(保證金)
 
-      }
+      // }
 
 
 
-      if (Number(保證金x) > 600) {
+      if (Number(保證金x) > 30) {
         保證金 = 6.5
         toastLog(保證金)
 
