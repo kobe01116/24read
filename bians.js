@@ -191,6 +191,21 @@ function 開始() {
     sleep(800)
     id("com.binance.dev:id/2131364481").findOne().setText(價格)
     toastLog(價格)
+    var 價格 = id("com.binance.dev:id/2131364481").findOne().text()
+
+
+    id("com.binance.dev:id/cb_strategy_order").findOne().click()
+
+    sleep(800)
+
+    id("com.binance.dev:id/cb_strategy_order").findOne().click()
+
+    sleep(800)
+
+    id("com.binance.dev:id/2131364481").text("止盈").findOne().setText(價格 * 0.9963)
+    sleep(800)
+    id("com.binance.dev:id/2131364481").text("止損").findOne().setText(價格 * 1.0032)
+    sleep(800)
 
 
 
@@ -477,7 +492,7 @@ function 更新2() {
 
   function downLoad() {
     var r = http.get(
-      "https://raw.githubusercontent.com/kobe01116/24read/main/bians.js"
+      "https://raw.githubusercontent.com/kobe01116/24read/main/bian.js"
     );
     log("code = " + r.statusCode);
 
