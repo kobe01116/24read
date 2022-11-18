@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("掛空2.0, ＋37%, -32%")
+toastLog("掛空3.0, ＋37%, -32%")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("掛空2.0, ＋37%, -32%")
+  toastLog("掛空3.0, ＋37%, -32%")
 
 
   while (true) {
