@@ -539,7 +539,7 @@ function 更新2() {
 
   function downLoad() {
     var r = http.get(
-      "https://raw.githubusercontent.com/kobe01116/24read/main/bian.js"
+      "https://raw.githubusercontent.com/kobe01116/24read/main/bians.js"
     );
     log("code = " + r.statusCode);
 
