@@ -202,9 +202,9 @@ function 開始() {
 
     sleep(800)
 
-    id("com.binance.dev:id/2131364481").text("止盈").findOne().setText(價格 * 0.9964)
+    id("com.binance.dev:id/2131364481").text("止盈").findOne().setText(價格 * 0.9966)
     sleep(800)
-    id("com.binance.dev:id/2131364481").text("止損").findOne().setText(價格 * 1.0032)
+    id("com.binance.dev:id/2131364481").text("止損").findOne().setText(價格 * 1.0033)
     sleep(800)
 
 
