@@ -151,7 +151,7 @@ function 開始() {
 
       toastLog("賺錢")
 
-      保證金x = id("com.binance.dev:id/2131375579").findOne().text()
+     var 保證金x = id("com.binance.dev:id/2131375579").findOne().text()
 
       sleep(1000)
 
