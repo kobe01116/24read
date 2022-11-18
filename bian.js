@@ -292,7 +292,7 @@ function 開始() {
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
     fun.waitId("com.binance.dev:id/iv_tp_input_type")
     sleep(500)
-    id("et_sl_trigger_price").findOne().setText("32")
+    id("et_sl_trigger_price").findOne().setText("34")
 
     sleep(500)
     fun.点击文本("確認")
