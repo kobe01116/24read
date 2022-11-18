@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("掛空2.0, ＋37%, -32%")
+toastLog("掛空4.0, ＋37%, -32%")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("掛空2.0, ＋37%, -32%")
+  toastLog("掛空4.0, ＋37%, -32%")
 
 
   while (true) {
@@ -151,7 +151,7 @@ function 開始() {
 
       toastLog("賺錢")
 
-     var 保證金x = id("com.binance.dev:id/2131375579").findOne().text()
+      var 保證金x = id("com.binance.dev:id/2131375579").findOne().text()
 
       sleep(1000)
 
@@ -202,9 +202,9 @@ function 開始() {
 
     sleep(800)
 
-    id("com.binance.dev:id/2131364481").text("止盈").findOne().setText(價格 * 0.9963)
+    id("com.binance.dev:id/2131364481").text("止盈").findOne().setText(價格 * 0.9966)
     sleep(800)
-    id("com.binance.dev:id/2131364481").text("止損").findOne().setText(價格 * 1.0032)
+    id("com.binance.dev:id/2131364481").text("止損").findOne().setText(價格 * 1.0033)
     sleep(800)
 
 
@@ -219,7 +219,7 @@ function 開始() {
     id("com.binance.dev:id/2131362797").findOne().click()
     sleep(60000)
     下滑动()
-    sleep(8000)
+    sleep(6000)
     ///下單下單下單下單下單下單下單下單下單
 
     if (className("android.widget.TextView").text("當前委託 (1)") && className("android.widget.TextView").text("持有倉位 (0)").exists()) {
