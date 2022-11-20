@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("加碼50-1.0, ＋37%, -34%")
+toastLog("加碼50-2.0, ＋37%, -34%")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("加碼50-1.0, ＋37%, -34%")
+  toastLog("加碼50-2.0, ＋37%, -34%")
 
 
   while (true) {
@@ -123,7 +123,7 @@ function 開始() {
 
     var 變數 = random(0, 1)
 
-    if (變數 == 0) {
+    if (變數 == 1) {
       toastLog("做多")
       sleep(2000)
       className("android.widget.TextView").text("買入").findOne().click()
