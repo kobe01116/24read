@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("加碼50-2.0, ＋37%, -34%")
+toastLog("加碼50, +15%, -40%")
 
 //================
 
@@ -96,8 +96,11 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("加碼50-2.0, ＋37%, -34%")
+  toastLog("加碼50, +15%, -40%")
 
+  var 變數
+
+    var 變數 = random(0, 1)
 
   while (true) {
 
@@ -117,20 +120,18 @@ function 開始() {
     }
     //判斷交易中
 
-
-
-    var 變數
-
-    var 變數 = random(0, 1)
+    
 
     if (變數 == 1) {
       toastLog("做多")
       sleep(2000)
       className("android.widget.TextView").text("買入").findOne().click()
+      變數=0
     } else {
       toastLog("做空")
       sleep(2000)
       className("android.widget.TextView").text("賣出").findOne().click()
+      變數=1
     }
 
     function 市價() {
@@ -285,14 +286,14 @@ function 開始() {
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
 
     sleep(500)
-    id("et_tp_trigger_price").findOne().setText("37")
+    id("et_tp_trigger_price").findOne().setText("15")
     sleep(500)
     fun.点击id("iv_sl_input_type")
     sleep(500)
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
     fun.waitId("com.binance.dev:id/iv_tp_input_type")
     sleep(500)
-    id("et_sl_trigger_price").findOne().setText("34")
+    id("et_sl_trigger_price").findOne().setText("40")
 
     sleep(500)
     fun.点击文本("確認")
