@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("變數版 1.0.2")
+toastLog("變數版 1.0.3")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("變數版 1.0.2")
+  toastLog("變數版 1.0.3")
 
   var 變數
 
@@ -192,7 +192,7 @@ function 開始() {
 
       }
 
-      if (Number(保證金x) > 6.8 && Number(保證金x) < 10) {
+      if (Number(保證金x) > 6.6 && Number(保證金x) < 10) {
         保證金 = 16.8
         toastLog(保證金)
 
