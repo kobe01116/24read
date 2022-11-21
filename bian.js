@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("變數版 1.0.1")
+toastLog("變數版 1.0.2")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("變數版 1.0.1")
+  toastLog("變數版 1.0.2")
 
   var 變數
 
@@ -127,12 +127,12 @@ function 開始() {
       toastLog("做多")
       sleep(2000)
       className("android.widget.TextView").text("買入").findOne().click()
-      變數=0
+      變數=1
     } else {
       toastLog("做空")
       sleep(2000)
       className("android.widget.TextView").text("賣出").findOne().click()
-      變數=1
+      變數=0
     }
 
     function 市價() {
@@ -229,7 +229,7 @@ function 開始() {
       }
 
 
-
+//
       if (Number(保證金x) > 70) {
         保證金 = 6.5
         toastLog(保證金)
