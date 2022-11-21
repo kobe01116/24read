@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("變數版 1.0.3")
+toastLog("變數版 1.0.4")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("變數版 1.0.3")
+  toastLog("變數版 1.0.4")
 
   var 變數
 
@@ -280,12 +280,13 @@ function 開始() {
     id("com.binance.dev:id/2131362797").findOne().click()
     sleep(2000)
     下滑动()
-    sleep(1000)
+    sleep(3000)
     ///下單下單下單下單下單下單下單下單下單
 
     ////倉位止盈止損///
 
     fun.waitId("com.binance.dev:id/stop_btn")
+    sleep(1000)
     id("com.binance.dev:id/stop_btn").findOne().click()
     fun.wait("倉位止盈止損")
 
