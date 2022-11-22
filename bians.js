@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("加碼6.5, +18%, -16% ---2")
+toastLog("加碼6.5, +19%, -16% ---2")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("加碼6.5, +18%, -16% ---2")
+  toastLog("加碼6.5, +19%, -16% ---2")
 
   var 變數
 
@@ -201,7 +201,7 @@ sleep(800)
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
 
     sleep(500)
-    id("et_tp_trigger_price").findOne().setText("18")
+    id("et_tp_trigger_price").findOne().setText("19")
     sleep(800)
 
 
