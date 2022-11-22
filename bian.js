@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("最後版 +18% -20% --2")
+toastLog("最後版 +18% -20% --3")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("最後版 +18% -20% --2")
+  toastLog("最後版 +18% -20% --3")
 
   var 變數
 
@@ -178,7 +178,8 @@ function 開始() {
     //toastLog(已實現盈虧)
     if (已實現盈虧 < 0) {
       toastLog("虧錢")
-
+toastLog("休息60秒")
+      sleep(60000)
 
       保證金x = id("com.binance.dev:id/2131375579").findOne().text()
 
