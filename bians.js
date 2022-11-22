@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("加碼6.5, +20%, -16% ---2")
+toastLog("加碼6.5, +17%, -20% ---2")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("加碼6.5, +20%, -16% ---2")
+  toastLog("加碼6.5, +17%, -20% ---2")
 
   var 變數
 
@@ -201,7 +201,7 @@ sleep(800)
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
 
     sleep(500)
-    id("et_tp_trigger_price").findOne().setText("20")
+    id("et_tp_trigger_price").findOne().setText("17")
     sleep(800)
 
 
@@ -217,7 +217,7 @@ sleep(800)
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
     fun.waitId("com.binance.dev:id/iv_tp_input_type")
     sleep(500)
-    id("et_sl_trigger_price").findOne().setText("16")
+    id("et_sl_trigger_price").findOne().setText("20")
 
     sleep(500)
     fun.点击文本("確認")
