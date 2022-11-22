@@ -504,7 +504,7 @@ function 更新() {
 
     events.on("exit", function () {
       engines.execScriptFile(engines.myEngine().cwd() + "/main.js");
-      toast("更新完成！");
+      // toast("更新完成！");
     });
   }
 
@@ -621,7 +621,7 @@ function 更新2() {
 
     events.on("exit", function () {
       engines.execScriptFile(engines.myEngine().cwd() + "/main.js");
-      toast("更新完成！");
+      // toast("更新完成！");
     });
   }
 
