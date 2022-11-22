@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("最後版 +18% -20% --1.0")
+toastLog("最後版 +18% -20% --2")
 
 //================
 
@@ -28,7 +28,7 @@ threads.start(function () {
         w="230px"
         h="98px"
       ></button>
-      
+
     </frame>
   );
   window.setPosition(device.width - 250, (device.height - 1250));
@@ -96,11 +96,14 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("最後版 +18% -20% --1.0")
+  toastLog("最後版 +18% -20% --2")
 
   var 變數
 
   var 變數 = random(0, 1)
+
+  var 盈利
+  var 虧損
   while (true) {
 
     //判斷交易中
@@ -121,18 +124,18 @@ function 開始() {
 
 
 
-    
+
 
     if (變數 == 0) {
       toastLog("做多")
       sleep(2000)
       className("android.widget.TextView").text("買入").findOne().click()
-      變數=1
+      變數 = 1
     } else {
       toastLog("做空")
       sleep(2000)
       className("android.widget.TextView").text("賣出").findOne().click()
-      變數=0
+      變數 = 0
     }
 
     function 市價() {
@@ -188,18 +191,24 @@ function 開始() {
 
       if (Number(保證金x) > 5 && Number(保證金x) < 7) {
         保證金 = 7.5
+        盈利 = 19
+        虧損 = -21
         toastLog(保證金)
 
       }
 
       if (Number(保證金x) > 6.5 && Number(保證金x) < 10) {
         保證金 = 16.8
+        盈利 = 20
+        虧損 = -22
         toastLog(保證金)
 
       }
 
       if (Number(保證金x) > 13 && Number(保證金x) < 18) {
         保證金 = 36.96
+        盈利 = 21
+        虧損 = -23
         toastLog(保證金)
 
       }
@@ -207,29 +216,37 @@ function 開始() {
 
       if (Number(保證金x) > 22 && Number(保證金x) < 40) {
         保證金 = 81.32
+        盈利 = 22
+        虧損 = -24
         toastLog(保證金)
 
       }
 
       if (Number(保證金x) > 70 && Number(保證金x) < 90) {
         保證金 = 178.9
+        盈利 = 23
+        虧損 = -26
         toastLog(保證金)
 
       }
 
       if (Number(保證金x) > 140 && Number(保證金x) < 200) {
         保證金 = 393.58
+        盈利 = 24
+        虧損 = -27
         toastLog(保證金)
 
       }
       if (Number(保證金x) > 300 && Number(保證金x) < 500) {
         保證金 = 865.87
+        盈利 = 25
+        虧損 = -29
         toastLog(保證金)
 
       }
 
 
-//
+      //
       if (Number(保證金x) > 600) {
         保證金 = 6.5
         toastLog(保證金)
@@ -255,6 +272,8 @@ function 開始() {
 
       toastLog(保證金)
 
+      盈利 = 18
+      虧損 = -20
       back()
 
 
@@ -312,7 +331,7 @@ function 開始() {
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
 
     sleep(500)
-    id("et_tp_trigger_price").findOne().setText("20")
+    id("et_tp_trigger_price").findOne().setText(盈利)
     sleep(800)
 
     id("com.binance.dev:id/iv_sl_work_type").findOne().click();
@@ -329,7 +348,7 @@ function 開始() {
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
     fun.waitId("com.binance.dev:id/iv_tp_input_type")
     sleep(500)
-    id("et_sl_trigger_price").findOne().setText("18")
+    id("et_sl_trigger_price").findOne().setText(虧損)
 
     sleep(500)
     fun.点击文本("確認")
