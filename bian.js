@@ -178,7 +178,8 @@ function 開始() {
     //toastLog(已實現盈虧)
     if (已實現盈虧 < 0) {
       toastLog("虧錢")
-toastLog("休息60秒")
+
+      toastLog("休息60秒")
       sleep(60000)
 
       保證金x = id("com.binance.dev:id/2131375579").findOne().text()
@@ -217,31 +218,31 @@ toastLog("休息60秒")
 
       if (Number(保證金x) > 22 && Number(保證金x) < 40) {
         保證金 = 81.32
-        盈利 = 22
-        虧損 = -24
+        盈利 = 24
+        虧損 = -26
         toastLog(保證金)
 
       }
 
       if (Number(保證金x) > 70 && Number(保證金x) < 90) {
         保證金 = 178.9
-        盈利 = 23
-        虧損 = -26
+        盈利 = 27
+        虧損 = -29
         toastLog(保證金)
 
       }
 
       if (Number(保證金x) > 140 && Number(保證金x) < 200) {
         保證金 = 393.58
-        盈利 = 24
-        虧損 = -27
+        盈利 = 30
+        虧損 = -32
         toastLog(保證金)
 
       }
       if (Number(保證金x) > 300 && Number(保證金x) < 500) {
         保證金 = 865.87
-        盈利 = 25
-        虧損 = -29
+        盈利 = 33
+        虧損 = -36
         toastLog(保證金)
 
       }
