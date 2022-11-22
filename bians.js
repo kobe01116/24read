@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("加碼25, +34%, -32%")
+toastLog("加碼6.5, +18%, -16%")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("加碼50, +34%, -32%")
+  toastLog("加碼6.5, +18%, -16%")
 
   var 變數
 
@@ -154,7 +154,7 @@ function 開始() {
     sleep(1000)
 
 
-    var 保證金=25
+    var 保證金=6.5
    
 //     id("com.binance.dev:id/ivHistory").findOne().click()
 
