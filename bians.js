@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("加碼6.5, +18%, -16%")
+toastLog("加碼6.5, +18%, -16%---1.0")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("加碼6.5, +18%, -16%")
+  toastLog("加碼6.5, +18%, -16%---1.0")
 
   var 變數
 
