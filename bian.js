@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("變數版 1.0.4")
+toastLog("最後版 +18% -20%")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("變數版 1.0.4")
+  toastLog("最後版 +18% -20%")
 
   var 變數
 
@@ -230,7 +230,7 @@ function 開始() {
 
 
 //
-      if (Number(保證金x) > 70) {
+      if (Number(保證金x) > 600) {
         保證金 = 6.5
         toastLog(保證金)
 
@@ -296,6 +296,12 @@ function 開始() {
     className("android.widget.TextView").text("倉位止盈止損").findOne().click()
     fun.wait("標記價格")
 
+    id("com.binance.dev:id/iv_tp_work_type").findOne().click();
+
+    sleep(800)
+
+    id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
+    sleep(800)
     fun.waitId("com.binance.dev:id/iv_tp_input_type")
 
     fun.点击id("iv_tp_input_type")
@@ -306,14 +312,24 @@ function 開始() {
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
 
     sleep(500)
-    id("et_tp_trigger_price").findOne().setText("34")
-    sleep(500)
+    id("et_tp_trigger_price").findOne().setText("20")
+    sleep(800)
+
+    id("com.binance.dev:id/iv_sl_work_type").findOne().click();
+
+    sleep(800)
+
+    id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
+
+    sleep(800)
+
+
     fun.点击id("iv_sl_input_type")
     sleep(500)
     id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
     fun.waitId("com.binance.dev:id/iv_tp_input_type")
     sleep(500)
-    id("et_sl_trigger_price").findOne().setText("32")
+    id("et_sl_trigger_price").findOne().setText("18")
 
     sleep(500)
     fun.点击文本("確認")
