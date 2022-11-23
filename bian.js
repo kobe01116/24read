@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("最後版 +33% -60% --6")
+toastLog("最後版 +33% -50% --6")
 
 //================
 
@@ -96,7 +96,7 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("最後版 +33% -60% --6")
+  toastLog("最後版 +33% -50% --6")
 
   var 變數
 
@@ -194,7 +194,7 @@ function 開始() {
       if (Number(保證金x) > 5 && Number(保證金x) < 7) {
         保證金 = 6.5
         盈利 = 35
-        虧損 = -60
+        虧損 = -50
         toastLog(保證金)
 
       }
@@ -277,7 +277,7 @@ function 開始() {
       toastLog(保證金)
 
       盈利 = 35
-      虧損 = -60
+      虧損 = -50
       back()
 
 
