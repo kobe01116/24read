@@ -113,6 +113,7 @@ while (true){
   sleep(1500)
   images.captureScreen("/sdcard/1"+".jpg"); //截图
   var a=images.read("/sdcard/1.jpg"); //读图
+  sleep(500)
   var b=images.clip(a, 76.9, 432.7, 50.8-76.9, 458.6-432.7); //取小图
   images.save(b, "/sdcard/1-1.jpg") //存小图
   a.recycle(); //删图
