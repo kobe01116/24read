@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("加碼6.5, +17%, -20% ---2")
+toastLog("新布林")
 
 //================
 
@@ -96,156 +96,103 @@ threads.start(function () {
 
 function 開始() {
 
-  toastLog("加碼6.5, +17%, -20% ---2")
+ 
+// 请求权限
+//关闭截图确认
+threads.start(function (){
 
-  var 變數
-
-    var 變數 = random(0, 1)
-
-  while (true) {
-
-    //判斷交易中
-    while (true) {
-      if (className("android.widget.TextView").text("持有倉位 (1)").exists()) {
-        toastLog("交易中")
-        
-        下滑动()
-        sleep(6000)
-
-      } else {
-        break
+  while(true){
+    if(classNameContains("Button").textContains("立即开始").exists()){
+      var beginBtn;
+      if (beginBtn = classNameContains("Button").textContains("立即开始").findOne(2000)) {
+      beginBtn.click();
       }
-
-
     }
-    //判斷交易中
-
-    
-
-    if (變數 == 1) {
-      toastLog("做多")
-      sleep(2000)
-      className("android.widget.TextView").text("買入").findOne().click()
-      變數=0
-    } else {
-      toastLog("做空")
-      sleep(2000)
-      className("android.widget.TextView").text("賣出").findOne().click()
-      變數=1
-    }
-
-    function 市價() {
-      sleep(500)
-      id("com.binance.dev:id/rlOrderType").findOne().click()
-      sleep(500)
-      id("com.binance.dev:id/2131365994").drawingOrder(3).findOne().click()
-      sleep(500)
-
-
-    }
-
-    市價()
-
-    sleep(1000)
-
-
-    toastLog("下單")
-
-    sleep(1000)
-
-
-    var 保證金=6.5
-   
-
-
-
-    // var 保證金 = 6.5
-    id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
-
-
-
-
-    ///下單下單下單下單下單下單下單
-    id("com.binance.dev:id/2131362797").findOne().click()
-    sleep(2000)
-    下滑动()
-    sleep(3000)
-    ///下單下單下單下單下單下單下單下單下單
-
-    ////倉位止盈止損///
-    
-    fun.waitId("com.binance.dev:id/stop_btn")
-    id("com.binance.dev:id/stop_btn").findOne().click()
-    fun.wait("倉位止盈止損")
-
-
-    //fun.点击文本("倉位止盈止損")
-
-    className("android.widget.TextView").text("倉位止盈止損").findOne().click()
-    fun.wait("標記價格")
-
-    id("com.binance.dev:id/iv_tp_work_type").findOne().click();
-
-sleep(800)
-
-id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
-sleep(800)
-
-    fun.waitId("com.binance.dev:id/iv_tp_input_type")
-
-    fun.点击id("iv_tp_input_type")
-
-
-    sleep(500)
-
-    id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
-
-    sleep(500)
-    id("et_tp_trigger_price").findOne().setText("17")
-    sleep(800)
-
-
-    id("com.binance.dev:id/iv_sl_work_type").findOne().click();
-
-sleep(800)
-
-id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
-
-sleep(800)
-    fun.点击id("iv_sl_input_type")
-    sleep(500)
-    id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
-    fun.waitId("com.binance.dev:id/iv_tp_input_type")
-    sleep(500)
-    id("et_sl_trigger_price").findOne().setText("20")
-
-    sleep(500)
-    fun.点击文本("確認")
-
-    fun.waitId("com.binance.dev:id/2131362797")
-    ////倉位止盈止損///
-
-    sleep(1000)
-
-
-    //判斷交易中
-    while (true) {
-      if (className("android.widget.TextView").text("持有倉位 (1)").exists()) {
-        toastLog("交易中")
-        
-        下滑动()
-        sleep(6000)
-
-      } else {
-        break
-      }
-
-
-    }
-    //判斷交易中
-
 
   }
+  
+  });
+
+
+// if(!requestScreenCapture()){
+//   toast("请求截图失败");
+//   exit();
+// } 
+
+requestScreenCapture()
+
+while (true){
+  sleep(1500)
+  images.captureScreen("/sdcard/1"+".jpg"); //截图
+  var a=images.read("/sdcard/1.jpg"); //读图
+  var b=images.clip(a, 76.9, 432.7, 50.8-76.9, 458.6-432.7); //取小图
+  images.save(b, "/sdcard/1-1.jpg") //存小图
+  a.recycle(); //删图
+  
+  
+  //识别图片里面的文字
+  //导入插件
+  ocr = plugins.load("com.hraps.ocr")
+  //导入需识别的图片﹐请自行输入图片路径
+  img = images.read("/sdcard/1-1.jpg")
+  //识别图片
+  results = ocr.detect(img.getBitmap(),1)
+  console.info("过滤前结果数:"+results.size())
+  //识别结果过滤
+  results = ocr.filterScore(results,0.5,0.5,0.5)
+  //输出最终结果
+  for(var i=0;i<results.size() ;i++){
+  var re = results.get(i)
+  
+  var 布林上=re.text.slice(0,1)+ re.text.slice(-6)
+  toastLog(布林上)}
+  
+  
+  
+  
+  sleep(500)
+  images.captureScreen("/sdcard/2"+".jpg"); //截图
+  var a=images.read("/sdcard/2.jpg"); //读图
+  var b=images.clip(a, 395.5, 434.7, 469.2-395.5,458.6- 434.7); //取小图
+  images.save(b, "/sdcard/1-2.jpg") //存小图
+  a.recycle(); //删图
+  
+  
+  //识别图片里面的文字
+  //导入插件
+  ocr = plugins.load("com.hraps.ocr")
+  //导入需识别的图片﹐请自行输入图片路径
+  img = images.read("/sdcard/1-2.jpg")
+  //识别图片
+  results = ocr.detect(img.getBitmap(),1)
+  console.info("过滤前结果数:"+results.size())
+  //识别结果过滤
+  results = ocr.filterScore(results,0.5,0.5,0.5)
+  //输出最终结果
+  for(var i=0;i<results.size() ;i++){
+  var re = results.get(i)
+  
+  var 布林下=re.text.slice(0,1)+ re.text.slice(-6)
+  toastLog(布林下)}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
