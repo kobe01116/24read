@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("新布林2")
+toastLog("新布林3")
 
 //================
 
@@ -114,7 +114,7 @@ while (true){
   images.captureScreen("/sdcard/1"+".jpg"); //截图
   var a=images.read("/sdcard/1.jpg"); //读图
   sleep(500)
-  var b=images.clip(a, 76.9, 432.7, 76.9-50.8, 458.6-432.7); //取小图
+  var b=images.clip(a, 76.9, 430.7, 148.8-76.9, 56.6-430.7); //取小图
   images.save(b, "/sdcard/1-1.jpg") //存小图
   a.recycle(); //删图
   
