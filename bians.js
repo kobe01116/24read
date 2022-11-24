@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("新布林4")
+toastLog("新布林5")
 
 //================
 
@@ -97,24 +97,36 @@ threads.start(function () {
 function 開始() {
 
  
+
 // 请求权限
 //关闭截图确认
+threads.start(function (){
+
+  while(true){
+    if(classNameContains("Button").textContains("立即开始").exists()){
+      var beginBtn;
+      if (beginBtn = classNameContains("Button").textContains("立即开始").findOne(2000)) {
+      beginBtn.click();
+      }
+    }
+
+  }
+  
+  });
 
 
+// if(!requestScreenCapture()){
+//   toast("请求截图失败");
+//   exit();
+// } 
 
- if(!requestScreenCapture()){
-   toast("请求截图失败");
-   exit();
- } 
-
-
+requestScreenCapture()
 
 while (true){
   sleep(1500)
   images.captureScreen("/sdcard/1"+".jpg"); //截图
   var a=images.read("/sdcard/1.jpg"); //读图
-  sleep(500)
-  var b=images.clip(a, 76.9, 430.7, 148.8-76.9, 456.6-430.7); //取小图
+  var b=images.clip(a,76.9, 430.7, 148.8-76.9, 456.6-430.7); //取小图
   images.save(b, "/sdcard/1-1.jpg") //存小图
   a.recycle(); //删图
   
@@ -164,6 +176,7 @@ while (true){
   var 布林下=re.text.slice(0,1)+ re.text.slice(-6)
   toastLog(布林下)}
 }
+
 
 
 
