@@ -96,7 +96,6 @@ threads.start(function () {
 
 function 開始() {
 
- 
 
 // 请求权限
 //关闭截图确认
@@ -124,18 +123,18 @@ requestScreenCapture()
 
 while (true){
   sleep(1500)
-  images.captureScreen("/sdcard/1"+".jpg"); //截图
-  var a=images.read("/sdcard/1.jpg"); //读图
+  images.captureScreen("/storage/emulated/0/1"+".jpg"); //截图
+  var a=images.read("/storage/emulated/0/1.jpg"); //读图
   var b=images.clip(a,76.9, 430.7, 148.8-76.9, 456.6-430.7); //取小图
-  images.save(b, "/sdcard/1-1.jpg") //存小图
+  images.save(b, "/storage/emulated/0/1-1.jpg") //存小图
   a.recycle(); //删图
   
   
   //识别图片里面的文字
   //导入插件
-  ocr = $plugins.load("com.hraps.ocr")
+  ocr = plugins.load("com.hraps.ocr")
   //导入需识别的图片﹐请自行输入图片路径
-  img = images.read("/sdcard/1-1.jpg")
+  img = images.read("/storage/emulated/0/1-1.jpg")
   //识别图片
   results = ocr.detect(img.getBitmap(),1)
   console.info("过滤前结果数:"+results.size())
@@ -152,18 +151,18 @@ while (true){
   
   
   sleep(500)
-  images.captureScreen("/sdcard/2"+".jpg"); //截图
-  var a=images.read("/sdcard/2.jpg"); //读图
+  images.captureScreen("/storage/emulated/0/2"+".jpg"); //截图
+  var a=images.read("/storage/emulated/0/2.jpg"); //读图
   var b=images.clip(a, 395.5, 434.7, 469.2-395.5,458.6- 434.7); //取小图
-  images.save(b, "/sdcard/1-2.jpg") //存小图
+  images.save(b, "/storage/emulated/0/1-2.jpg") //存小图
   a.recycle(); //删图
   
   
   //识别图片里面的文字
   //导入插件
-  ocr = $plugins.load("com.hraps.ocr")
+  ocr = plugins.load("com.hraps.ocr")
   //导入需识别的图片﹐请自行输入图片路径
-  img = images.read("/sdcard/1-2.jpg")
+  img = images.read("/storage/emulated/0/1-2.jpg")
   //识别图片
   results = ocr.detect(img.getBitmap(),1)
   console.info("过滤前结果数:"+results.size())
@@ -176,6 +175,22 @@ while (true){
   var 布林下=re.text.slice(0,1)+ re.text.slice(-6)
   toastLog(布林下)}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
