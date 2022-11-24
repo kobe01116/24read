@@ -7,7 +7,7 @@
 app.launchApp("币安");
 
 
-toastLog("新布林5")
+toastLog("新布林6")
 
 //================
 
@@ -133,7 +133,7 @@ while (true){
   
   //识别图片里面的文字
   //导入插件
-  ocr = plugins.load("com.hraps.ocr")
+  ocr = $plugins.load("com.hraps.ocr")
   //导入需识别的图片﹐请自行输入图片路径
   img = images.read("/sdcard/1-1.jpg")
   //识别图片
@@ -161,7 +161,7 @@ while (true){
   
   //识别图片里面的文字
   //导入插件
-  ocr = plugins.load("com.hraps.ocr")
+  ocr = $plugins.load("com.hraps.ocr")
   //导入需识别的图片﹐请自行输入图片路径
   img = images.read("/sdcard/1-2.jpg")
   //识别图片
