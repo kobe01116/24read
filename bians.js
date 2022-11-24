@@ -99,27 +99,15 @@ function 開始() {
  
 // 请求权限
 //关闭截图确认
-threads.start(function (){
-
-  while(true){
-    if(classNameContains("Button").textContains("立即开始").exists()){
-      var beginBtn;
-      if (beginBtn = classNameContains("Button").textContains("立即开始").findOne(2000)) {
-      beginBtn.click();
-      }
-    }
-
-  }
-  
-  });
 
 
-// if(!requestScreenCapture()){
-//   toast("请求截图失败");
-//   exit();
-// } 
 
-requestScreenCapture()
+ if(!requestScreenCapture()){
+   toast("请求截图失败");
+   exit();
+ } 
+
+
 
 while (true){
   sleep(1500)
