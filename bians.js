@@ -4,7 +4,7 @@
 app.launchApp("币安");
 
 
-log("最新布林雲機版")
+toastLog("最新布林雲機版")
 
 //================
 
@@ -106,7 +106,7 @@ var 保證金 = 6.5
 
 function 開始() {
 
-  log("最新布林雲機版")
+  toastLog("最新布林雲機版")
   requestScreenCapture()
   // 请求权限
 
