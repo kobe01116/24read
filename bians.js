@@ -1,13 +1,10 @@
 
-
-
-
 "ui";
 
 app.launchApp("币安");
 
 
-toastLog("新布林6")
+log("最新布林雲機版")
 
 //================
 
@@ -28,7 +25,7 @@ threads.start(function () {
         w="230px"
         h="98px"
       ></button>
-      
+
     </frame>
   );
   window.setPosition(device.width - 250, (device.height - 1250));
@@ -91,133 +88,307 @@ threads.start(function () {
   }
 });
 
+threads.start(function () {
 
-
-
-function 開始() {
-
-
-// 请求权限
-//关闭截图确认
-threads.start(function (){
-
-  while(true){
-    if(classNameContains("Button").textContains("立即开始").exists()){
+  while (true) {
+    if (classNameContains("Button").textContains("立即开始").exists()) {
       var beginBtn;
       if (beginBtn = classNameContains("Button").textContains("立即开始").findOne(2000)) {
-      beginBtn.click();
+        beginBtn.click();
       }
     }
 
   }
-  
-  });
+
+});
+
+var 保證金 = 6.5
+
+function 開始() {
+
+  log("最新布林雲機版")
+  requestScreenCapture()
+  // 请求权限
+
+  while (true) {
+
+    //判斷交易中
+    while (true) {
+      if (className("android.widget.TextView").text("持有倉位 (1)").exists()) {
+        log("交易中")
+
+        下滑动()
+        sleep(6000)
+
+      } else {
+        break
+      }
 
 
-// if(!requestScreenCapture()){
-//   toast("请求截图失败");
-//   exit();
-// } 
+    }
+    //判斷交易中
 
-requestScreenCapture()
 
-while (true){
-  sleep(1500)
-  images.captureScreen("/storage/emulated/0/1"+".jpg"); //截图
-  var a=images.read("/storage/emulated/0/1.jpg"); //读图
-  var b=images.clip(a,76.9, 430.7, 148.8-76.9, 456.6-430.7); //取小图
-  images.save(b, "/storage/emulated/0/1-1.jpg") //存小图
-  a.recycle(); //删图
-  
-  
-  //识别图片里面的文字
-  //导入插件
-  ocr = plugins.load("com.hraps.ocr")
-  //导入需识别的图片﹐请自行输入图片路径
-  img = images.read("/storage/emulated/0/1-1.jpg")
-  //识别图片
-  results = ocr.detect(img.getBitmap(),1)
-  console.info("过滤前结果数:"+results.size())
-  //识别结果过滤
-  results = ocr.filterScore(results,0.5,0.5,0.5)
-  //输出最终结果
-  for(var i=0;i<results.size() ;i++){
-  var re = results.get(i)
-  
-  var 布林上=re.text.slice(0,1)+ re.text.slice(-6)
-  toastLog(布林上)}
-  
-  
-  
-  
+
+
+    // 进入技术分析等待10秒
+    if (id("com.binance.dev:id/2131366852").exists()) {
+
+      id("com.binance.dev:id/2131366852").findOne().click()
+      sleep(10000)
+    }
+
+
+
+    var 布林上
+    var 布林下
+    var 布林中
+
+    // ================================取布林值======================================
+    threads.start(function () {
+      while (true) {
+
+
+        if (id("com.binance.dev:id/tvPrice").exists()) {
+
+          images.captureScreen("/storage/emulated/0/1" + ".jpg"); //截图
+          var a = images.read("/storage/emulated/0/1.jpg"); //读图
+          var b = images.clip(a, 72.9, 432.7, 148.8-72.9, 459.6-432.7); //取小图
+          images.save(b, "/storage/emulated/0/1-1.jpg") //存小图
+          a.recycle(); //删图
+
+
+
+          img = images.read("/storage/emulated/0/1-1.jpg")
+          // let img = captureScreen(); log("截图");
+          //var res = JSON.stringify(paddle.ocrText(img, 8, false));
+          var res = JSON.stringify(paddle.ocrText(img));
+          img.recycle();
+          if (res.length == 12) {
+            res = res.slice(2, 10)
+            res = res.slice(0, 1) + res.slice(-6)
+          }
+          else if (res.length == 10) {
+            res = res.slice(2, 8)
+          }
+
+          布林上 = res
+
+        }
+
+        // 布林上布林上布林上布林上布林上布林上布林上布林上
+
+        sleep(500)
+
+        // 布林下布林下布林下布林下布林下布林下布林下布林下布林下
+
+        if (id("com.binance.dev:id/tvPrice").exists()) {
+
+          images.captureScreen("/storage/emulated/0/2" + ".jpg"); //截图
+          var c = images.read("/storage/emulated/0/2.jpg"); //读图
+          var d = images.clip(c, 392.5, 434.7, 469.2-392.5,466.6- 434.7); //取小图
+          images.save(d, "/storage/emulated/0/2-1.jpg") //存小图
+          c.recycle(); //删图
+
+
+
+          img2 = images.read("/storage/emulated/0/2-1.jpg")
+          // let img = captureScreen(); log("截图");
+          //var res = JSON.stringify(paddle.ocrText(img, 8, false));
+          var res2 = JSON.stringify(paddle.ocrText(img2));
+          img2.recycle();
+          if (res2.length == 12) {
+            res2 = res2.slice(2, 10)
+            res2 = res2.slice(0, 1) + res2.slice(-6)
+          }
+          else if (res2.length == 10) {
+            res2 = res2.slice(2, 8)
+          }
+
+          布林下 = res2
+          布林中 = (Number(布林上) + Number(布林下)) / 2
+
+          log("布林上= " + 布林上);
+          log("布林下= " + 布林下);
+
+
+          log("布林中= " + 布林中);
+          sleep(3000)
+
+
+        }
+
+
+
+      }
+
+
+
+    })
+    // ================================取布林值======================================
+
+
+
+    // ================================以下判加倉 , 平倉======================================
+
+
+    while (true) {
+
+      if (id("com.binance.dev:id/2131366852").exists()) {
+
+        id("com.binance.dev:id/2131366852").findOne().click()
+        sleep(10000)
+      }
+
+      if (id("com.binance.dev:id/tvPrice").exists()) {
+        sleep(500)
+        var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
+
+        // ==============找當前價格=================
+        if (當前價格.length == 8) {
+
+          當前價格 = 當前價格.slice(0, 1) + 當前價格.slice(-6)
+
+        }
+        else {
+          當前價格 = 當前價格
+        }
+        // ==============找當前價格=================
+
+
+
+
+
+        if (當前價格 > 布林上) {
+          log("當前價格 大於 布林上  做空")
+          
+
+          id("com.binance.dev:id/2131362712").text("賣出").findOne().click()
+          sleep(500)
+          返回下單()
+
+
+        }
+
+
+        else if (當前價格 < 布林下) {
+          log("當前價格 小於 布林下  做多")
+          id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+          sleep(500)
+          返回下單()
+
+
+        }
+        else {
+          log("當前價格 " + 當前價格)
+          // log("等待中")
+          sleep(500)
+        }
+
+
+
+      }
+
+
+    }
+
+
+
+
+
+  }
+
+
+
+}
+
+function 返回下單() {
+
+  log("返回下單")
+  id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
+
+  ///下單下單下單下單下單下單下單
+  // id("com.binance.dev:id/2131362797").findOne().click()
+  sleep(2000)
+  下滑动()
+  sleep(3000)
+
+  ////倉位止盈止損///
+
+  fun.waitId("com.binance.dev:id/stop_btn")
+  id("com.binance.dev:id/stop_btn").findOne().click()
+  fun.wait("倉位止盈止損")
+
+
+  //fun.点击文本("倉位止盈止損")
+
+  className("android.widget.TextView").text("倉位止盈止損").findOne().click()
+  fun.wait("標記價格")
+
+  fun.waitId("com.binance.dev:id/iv_tp_input_type")
+
+  fun.点击id("iv_tp_input_type")
+
+
   sleep(500)
-  images.captureScreen("/storage/emulated/0/2"+".jpg"); //截图
-  var a=images.read("/storage/emulated/0/2.jpg"); //读图
-  var b=images.clip(a, 395.5, 434.7, 469.2-395.5,458.6- 434.7); //取小图
-  images.save(b, "/storage/emulated/0/1-2.jpg") //存小图
-  a.recycle(); //删图
-  
-  
-  //识别图片里面的文字
-  //导入插件
-  ocr = plugins.load("com.hraps.ocr")
-  //导入需识别的图片﹐请自行输入图片路径
-  img = images.read("/storage/emulated/0/1-2.jpg")
-  //识别图片
-  results = ocr.detect(img.getBitmap(),1)
-  console.info("过滤前结果数:"+results.size())
-  //识别结果过滤
-  results = ocr.filterScore(results,0.5,0.5,0.5)
-  //输出最终结果
-  for(var i=0;i<results.size() ;i++){
-  var re = results.get(i)
-  
-  var 布林下=re.text.slice(0,1)+ re.text.slice(-6)
-  toastLog(布林下)}
-}
+
+  id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
+
+  sleep(500)
+  id("et_tp_trigger_price").findOne().setText("35")
+  sleep(500)
+  fun.点击id("iv_sl_input_type")
+  sleep(500)
+  id("com.binance.dev:id/2131365994").indexInParent(1).findOne().click()
+  fun.waitId("com.binance.dev:id/iv_tp_input_type")
+  sleep(500)
+  id("et_sl_trigger_price").findOne().setText("50")
+
+  sleep(500)
+  fun.点击文本("確認")
+
+  fun.waitId("com.binance.dev:id/2131362797")
+  ////倉位止盈止損///
+
+  sleep(1000)
 
 
+  //判斷交易中
+  while (true) {
+    if (className("android.widget.TextView").text("持有倉位 (1)").exists()) {
+      toastLog("交易中")
+
+      下滑动()
+      sleep(6000)
+
+    } else {
+      break
+    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  }
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -240,7 +411,7 @@ threads.start(function () {
         w="230px"
         h="98px"
       ></button>
-      
+
     </frame>
   );
   window.setPosition(device.width - 250, (device.height - 1050));
@@ -526,6 +697,5 @@ var fun = {
     swipe(device.width / 2, device.height / 2, device.width / 2, device.height / 2 + pixel, 800)
     sleep(1000)
   }
-}     
-   
+}
 
