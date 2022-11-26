@@ -4,7 +4,7 @@
 app.launchApp("币安");
 
 
-toastLog("最新布林雲機版1.0")
+toastLog("最新布林雲機版1.1")
 
 //================
 
@@ -106,7 +106,7 @@ var 保證金 = 6.5
 
 function 開始() {
 
-  toastLog("最新布林雲機版1.0")
+  toastLog("最新布林雲機版1.1")
   requestScreenCapture()
   // 请求权限
 
@@ -259,7 +259,7 @@ function 開始() {
 
 
 
-        if (當前價格 > 布林上) {
+        if (當前價格 > 布林上 || 當前價格 > 布林中*1.0024 ) {
           log("當前價格 大於 布林上  做空")
           
 
@@ -271,7 +271,7 @@ function 開始() {
         }
 
 
-        else if (當前價格 < 布林下) {
+        else if (當前價格 < 布林下 || 當前價格 < 布林中/1.0024 ) {
           log("當前價格 小於 布林下  做多")
           id("com.binance.dev:id/2131362712").text("買入").findOne().click()
           sleep(500)
