@@ -4,7 +4,7 @@
 app.launchApp("币安");
 
 
-toastLog("最新布林雲機版")
+toastLog("最新布林雲機版1.0")
 
 //================
 
@@ -106,7 +106,7 @@ var 保證金 = 6.5
 
 function 開始() {
 
-  toastLog("最新布林雲機版")
+  toastLog("最新布林雲機版1.0")
   requestScreenCapture()
   // 请求权限
 
@@ -308,7 +308,7 @@ function 返回下單() {
   id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
 
   ///下單下單下單下單下單下單下單
-  // id("com.binance.dev:id/2131362797").findOne().click()
+   id("com.binance.dev:id/2131362797").findOne().click()
   sleep(2000)
   下滑动()
   sleep(3000)
