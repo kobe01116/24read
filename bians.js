@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("最新布林雲機5.0")
+toastLog("最新布林雲機1.0.1")
 
 //================
 
@@ -116,7 +116,7 @@ var 保證金 = 6.5
 
 function 開始() {
 
-  toastLog("最新布林雲機5.0")
+  toastLog("最新布林雲機1.0.1")
   requestScreenCapture()
   // 请求权限
   sleep(2000)
@@ -131,124 +131,124 @@ function 開始() {
 
 
 
-  
-
-
-    var 布林中
-
-    // ================================取布林值======================================
-    threads.start(function () {
-      while (true) {
-
-
-        if (id("com.binance.dev:id/tvPrice").exists()) {
-
-          images.captureScreen("/storage/emulated/0/1" + ".jpg"); //截图
-          var a = images.read("/storage/emulated/0/1.jpg"); //读图
-          var b = images.clip(a, 233.6, 432.7, 315.6 - 233.6, 460.6 - 432.7); //取小图
-          images.save(b, "/storage/emulated/0/1-1.jpg") //存小图
-          a.recycle(); //删图
 
 
 
-          img = images.read("/storage/emulated/0/1-1.jpg")
-          // let img = captureScreen(); log("截图");
-          //var res = JSON.stringify(paddle.ocrText(img, 8, false));
-          var res = JSON.stringify(paddle.ocrText(img));
-          img.recycle();
-          if (res.length == 12) {
-            res = res.slice(2, 10)
-            res = res.slice(0, 1) + res.slice(-6)
-          } else if (res.length == 10) {
-            res = res.slice(2, 8)
-          }
+  var 布林中
 
-          布林中 = res
-
-        }
-
-        sleep(500)
-
-        toastLog("布林中= " + 布林中);
-        sleep(3000)
-        //3秒更新一次
-
-      }
-    }
-
-    );
-
-    // ================================取布林值======================================
-
-
-    // ================================以下判加倉 , 平倉======================================
-
-
+  // ================================取布林值======================================
+  threads.start(function () {
     while (true) {
 
-      if (id("com.binance.dev:id/2131366852").exists()) {
-
-        id("com.binance.dev:id/2131366852").findOne().click()
-        sleep(60000)
-        toastLog("等待60秒")
-      }
 
       if (id("com.binance.dev:id/tvPrice").exists()) {
+
+        images.captureScreen("/storage/emulated/0/1" + ".jpg"); //截图
+        var a = images.read("/storage/emulated/0/1.jpg"); //读图
+        var b = images.clip(a, 233.6, 432.7, 315.6 - 233.6, 460.6 - 432.7); //取小图
+        images.save(b, "/storage/emulated/0/1-1.jpg") //存小图
+        a.recycle(); //删图
+
+
+
+        img = images.read("/storage/emulated/0/1-1.jpg")
+        // let img = captureScreen(); log("截图");
+        //var res = JSON.stringify(paddle.ocrText(img, 8, false));
+        var res = JSON.stringify(paddle.ocrText(img));
+        img.recycle();
+        if (res.length == 12) {
+          res = res.slice(2, 10)
+          res = res.slice(0, 1) + res.slice(-6)
+        } else if (res.length == 10) {
+          res = res.slice(2, 8)
+        }
+
+        布林中 = res
+
+      }
+
+      sleep(500)
+
+      toastLog("布林中= " + 布林中);
+      sleep(3000)
+      //3秒更新一次
+
+    }
+  }
+
+  );
+
+  // ================================取布林值======================================
+
+
+  // ================================以下判加倉 , 平倉======================================
+
+
+  while (true) {
+
+    // if (id("com.binance.dev:id/2131366852").exists()) {
+
+    //   id("com.binance.dev:id/2131366852").findOne().click()
+    //   sleep(60000)
+    //   toastLog("等待60秒")
+    // }
+
+    if (id("com.binance.dev:id/tvPrice").exists()) {
+      sleep(500)
+      var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
+
+      // ==============找當前價格=================
+      if (當前價格.length == 8) {
+
+        當前價格 = 當前價格.slice(0, 1) + 當前價格.slice(-6)
+
+      } else {
+        當前價格 = 當前價格
+      }
+      // ==============找當前價格=================
+
+
+
+
+
+      if (當前價格 > 布林中 * 1.006) {
+        log("當前價格符合---- 做空")
+
+
+        id("com.binance.dev:id/2131362712").text("賣出").findOne().click()
         sleep(500)
-        var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
-
-        // ==============找當前價格=================
-        if (當前價格.length == 8) {
-
-          當前價格 = 當前價格.slice(0, 1) + 當前價格.slice(-6)
-
-        } else {
-          當前價格 = 當前價格
-        }
-        // ==============找當前價格=================
+        返回下單()
 
 
+      } else if (當前價格 < 布林中 / 1.006) {
+        log("當前價格符合---- 做多")
+        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+        sleep(500)
+        返回下單()
 
 
+      } else if (當前價格 < 布林中 * 1.00027 && 當前價格 > 布林中 / 1.00027) {
 
-        if (當前價格 > 布林中 * 1.006) {
-          log("當前價格符合---- 做空")
+        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+        sleep(2000)
 
+        toastLog("檢查平倉")
+        平倉判斷()
 
-          id("com.binance.dev:id/2131362712").text("賣出").findOne().click()
-          sleep(500)
-          返回下單()
+        sleep(10000)
+      }
 
-
-        } else if (當前價格 < 布林中 / 1.006) {
-          log("當前價格符合---- 做多")
-          id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-          sleep(500)
-          返回下單()
-
-
-        } else if (當前價格 < 布林中 * 1.00027 && 當前價格 > 布林中 / 1.00027) {
-
-          id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-          sleep(2000)
-
-          toastLog("檢查平倉")
-          平倉判斷()
-
-          sleep(10000)
-        }
-
-        else {
-          toastLog("當前價格 " + 當前價格)
-          // log("等待中")
-          sleep(800)
-        }
-
+      else {
+        toastLog("當前價格 " + 當前價格)
+        // log("等待中")
+        sleep(800)
       }
 
     }
 
-  
+  }
+
+
 
 
 
@@ -262,6 +262,9 @@ function 返回下單() {
   ///下單下單下單下單下單下單下單
   id("com.binance.dev:id/2131362797").findOne().click()
   sleep(2000)
+  id("com.binance.dev:id/2131366852").findOne().click()
+  sleep(60000)
+  toastLog("等待60秒")
   // 下滑动()
 
 };
