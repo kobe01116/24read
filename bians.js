@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("最新布林雲機1.0.1")
+toastLog("最新布林雲機1.0.2")
 
 //================
 
@@ -116,7 +116,7 @@ var 保證金 = 6.5
 
 function 開始() {
 
-  toastLog("最新布林雲機1.0.1")
+  toastLog("最新布林雲機1.0.2")
   requestScreenCapture()
   // 请求权限
   sleep(2000)
@@ -170,7 +170,7 @@ function 開始() {
       sleep(500)
 
       toastLog("布林中= " + 布林中);
-      sleep(3000)
+      sleep(15000)
       //3秒更新一次
 
     }
