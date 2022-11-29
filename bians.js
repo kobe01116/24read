@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("最新布林雲機1.0.10")
+toastLog("最新布林雲機1.0.m")
 
 //================
 
@@ -108,15 +108,16 @@ threads.start(function () {
 // 关闭截图确认按键
 
 
+var 保證金 = 6.5
 
 
 
 // 主脚本运行*******/ 主脚本运行********/ 主脚本运行
-var 保證金 = 6.5
+
 
 function 開始() {
 
-  toastLog("最新布林雲機1.0.10")
+  toastLog("最新布林雲機1.0.m")
   requestScreenCapture()
   // 请求权限
   sleep(2000)
@@ -132,8 +133,7 @@ function 開始() {
 
 
 
-
-
+  
   var 布林中
 
   // ================================取布林值======================================
@@ -205,8 +205,8 @@ function 開始() {
 
 
 
-    if (當前價格 < 布林中 * 1.5 && 當前價格 >  布林中 * 1.006) {
-      log("當前價格符合---- 做空")
+    if (當前價格 < 布林中 * 1.1 && 當前價格 > 布林中 *1.006) {
+      toastLog("當前價格符合---- 做空")
 
       sleep(300)
       id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
@@ -215,7 +215,7 @@ function 開始() {
 
 
     } else if (當前價格 < 布林中 / 1.006) {
-      log("當前價格符合---- 做多")
+      toastLog("當前價格符合---- 做多")
       sleep(300)
       id("com.binance.dev:id/2131362712").text("買入").findOne().click()
       sleep(500)
@@ -235,6 +235,8 @@ function 開始() {
 
     else {
       toastLog("當前價格 " + 當前價格)
+     // toastLog(布林中 * 1.001)
+     // toastLog( 布林中 / 1.001)
       // log("等待中")
       sleep(500)
     }
@@ -255,7 +257,7 @@ function 返回下單() {
   id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
   sleep(500)
   ///下單下單下單下單下單下單下單
-  id("com.binance.dev:id/2131362797").findOne().click()
+   id("com.binance.dev:id/2131362797").findOne().click()
   sleep(2000)
   id("com.binance.dev:id/2131366852").findOne().click()
   sleep(60000)
@@ -620,3 +622,4 @@ var fun = {
     sleep(1000)
   }
 }
+
