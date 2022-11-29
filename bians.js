@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("最新布林雲機4.0")
+toastLog("最新布林雲機5.0")
 
 //================
 
@@ -116,7 +116,7 @@ var 保證金 = 6.5
 
 function 開始() {
 
-  toastLog("最新布林雲機4.0")
+  toastLog("最新布林雲機5.0")
   requestScreenCapture()
   // 请求权限
   sleep(2000)
@@ -189,8 +189,8 @@ function 開始() {
       if (id("com.binance.dev:id/2131366852").exists()) {
 
         id("com.binance.dev:id/2131366852").findOne().click()
-        sleep(30000)
-        toastLog("等待30秒")
+        sleep(60000)
+        toastLog("等待60秒")
       }
 
       if (id("com.binance.dev:id/tvPrice").exists()) {
@@ -211,7 +211,7 @@ function 開始() {
 
 
 
-        if (當前價格 > 布林中 * 1.008) {
+        if (當前價格 > 布林中 * 1.006) {
           log("當前價格符合---- 做空")
 
 
@@ -220,7 +220,7 @@ function 開始() {
           返回下單()
 
 
-        } else if (當前價格 < 布林中 / 1.008) {
+        } else if (當前價格 < 布林中 / 1.006) {
           log("當前價格符合---- 做多")
           id("com.binance.dev:id/2131362712").text("買入").findOne().click()
           sleep(500)
@@ -235,13 +235,13 @@ function 開始() {
           toastLog("檢查平倉")
           平倉判斷()
 
-          sleep(3000)
+          sleep(10000)
         }
 
         else {
           toastLog("當前價格 " + 當前價格)
           // log("等待中")
-          sleep(3000)
+          sleep(800)
         }
 
       }
@@ -262,7 +262,7 @@ function 返回下單() {
   ///下單下單下單下單下單下單下單
   id("com.binance.dev:id/2131362797").findOne().click()
   sleep(2000)
-  下滑动()
+  // 下滑动()
 
 };
 
