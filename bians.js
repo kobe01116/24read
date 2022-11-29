@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("最新布林雲機1.0.3")
+toastLog("最新布林雲機1.0.4")
 
 //================
 
@@ -112,11 +112,11 @@ threads.start(function () {
 
 
 // 主脚本运行*******/ 主脚本运行********/ 主脚本运行
-var 保證金 = 6.5
+
 
 function 開始() {
 
-  toastLog("最新布林雲機1.0.3")
+  toastLog("最新布林雲機1.0.4")
   requestScreenCapture()
   // 请求权限
   sleep(2000)
@@ -132,7 +132,7 @@ function 開始() {
 
 
 
-
+var 保證金 = 6.5
 
   var 布林中
 
