@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("最新布林雲機1.0.2")
+toastLog("最新布林雲機1.0.3")
 
 //================
 
@@ -116,7 +116,7 @@ var 保證金 = 6.5
 
 function 開始() {
 
-  toastLog("最新布林雲機1.0.2")
+  toastLog("最新布林雲機1.0.3")
   requestScreenCapture()
   // 请求权限
   sleep(2000)
@@ -171,7 +171,7 @@ function 開始() {
 
       toastLog("布林中= " + 布林中);
       sleep(15000)
-      //3秒更新一次
+      //15秒更新一次
 
     }
   }
@@ -186,15 +186,7 @@ function 開始() {
 
   while (true) {
 
-    // if (id("com.binance.dev:id/2131366852").exists()) {
-
-    //   id("com.binance.dev:id/2131366852").findOne().click()
-    //   sleep(60000)
-    //   toastLog("等待60秒")
-    // }
-
-    if (id("com.binance.dev:id/tvPrice").exists()) {
-      sleep(500)
+        
       var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
       // ==============找當前價格=================
@@ -244,7 +236,7 @@ function 開始() {
         sleep(800)
       }
 
-    }
+    
 
   }
 
