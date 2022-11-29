@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("最新布林雲機1.0.4")
+toastLog("最新布林雲機1.0.9")
 
 //================
 
@@ -112,11 +112,11 @@ threads.start(function () {
 
 
 // 主脚本运行*******/ 主脚本运行********/ 主脚本运行
-
+var 保證金 = 6.5
 
 function 開始() {
 
-  toastLog("最新布林雲機1.0.4")
+  toastLog("最新布林雲機1.0.9")
   requestScreenCapture()
   // 请求权限
   sleep(2000)
@@ -132,7 +132,7 @@ function 開始() {
 
 
 
-var 保證金 = 6.5
+
 
   var 布林中
 
@@ -184,59 +184,62 @@ var 保證金 = 6.5
   // ================================以下判加倉 , 平倉======================================
 
 
+  // 主角本運行
   while (true) {
 
-        
-      var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
-
-      // ==============找當前價格=================
-      if (當前價格.length == 8) {
-
-        當前價格 = 當前價格.slice(0, 1) + 當前價格.slice(-6)
-
-      } else {
-        當前價格 = 當前價格
-      }
-      // ==============找當前價格=================
+    // ==============找當前價格=================
+    var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
+    if (當前價格.length == 8) {
+
+      當前價格 = 當前價格.slice(0, 1) + 當前價格.slice(-6)
+
+    } else {
+      當前價格 = 當前價格
+    }
+    sleep(300)
+    // ==============找當前價格=================
 
 
 
-      if (當前價格 > 布林中 * 1.006) {
-        log("當前價格符合---- 做空")
 
 
-        id("com.binance.dev:id/2131362712").text("賣出").findOne().click()
-        sleep(500)
-        返回下單()
+    if (當前價格 > 布林中 * 1.006) {
+      log("當前價格符合---- 做空")
+
+      sleep(300)
+      id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
+      sleep(500)
+      返回下單()
 
 
-      } else if (當前價格 < 布林中 / 1.006) {
-        log("當前價格符合---- 做多")
-        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-        sleep(500)
-        返回下單()
+    } else if (當前價格 < 布林中 / 1.006) {
+      log("當前價格符合---- 做多")
+      sleep(300)
+      id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+      sleep(500)
+      返回下單()
 
 
-      } else if (當前價格 < 布林中 * 1.00027 && 當前價格 > 布林中 / 1.00027) {
+    } else if (當前價格 < 布林中 * 1.00027 && 當前價格 > 布林中 / 1.00027) {
 
-        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-        sleep(2000)
+      id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+      sleep(2000)
 
-        toastLog("檢查平倉")
-        平倉判斷()
+      toastLog("檢查平倉")
+      平倉判斷()
 
-        sleep(10000)
-      }
+      sleep(10000)
+    }
 
-      else {
-        toastLog("當前價格 " + 當前價格)
-        // log("等待中")
-        sleep(800)
-      }
+    else {
+      toastLog("當前價格 " + 當前價格)
+      // log("等待中")
+      sleep(500)
+    }
 
-    
+
 
   }
 
@@ -260,6 +263,10 @@ function 返回下單() {
   // 下滑动()
 
 };
+
+
+
+
 
 function 平倉判斷() {
 
