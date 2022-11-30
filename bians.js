@@ -266,13 +266,13 @@ function 返回下單() {
   ///下單下單下單下單下單下單下單
   id("com.binance.dev:id/2131362797").findOne().click()
   sleep(2000)
-  id("com.binance.dev:id/2131366852").findOne().click()
+  //id("com.binance.dev:id/2131366852").findOne().click()
 
   toastLog("等待180秒");
   for (var i = 180; i > 0; i--) {
     toastLog(i); sleep(1000);
   }
-
+id("com.binance.dev:id/2131366852").findOne().click()
 };
 
 
