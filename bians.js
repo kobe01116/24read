@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("云机11-30-13:53")
+toastLog("云机11-30-4:06")
 
 //================
 
@@ -214,7 +214,7 @@ function 開始() {
         sleep(300)
         id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
         sleep(500)
-        // 返回下單()
+        返回下單()
 
 
       } else if (Number(當前價格) < Number(布林中 / 1.006)) {
@@ -222,7 +222,7 @@ function 開始() {
         sleep(300)
         id("com.binance.dev:id/2131362712").text("買入").findOne().click()
         sleep(500)
-        // 返回下單()
+        返回下單()
 
 
       } else if (Number(當前價格) < Number(布林中 * 1.00027) && Number(當前價格) > Number(布林中 / 1.00027)) {
@@ -231,7 +231,7 @@ function 開始() {
         sleep(2000)
 
         toastLog("檢查平倉")
-        // 平倉判斷()
+        平倉判斷()
 
         sleep(10000)
       }
