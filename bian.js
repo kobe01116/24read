@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("最新布林雲機2.0")
+toastLog("新测试(止盈,止损)版 !")
 
 //================
 
@@ -18,11 +18,11 @@ threads.start(function () {
       <button
         id="action"
         text="開始"
-        textSize="11sp"
+        textSize="8sp"
         textColor="yellow"
         bg="#000000"
-        w="230px"
-        h="98px"
+        w="150px"
+        h="90px"
       >
       </button>
 
@@ -117,11 +117,26 @@ var 保證金 = 6.5
 
 function 開始() {
 
-  toastLog("最新布林雲機2.0")
+  toastLog("新测试(止盈,止损)版 !")
   requestScreenCapture()
   // 请求权限
   sleep(2000)
   // 首次进入技术分析
+
+
+  threads.start(
+
+    function () {
+      setInterval(function () {
+        toastLog("脚本运行中");
+      }, 10000)
+
+    }
+
+  )
+
+
+
 
   if (id("com.binance.dev:id/2131366852").exists()) {
 
@@ -131,8 +146,8 @@ function 開始() {
   // // 首次进入技术分析
 
 
-
   var 布林中
+
 
   // ================================取布林值======================================
   threads.start(function () {
@@ -163,13 +178,12 @@ function 開始() {
 
         布林中 = res
 
+        sleep(500)
+
+        log("布林中= " + 布林中);
+        sleep(3000)
+        //15秒更新一次
       }
-
-      sleep(500)
-
-      toastLog("布林中= " + 布林中);
-      sleep(15000)
-      //15秒更新一次
 
     }
   }
@@ -177,39 +191,38 @@ function 開始() {
   );
 
   // ================================取布林值======================================
- 
 
 
-  
-  // ==============找當前價格=================
 
+
+  // // ==============條件判斷=================
   threads.start(function () {
     while (true) {
-      var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
-      if (當前價格.length == 8) {
+      // 找當前價格
+      if (Number(布林中) > 0) {
+        var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
-        當前價格 = 當前價格.slice(0, 1) + 當前價格.slice(-6)
-        toastLog("當前價格 " + 當前價格)
-      } else {
-        當前價格 = 當前價格
-        toastLog("當前價格 " + 當前價格)
+
+        if (當前價格.length == 8) {
+
+          當前價格 = 當前價格.slice(0, 1) + 當前價格.slice(-6)
+
+        } else {
+          當前價格 = 當前價格
+        }
+        sleep(300)
+
+        log("當前價格= " + 當前價格);
+        sleep(300)
+        //0.3 秒更新一次
       }
-      sleep(300)
 
-    }
+      // 找當前價格
 
-  });
-  // ==============找當前價格=================
-
-
-  // ==============做空=================
-
-  threads.start(function () {
-    while (true) {
-      if (當前價格 > 布林中 * 1.006) {
-        log("當前價格符合---- 做空")
+      if (Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.005)) {
+        toastLog("當前價格符合---- 做空")
 
         sleep(300)
         id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
@@ -217,68 +230,40 @@ function 開始() {
         返回下單()
 
 
-      }
-
-    }
-
-  });
-  // ==============做空=================
-
-
-
-
-  // ==============做多=================
-  threads.start(function () {
-
-    while (true) {
-
-      if (當前價格 < 布林中 / 1.006) {
-        log("當前價格符合---- 做多")
+      } else if (Number(當前價格) < Number(布林中 / 1.005)) {
+        toastLog("當前價格符合---- 做多")
         sleep(300)
         id("com.binance.dev:id/2131362712").text("買入").findOne().click()
         sleep(500)
         返回下單()
 
 
-      }
+       }; //else if (Number(當前價格) < Number(布林中 * 1.00027) && Number(當前價格) > Number(布林中 / 1.00027)) {
 
+      //   id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+      //   sleep(2000)
 
-    }});
+      //   toastLog("檢查平倉")
+      //   平倉判斷()
 
+      //   sleep(10000)
+      // }
 
-  // ==============做多=================
-
-
-
-  // ================================以下判加倉 , 平倉======================================
-  threads.start(function () {
-
-    while (true) {
-      if (當前價格 < 布林中 * 1.00027 && 當前價格 > 布林中 / 1.00027) {
-
-        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-        sleep(2000)
-
-        toastLog("檢查平倉")
-        平倉判斷()
-
-        sleep(10000)
-      }
 
     }
 
-  });
-// ================================以下判加倉 , 平倉======================================
+  }
 
-
-  
-
-
+  );
+  // // ==============條件判斷=================
 
 
 
-
+  //結束腳本
 }
+
+
+
 
 function 返回下單() {
 
@@ -288,59 +273,143 @@ function 返回下單() {
   ///下單下單下單下單下單下單下單
   id("com.binance.dev:id/2131362797").findOne().click()
   sleep(2000)
-  id("com.binance.dev:id/2131366852").findOne().click()
-  sleep(60000)
-  toastLog("等待60秒")
-  // 下滑动()
+  下滑动()
+  sleep(2000)
+  // toastLog("等待180秒");
+  // for (var i = 180; i > 0; i--) {
+  //   toastLog(i); sleep(1000);
+  // }
+ 
 
-};
+  while (true) {
+    var 盈亏 = id("com.binance.dev:id/2131371245").findOne().text()//+ 10.55% or -10.55% 
+
+    var 盈亏2 = 盈亏.match(/\d+\.\d+/g)    //  盈亏2=['10.55']
+
+    var 盈亏3 = 盈亏2.toString()   //盈亏3 = 10.55
+
+    log(盈亏3)
+
+    if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 35) {
+
+      log("+35%")
+      if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
+
+        id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
+        sleep(300)
+
+        id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
+
+        sleep(300)
+        // com.binance.dev:id/2131366852 技术分析按钮
+        id("com.binance.dev:id/2131366852").findOne().click()
+        sleep(300)
+        break
+
+      }
+
+    } else if(id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 35) {
+
+      log("-35%")
+      if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
+
+        id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
+        sleep(300)
+
+        id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
+
+        sleep(300)
+        // com.binance.dev:id/2131366852 技术分析按钮
+        id("com.binance.dev:id/2131366852").findOne().click()
+        sleep(300)
+        break
+      }
+    }
+    else{
+      log("等待中 !")
+      sleep(300)
+    }
+  }
 
 
-
+}
 
 
 function 平倉判斷() {
 
   if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
-    id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
-    sleep(300)
+    //     var 盈亏 = id("com.binance.dev:id/2131371245").findOne().text()
 
-    id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
+    // log(盈亏)
 
-    sleep(300)
-    id("com.binance.dev:id/2131366852").findOne().click()
-    sleep(300)
+    if (id("com.binance.dev:id/2131371245").textContains("+").exists()) {
+      log("盈")
+
+      id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
+      sleep(300)
+
+      id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
+
+      sleep(300)
+      // com.binance.dev:id/2131366852 技术分析按钮
+      id("com.binance.dev:id/2131366852").findOne().click()
+      sleep(300)
+
+    } else {
+      log("亏")
+
+      while (true) {
+
+        var 盈亏 = id("com.binance.dev:id/2131371245").findOne().text()//+ 10.55% or -10.55% 
+
+        var 盈亏2 = 盈亏.match(/\d+\.\d+/g)    //  盈亏2=['10.55']
+
+        var 盈亏3 = 盈亏2.toString()   //盈亏3 = 10.55
+
+        sleep(300)
+        log(盈亏3)
+
+
+        if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 20) {
+          log("盈")
+
+
+          log("+20%")
+
+          id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
+          sleep(300)
+
+          id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
+
+          sleep(300)
+          // com.binance.dev:id/2131366852 技术分析按钮
+          id("com.binance.dev:id/2131366852").findOne().click()
+          sleep(300)
+          break
+
+        } else {
+          sleep(1000)
+          log("等待盈利")
+        }
+
+
+      }
+
+
+
+
+    }
+
   } else {
     sleep(1000)
+    // com.binance.dev:id/2131366852 技术分析按钮
     id("com.binance.dev:id/2131366852").findOne().click()
     sleep(1000)
     toastLog("繼續等待")
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -354,11 +423,11 @@ threads.start(function () {
       <button
         id="action"
         text="更新"
-        textSize="11sp"
+        textSize="8sp"
         textColor="yellow"
         bg="#000000"
-        w="230px"
-        h="98px"
+        w="150px"
+        h="90px"
       >
       </button>
 
@@ -455,7 +524,7 @@ function 更新() {
 
     events.on("exit", function () {
       engines.execScriptFile(engines.myEngine().cwd() + "/main.js");
-      toast("更新完成！");
+      // toast("更新完成！");
     });
   }
 
@@ -473,11 +542,11 @@ threads.start(function () {
       <button
         id="action"
         text="更新2"
-        textSize="11sp"
+        textSize="8sp"
         textColor="yellow"
         bg="#000000"
-        w="230px"
-        h="98px"
+        w="150px"
+        h="90px"
       >
       </button>
 
@@ -574,7 +643,7 @@ function 更新2() {
 
     events.on("exit", function () {
       engines.execScriptFile(engines.myEngine().cwd() + "/main.js");
-      toast("更新完成！");
+      // toast("更新完成！");
     });
   }
 
@@ -651,3 +720,19 @@ var fun = {
     sleep(1000)
   }
 }
+
+
+
+
+// var 盈亏=id("com.binance.dev:id/2131371245").findOne().text()//+ 10.55% or -10.55%
+
+// var 盈亏2=盈亏.match(/\d+\.\d+/g)    //  盈亏2=['10.55']
+
+// var 盈亏3=盈亏2.toString()   //盈亏3 = 10.55
+
+
+//  if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3)>30) {
+
+//     log("+30%")
+
+//  } else { log("亏") }
