@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.3版 !")
+toastLog("新测试(止盈,止损)1.4版 !")
 
 //================
 
@@ -117,7 +117,7 @@ var 保證金 = 6.5
 
 function 開始() {
 
-  toastLog("新测试(止盈,止损)1.3版 !")
+  toastLog("新测试(止盈,止损)1.4版 !")
   requestScreenCapture()
   // 请求权限
   sleep(2000)
@@ -308,7 +308,7 @@ function 返回下單() {
 
       }
 
-    } else if(id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 40) {
+    } else if(id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 60) {
 
       log("-35%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
