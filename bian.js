@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-1 !")
+toastLog("新测试(止盈,止损)1.005版-2 !")
 
 //================
 
@@ -94,6 +94,7 @@ threads.start(function () {
 // 关闭截图确认按键
 threads.start(function () {
 
+
   while (true) {
     if (classNameContains("Button").textContains("立即开始").exists()) {
       var beginBtn;
@@ -117,7 +118,7 @@ var 保證金 = 6.5
 
 function 開始() {
 
-  toastLog("新测试(止盈,止损)1.005版-1 !")
+  toastLog("新测试(止盈,止损)1.005版-2 !")
   requestScreenCapture()
   // 请求权限
   sleep(2000)
@@ -238,7 +239,7 @@ function 開始() {
         返回下單()
 
 
-       }; //else if (Number(當前價格) < Number(布林中 * 1.00027) && Number(當前價格) > Number(布林中 / 1.00027)) {
+      }; //else if (Number(當前價格) < Number(布林中 * 1.00027) && Number(當前價格) > Number(布林中 / 1.00027)) {
 
       //   id("com.binance.dev:id/2131362712").text("買入").findOne().click()
       //   sleep(2000)
@@ -279,9 +280,10 @@ function 返回下單() {
   // for (var i = 180; i > 0; i--) {
   //   toastLog(i); sleep(1000);
   // }
- 
 
-  while (true) {
+
+  for (i = 0; 1 < 9999999; i++) {
+
     var 盈亏 = id("com.binance.dev:id/2131371245").findOne().text()//+ 10.55% or -10.55% 
 
     var 盈亏2 = 盈亏.match(/\d+\.\d+/g)    //  盈亏2=['10.55']
@@ -300,7 +302,7 @@ function 返回下單() {
 
         id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
 
-        sleep(300)
+        sleep(1000)
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
         sleep(300)
@@ -308,7 +310,7 @@ function 返回下單() {
 
       }
 
-    } else if(id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 40) {
+    } else if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 40) {
 
       log("-35%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
@@ -318,17 +320,44 @@ function 返回下單() {
 
         id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
 
-        sleep(300)
+        sleep(1000)
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
         sleep(300)
         break
       }
     }
-    else{
+    else {
       log("等待中 !")
       sleep(300)
     }
+
+    log(i)
+
+    if (i = 150000) {
+      log("平仓")
+
+      if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
+
+        id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
+        sleep(300)
+
+        id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
+
+        sleep(1000)
+        // com.binance.dev:id/2131366852 技术分析按钮
+        id("com.binance.dev:id/2131366852").findOne().click()
+        sleep(300)
+        break
+      }
+
+
+    }
+
+
+
+
+
   }
 
 
@@ -732,7 +761,7 @@ threads.start(function () {
   }
 });
 
-function 日志(){
+function 日志() {
   app.startActivity("console")
 
 }
