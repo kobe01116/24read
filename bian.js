@@ -292,7 +292,7 @@ function 返回下單() {
 
     var 盈亏3 = 盈亏2.toString()   //盈亏3 = 10.55
 
-    log(盈亏3)
+    log("盈虧= "+ 盈亏3)
 
     if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 40) {
 
