@@ -336,7 +336,7 @@ function 返回下單() {
 
     log(i)
 
-    if (i == 375000) {
+    if (i == 370000) {
       log("平仓")
 
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
