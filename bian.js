@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-4 !")
+toastLog("新测试(止盈,止损)1.005版-5 !")
 
 //================
 
@@ -275,7 +275,9 @@ function 返回下單() {
   id("com.binance.dev:id/2131362797").findOne().click()
   sleep(2000)
   下滑动()
-  sleep(2000)
+  sleep(3000)
+  上滑动()
+  
   // toastLog("等待180秒");
   // for (var i = 180; i > 0; i--) {
   //   toastLog(i); sleep(1000);
@@ -323,7 +325,7 @@ function 返回下單() {
         sleep(1000)
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
-        sleep(300)
+        sleep(10000)
         break
       }
     }
@@ -347,7 +349,7 @@ function 返回下單() {
         sleep(1000)
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
-        sleep(300)
+        sleep(10000)
         break
       }
 
@@ -777,7 +779,7 @@ function 上滑动() {
   //获得手机分辨率
   var width = device.width;
   var height = device.height;
-  swipe(width / 2, height / 2, width / 2, height / 4, 1);
+  swipe(width / 2, height / 2, width / 2, height / 5, 800);
 }
 
 function 下滑动() {
