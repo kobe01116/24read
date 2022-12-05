@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-9 !")
+toastLog("新测试(止盈,止损)1.005版-10 !")
 
 //================
 
@@ -310,7 +310,7 @@ function 返回下單() {
         sleep(1000)
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
-        sleep(300)
+        sleep(10000)
         break
 
       }
