@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-8 !")
+toastLog("新测试(止盈,止损)1.005版-9 !")
 
 //================
 
@@ -279,14 +279,14 @@ function 返回下單() {
   上滑动()
   sleep(500)
   上滑动()
-  
+
   // toastLog("等待180秒");
   // for (var i = 180; i > 0; i--) {
   //   toastLog(i); sleep(1000);
   // }
 
 
-  for (i = 0; 1 < 9999999; i++) {
+  for (i = 0; i < 9999999; i++) {
 
     var 盈亏 = id("com.binance.dev:id/2131371245").findOne().text()//+ 10.55% or -10.55% 
 
@@ -294,7 +294,8 @@ function 返回下單() {
 
     var 盈亏3 = 盈亏2.toString()   //盈亏3 = 10.55
 
-    log("盈虧= "+ 盈亏3)
+    log("盈虧= " + 盈亏3)
+    log(i)
 
     if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 40) {
 
@@ -331,14 +332,9 @@ function 返回下單() {
         break
       }
     }
-    else {
-      log("等待中 !")
-      sleep(300)
-    }
+    // log(i)
 
-    log(i)
-
-    if (i == 270000) {
+    else if (i == 270000) {
       log("達到270000平仓")
 
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
@@ -357,6 +353,14 @@ function 返回下單() {
 
 
     }
+
+
+    else {
+      log("等待中 !")
+      sleep(300)
+    }
+
+
 
 
 
@@ -791,21 +795,6 @@ function 下滑动() {
   swipe(width / 2, height / 5, width / 2, height / 1.5, 1000);
 }
 
-function 左滑动() {
-  //获得手机分辨率
-  var width = device.width;
-  var height = device.height;
-  swipe(width / 3, height / 3, width / 8, height / 3, 2);
-}
-
-function 左滑动2() {
-  //获得手机分辨率
-  var width = device.width;
-  var height = device.height;
-  swipe(width / 4, height / 2, width / 8, height / 2, 1);
-}
-
-
 
 
 //////////////////////////////////////
@@ -843,17 +832,3 @@ var fun = {
 }
 
 
-
-
-// var 盈亏=id("com.binance.dev:id/2131371245").findOne().text()//+ 10.55% or -10.55%
-
-// var 盈亏2=盈亏.match(/\d+\.\d+/g)    //  盈亏2=['10.55']
-
-// var 盈亏3=盈亏2.toString()   //盈亏3 = 10.55
-
-
-//  if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3)>30) {
-
-//     log("+30%")
-
-//  } else { log("亏") }
