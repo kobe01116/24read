@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-10 !")
+toastLog("新测试(止盈,止损)1.005版-11 !")
 
 //================
 
@@ -334,7 +334,7 @@ function 返回下單() {
     }
     // log(i)
 
-    else if (i == 270000) {
+    else if (i == 2660) {
       log("達到270000平仓")
 
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
