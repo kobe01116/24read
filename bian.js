@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-11 !")
+toastLog("新测试(止盈,止损)1.005版-12 !")
 
 //================
 
@@ -328,14 +328,14 @@ function 返回下單() {
         sleep(1000)
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
-        sleep(10000)
+        sleep(1200000)
         break
       }
     }
     // log(i)
 
     else if (i == 2660) {
-      log("達到270000平仓")
+      log("達到2660平仓")
 
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
