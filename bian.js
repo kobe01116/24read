@@ -130,7 +130,7 @@ function 開始() {
     function () {
       setInterval(function () {
         toastLog("脚本运行中");
-      }, 10000)
+      }, 60000)
 
     }
 
@@ -299,7 +299,7 @@ function 返回下單() {
 
     if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 40) {
 
-      log("+35%")
+      log("+40%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
         id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
@@ -317,7 +317,7 @@ function 返回下單() {
 
     } else if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 40) {
 
-      log("-35%")
+      log("-40%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
         id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
@@ -334,25 +334,26 @@ function 返回下單() {
     }
     // log(i)
 
-    else if (i == 2660) {
-      log("達到2660平仓")
+    //            177.33 == 一分鐘
+    // else if (i == 2660) {
+    //   log("達到2660平仓")
 
-      if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
+    //   if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
-        id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
-        sleep(300)
+    //     id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
+    //     sleep(300)
 
-        id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
+    //     id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
 
-        sleep(1000)
-        // com.binance.dev:id/2131366852 技术分析按钮
-        id("com.binance.dev:id/2131366852").findOne().click()
-        sleep(10000)
-        break
-      }
+    //     sleep(1000)
+    //     // com.binance.dev:id/2131366852 技术分析按钮
+    //     id("com.binance.dev:id/2131366852").findOne().click()
+    //     sleep(10000)
+    //     break
+    //   }
 
 
-    }
+    // }
 
 
     else {
