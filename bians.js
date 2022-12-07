@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-19 !")
+toastLog("新测试(止盈,止损)1.005版-20 !")
 
 
 //================
@@ -245,7 +245,7 @@ var 布林下
 
 
       // 找當前價格
-      if (Number(布林中) > 0 && Number(布林下) > 0 && Number(布林中)>Number(布林下)*1.005) {
+      if (Number(布林中) > 0 && Number(布林下) > 0 && Number(布林中)/Number(布林下) < 1.005 ) {
         var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
