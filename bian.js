@@ -117,7 +117,7 @@ var 保證金 = 6.5
 
 
 function 開始() {
-
+  console.show();
   toastLog("開始運行")
   requestScreenCapture()
   // 请求权限
