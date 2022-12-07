@@ -3,9 +3,9 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-14 !")
+toastLog("新测试(止盈,止损)1.005版-15 !")
 
-console.show();
+
 //================
 
 
@@ -118,7 +118,7 @@ var 保證金 = 6.5
 
 
 function 開始() {
-  
+  console.show();
   toastLog("開始運行")
   requestScreenCapture()
   // 请求权限
