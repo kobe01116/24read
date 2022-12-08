@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-21 !")
+toastLog("新测试(止盈,止损)1.005版-22 !")
 
 
 //================
@@ -124,14 +124,19 @@ function 開始() {
   // 请求权限
   sleep(2000)
   // 首次进入技术分析
+console.show()
 
+sleep(500)
+
+console.setSize(800,400)
+sleep(500)
 
   threads.start(
 
     function () {
       setInterval(function () {
         toastLog("脚本运行中");
-      }, 10000)
+      }, 1800000)
 
     }
 
@@ -149,7 +154,7 @@ function 開始() {
 
 
   var 布林中
-var 布林下
+  var 布林下
 
   // ================================取布林值======================================
   threads.start(function () {
@@ -182,52 +187,52 @@ var 布林下
 
         sleep(500)
 
-      //  log("布林中= " + 布林中);
-       // sleep(3000)
+        //  log("布林中= " + 布林中);
+        // sleep(3000)
         //15秒更新一次
       };
-      
-      if(id("com.binance.dev:id/tvPrice").exists()){
-  
-    images.captureScreen("/storage/emulated/0/2"+".jpg"); //截图
-    var c=images.read("/storage/emulated/0/2.jpg"); //读图
-    var d=images.clip(c,392.5, 434.7, 469.2-392.5,466.6- 434.7); //取小图
-    images.save(d, "/storage/emulated/0/2-1.jpg") //存小图
-    c.recycle(); //删图
-    
-    
-    
-  img2 = images.read("/storage/emulated/0/2-1.jpg")
-  // let img = captureScreen(); toastLog("截图");
-  //var res = JSON.stringify(paddle.ocrText(img, 8, false));
-  var res2 = JSON.stringify(paddle.ocrText(img2));
-  img2.recycle();
-  if(res2.length==12){
-    res2=res2.slice(2,10)
-    res2=res2.slice(0,1)+res2.slice(-6)
-  }
-  else if(res2.length==10){
-    res2=res2.slice(2,8)
-  }
-  
-   布林下=res2
-   //布林中=(Number(布林上)+Number(布林下))/2
-  
-  //toastLog( "布林上= "+布林上);
-  log("布林下= " +布林下);
-  
-  
-  log( "布林中= "+布林中);
-  sleep(15000)
-  
-  
-  }
-      
-      
-      
-      
-      
-      
+
+      if (id("com.binance.dev:id/tvPrice").exists()) {
+
+        images.captureScreen("/storage/emulated/0/2" + ".jpg"); //截图
+        var c = images.read("/storage/emulated/0/2.jpg"); //读图
+        var d = images.clip(c, 392.5, 434.7, 469.2 - 392.5, 466.6 - 434.7); //取小图
+        images.save(d, "/storage/emulated/0/2-1.jpg") //存小图
+        c.recycle(); //删图
+
+
+
+        img2 = images.read("/storage/emulated/0/2-1.jpg")
+        // let img = captureScreen(); toastLog("截图");
+        //var res = JSON.stringify(paddle.ocrText(img, 8, false));
+        var res2 = JSON.stringify(paddle.ocrText(img2));
+        img2.recycle();
+        if (res2.length == 12) {
+          res2 = res2.slice(2, 10)
+          res2 = res2.slice(0, 1) + res2.slice(-6)
+        }
+        else if (res2.length == 10) {
+          res2 = res2.slice(2, 8)
+        }
+
+        布林下 = res2
+        //布林中=(Number(布林上)+Number(布林下))/2
+
+        //toastLog( "布林上= "+布林上);
+        // log("布林下= " + 布林下);
+
+
+        // log("布林中= " + 布林中);
+        sleep(15000)
+
+
+      }
+
+
+
+
+
+
 
     }
   }
@@ -245,7 +250,7 @@ var 布林下
 
 
       // 找當前價格
-      if (Number(布林中) > 0 && Number(布林下) > 0 && Number(布林中)/Number(布林下) < 1.006 ) {
+      if (Number(布林中) > 0 && Number(布林下) > 0 && Number(布林中) / Number(布林下) < 1.006) {
         var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
@@ -265,7 +270,8 @@ var 布林下
 
       // 找當前價格
 
-      if (Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.005)) {
+      if (Number(布林中) / Number(布林下) < 1.006 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.005)) {
+        toastLog(當前價格+" "+布林中)
         toastLog("當前價格符合---- 做空")
 
         sleep(300)
@@ -274,7 +280,8 @@ var 布林下
         返回下單()
 
 
-      } else if (Number(當前價格) < Number(布林中 / 1.005)) {
+      } else if (Number(布林中) / Number(布林下) < 1.006 && Number(當前價格) < Number(布林中 / 1.005)) {
+        toastLog(當前價格+" "+布林中)
         toastLog("當前價格符合---- 做多")
         sleep(300)
         id("com.binance.dev:id/2131362712").text("買入").findOne().click()
@@ -337,11 +344,11 @@ function 返回下單() {
 
     var 盈亏3 = 盈亏2.toString()   //盈亏3 = 10.55
 
-    log("盈虧= " + 盈亏3)
-    log(i)
+    // log("盈虧= " + 盈亏3)
+    // log(i)
 
     if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 40) {
-
+      log("盈虧= " + 盈亏3)
       log("+40%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
@@ -359,7 +366,7 @@ function 返回下單() {
       }
 
     } else if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 40) {
-
+      log("盈虧= " + 盈亏3)
       log("-40%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
