@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-1N !")
+toastLog("新测试(止盈,止损)1.005版-1R !")
 
 
 //================
@@ -276,7 +276,7 @@ function 開始() {
 
 
 
-      if (Number(布林中) / Number(布林下) < 1.0065 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.005)) {
+      if (Number(布林中) / Number(布林下) < 1.003 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.0025)) {
         toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做空")
 
@@ -286,7 +286,7 @@ function 開始() {
         返回下單()
 
 
-      } else if (Number(布林中) / Number(布林下) < 1.0065 && Number(當前價格) < Number(布林中 / 1.005)) {
+      } else if (Number(布林中) / Number(布林下) < 1.003 && Number(當前價格) < Number(布林中 / 1.0025)) {
         toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做多")
         sleep(300)
@@ -355,8 +355,8 @@ function 返回下單() {
     // log(i)
 
     if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 40) {
-      log("盈虧= " + 盈亏3)
-      log("+40%")
+      log("盈 = " + 盈亏3 + " %")
+      // log("+40%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
         id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
@@ -373,8 +373,8 @@ function 返回下單() {
       }
 
     } else if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 40) {
-      log("盈虧= " + 盈亏3)
-      log("-40%")
+      log("虧 = " + 盈亏3 + " %")
+      // log("-40%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
         id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
