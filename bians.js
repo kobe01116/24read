@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-1J !")
+toastLog("新测试(止盈,止损)1.005版-1H !")
 
 
 //================
@@ -124,12 +124,12 @@ function 開始() {
   // 请求权限
   sleep(2000)
   // 首次进入技术分析
-  console.show()
+  // console.show()
 
-  sleep(500)
+  // sleep(500)
 
-  console.setSize(450, 350)
-  sleep(500)
+  // console.setSize(450, 350)
+  // sleep(500)
 
   threads.start(
     function () {
@@ -253,7 +253,7 @@ function 開始() {
 
 
       // 找當前價格
-      if (Number(布林中) > 0 && Number(布林下) > 0 && Number(布林中) / Number(布林下) < 1.006) {
+      if (Number(布林中) > 0 && Number(布林下) > 0 && Number(布林中) / Number(布林下) < 1.0065) {
         var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
@@ -276,7 +276,7 @@ function 開始() {
 
 
 
-      if (Number(布林中) / Number(布林下) < 1.006 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.005)) {
+      if (Number(布林中) / Number(布林下) < 1.0065 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.005)) {
         toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做空")
 
@@ -286,7 +286,7 @@ function 開始() {
         返回下單()
 
 
-      } else if (Number(布林中) / Number(布林下) < 1.006 && Number(當前價格) < Number(布林中 / 1.005)) {
+      } else if (Number(布林中) / Number(布林下) < 1.0065 && Number(當前價格) < Number(布林中 / 1.005)) {
         toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做多")
         sleep(300)
