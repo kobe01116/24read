@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-ST !")
+toastLog("新测试(止盈,止损)1.005版-SF !")
 
 
 //================
@@ -196,7 +196,7 @@ function 開始() {
 
         images.captureScreen("/storage/emulated/0/2" + ".jpg"); //截图
         var c = images.read("/storage/emulated/0/2.jpg"); //读图
-        var d = images.clip(c, 392.5, 434.7, 469.2 - 392.5, 466.6 - 434.7); //取小图
+        var d = images.clip(c, 392.5, 432.7, 469.2 - 392.5, 466.6 - 432.7); //取小图
         images.save(d, "/storage/emulated/0/2-1.jpg") //存小图
         c.recycle(); //删图
 
