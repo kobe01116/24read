@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-1KS !")
+toastLog("新测试(止盈,止损)1.005版-1KJ !")
 
 
 //================
@@ -225,12 +225,12 @@ function 開始() {
         //布林中=(Number(布林上)+Number(布林下))/2
 
         //toastLog( "布林上= "+布林上);
-        // log("布林下= " + 布林下);
+        log("布林下= " + 布林下);
 
 
-        // log("布林中= " + 布林中);
+        log("布林中= " + 布林中);
 
-
+        log("基准值= " + 基准值);
         // 3秒更新一次
         sleep(3000)
 
@@ -259,7 +259,7 @@ function 開始() {
 
 
       // 找當前價格
-      if (Number(布林中) > 0 && Number(布林下) > 0 && 基准值 > 1.007) {
+      if (Number(布林中) > 0 && Number(布林下) > 0 && 基准值 > 1.005) {
         var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
@@ -272,7 +272,7 @@ function 開始() {
         }
         sleep(300)
 
-        // log("當前價格= " + 當前價格);
+        log("當前價格= " + 當前價格);
         sleep(300)
         //0.3 秒更新一次
       }
@@ -360,7 +360,7 @@ function 返回下單() {
     // log("盈虧= " + 盈亏3)
     // log(i)
 
-    if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 30) {
+    if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 35) {
       log("盈 = " + 盈亏3 + " %")
       // log("+40%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
