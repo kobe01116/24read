@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-1M !")
+toastLog("新测试(止盈,止损)1.005版-1N !")
 
 
 //================
@@ -325,6 +325,7 @@ function 開始() {
 function 返回下單() {
 
   log("返回下單")
+  fun.waitId("com.binance.dev:id/2131364481")
   id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
   sleep(500)
   ///下單下單下單下單下單下單下單
