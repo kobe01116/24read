@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-1K !")
+toastLog("新测试(止盈,止损)1.005版-1S !")
 
 
 //================
@@ -128,7 +128,7 @@ function 開始() {
 
   sleep(500)
 
-  console.setSize(400, 300)
+  console.setSize(450, 350)
   sleep(500)
 
   threads.start(
@@ -223,7 +223,10 @@ function 開始() {
 
 
         // log("布林中= " + 布林中);
-        sleep(15000)
+
+
+        // 3秒更新一次
+        sleep(3000)
 
 
       }
@@ -269,6 +272,9 @@ function 開始() {
       }
 
       // 找當前價格
+
+
+
 
       if (Number(布林中) / Number(布林下) < 1.006 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.005)) {
         toastLog(當前價格 + " " + 布林中)
