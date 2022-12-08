@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-1R !")
+toastLog("新测试(止盈,止损)1.005版-1ED !")
 
 
 //================
@@ -276,7 +276,7 @@ function 開始() {
 
 
 
-      if (Number(布林中) / Number(布林下) < 1.003 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.0025)) {
+      if (Number(布林中) / Number(布林下) < 1.003 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.0035)) {
         toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做空")
 
@@ -286,7 +286,7 @@ function 開始() {
         返回下單()
 
 
-      } else if (Number(布林中) / Number(布林下) < 1.003 && Number(當前價格) < Number(布林中 / 1.0025)) {
+      } else if (Number(布林中) / Number(布林下) < 1.003 && Number(當前價格) < Number(布林中 / 1.0035)) {
         toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做多")
         sleep(300)
