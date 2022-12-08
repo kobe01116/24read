@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-22 !")
+toastLog("新测试(止盈,止损)1.005版-1K !")
 
 
 //================
@@ -124,21 +124,21 @@ function 開始() {
   // 请求权限
   sleep(2000)
   // 首次进入技术分析
-console.show()
+  console.show()
 
-sleep(500)
+  sleep(500)
 
-console.setSize(800,400)
-sleep(500)
+  console.setSize(400, 300)
+  sleep(500)
 
   threads.start(
-
     function () {
-      setInterval(function () {
+      while (true) {
         toastLog("脚本运行中");
-      }, 1800000)
-
+        sleep(180000)
+      }
     }
+
 
   )
 
@@ -271,7 +271,7 @@ sleep(500)
       // 找當前價格
 
       if (Number(布林中) / Number(布林下) < 1.006 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.005)) {
-        toastLog(當前價格+" "+布林中)
+        toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做空")
 
         sleep(300)
@@ -281,7 +281,7 @@ sleep(500)
 
 
       } else if (Number(布林中) / Number(布林下) < 1.006 && Number(當前價格) < Number(布林中 / 1.005)) {
-        toastLog(當前價格+" "+布林中)
+        toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做多")
         sleep(300)
         id("com.binance.dev:id/2131362712").text("買入").findOne().click()
