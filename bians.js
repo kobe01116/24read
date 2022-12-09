@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-OP !")
+toastLog("新测试(止盈,止损)1.005版-OS !")
 
 
 //================
@@ -365,10 +365,21 @@ function 返回下單() {
 
     var 盈亏3 = 盈亏2.toString()   //盈亏3 = 10.55
 
+    var 盈利值
+    var 亏损值
+    if(i>2660){
+      盈利值=15
+      亏损值=50
+    }else{
+      盈利值=35
+      亏损值=50
+    }
+
+
     // log("盈虧= " + 盈亏3)
     // log(i)
 
-    if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 35) {
+    if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 盈利值) {
       log("盈 = " + 盈亏3 + " %")
       // log("+40%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
@@ -386,7 +397,7 @@ function 返回下單() {
 
       }
 
-    } else if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 50) {
+    } else if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 亏损值) {
       log("虧 = " + 盈亏3 + " %")
       // log("-40%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
