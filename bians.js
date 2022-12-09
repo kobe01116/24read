@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-MF !")
+toastLog("新测试(止盈,止损)1.005版-OP !")
 
 
 //================
@@ -253,6 +253,14 @@ function 開始() {
 
 
 
+
+
+
+
+
+
+
+
   // // ==============條件判斷=================
   threads.start(function () {
     while (true) {
@@ -282,7 +290,7 @@ function 開始() {
 
 
 
-      if (基准值 < 1.0035 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.0035)) {
+      if (基准值 < 1.0045 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.0045)) {
         toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做空")
 
@@ -292,7 +300,7 @@ function 開始() {
         返回下單()
 
 
-      } else if (基准值 < 1.0035 && Number(當前價格) < Number(布林中 / 1.0035)) {
+      } else if (基准值 < 1.0045 && Number(當前價格) < Number(布林中 / 1.0045)) {
         toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做多")
         sleep(300)
@@ -373,7 +381,7 @@ function 返回下單() {
         sleep(1000)
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
-        sleep(10000)
+        sleep(15000)
         break
 
       }
@@ -391,7 +399,22 @@ function 返回下單() {
         sleep(1000)
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
-        sleep(10000)
+        sleep(15000)
+
+        while(true){
+
+          if(基准值 < 1.003){
+            log("達成運行條件")
+            break
+          }else{
+            log("等待條件中")
+            sleep(1000)
+          }
+
+        }
+
+
+
         break
       }
     }
