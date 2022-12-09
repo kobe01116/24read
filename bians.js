@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-OS !")
+toastLog("新测试(止盈,止损)1.005版-OH !")
 
 
 //================
@@ -113,7 +113,6 @@ threads.start(function () {
 var 保證金 = 6.5
 
 
-
 // 主脚本运行*******/ 主脚本运行********/ 主脚本运行
 
 
@@ -150,16 +149,20 @@ function 開始() {
     id("com.binance.dev:id/2131366852").findOne().click()
     sleep(5000)
   }
+
+
+
+
+
   // // 首次进入技术分析
 
 
   var 布林中
   var 布林下
   var 基准值
-  // ================================取布林值======================================
+  // ================================取布林值, 基准值 ======================================
   threads.start(function () {
     while (true) {
-
 
       if (id("com.binance.dev:id/tvPrice").exists()) {
 
@@ -168,9 +171,6 @@ function 開始() {
         var b = images.clip(a, 233.6, 432.7, 315.6 - 233.6, 460.6 - 432.7); //取小图
         images.save(b, "/storage/emulated/0/1-1.jpg") //存小图
         a.recycle(); //删图
-
-
-
         img = images.read("/storage/emulated/0/1-1.jpg")
         // let img = captureScreen(); log("截图");
         //var res = JSON.stringify(paddle.ocrText(img, 8, false));
@@ -199,9 +199,6 @@ function 開始() {
         var d = images.clip(c, 392.5, 432.7, 469.2 - 392.5, 466.6 - 432.7); //取小图
         images.save(d, "/storage/emulated/0/2-1.jpg") //存小图
         c.recycle(); //删图
-
-
-
         img2 = images.read("/storage/emulated/0/2-1.jpg")
         // let img = captureScreen(); toastLog("截图");
         //var res = JSON.stringify(paddle.ocrText(img, 8, false));
@@ -216,7 +213,6 @@ function 開始() {
         }
 
         布林下 = res2
-
 
           // < 基准值  在范围内 ; > 基准值 在范围外
          基准值= Number(布林中) / Number(布林下)
@@ -234,15 +230,7 @@ function 開始() {
         // 3秒更新一次
         sleep(3000)
 
-
       }
-
-
-
-
-
-
-
     }
   }
 
@@ -251,12 +239,17 @@ function 開始() {
   // ================================取布林值======================================
 
 
+  while(true){
 
+    if(基准值 < 1.0031){
+      toastLog("達成運行條件")
+      break
+    }else{
+      log("等待條件中")
+      sleep(1000)
+    }
 
-
-
-
-
+  }
 
 
 
@@ -264,6 +257,8 @@ function 開始() {
   // // ==============條件判斷=================
   threads.start(function () {
     while (true) {
+
+       
 
 
       // 找當前價格
