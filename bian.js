@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)刷流水版-AA !")
+toastLog("新测试(止盈,止损)刷流水版-BB !")
 
 
 //================
@@ -388,6 +388,17 @@ function 返回下單() {
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
         sleep(15000)
+        while(true){
+
+          if(基准值 < 1.002){
+            log("達成運行條件")
+            break
+          }else{
+            log("等待條件中")
+            sleep(1000)
+          }
+
+        }
         break
 
       }
