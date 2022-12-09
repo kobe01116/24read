@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("新测试(止盈,止损)1.005版-18 !")
+toastLog("新测试(止盈,止损)刷流水版-AA !")
 
 
 //================
@@ -113,7 +113,6 @@ threads.start(function () {
 var 保證金 = 6.5
 
 
-
 // 主脚本运行*******/ 主脚本运行********/ 主脚本运行
 
 
@@ -124,16 +123,21 @@ function 開始() {
   // 请求权限
   sleep(2000)
   // 首次进入技术分析
+  // console.show()
 
+  // sleep(500)
+
+  // console.setSize(450, 350)
+  // sleep(500)
 
   threads.start(
-
     function () {
-      setInterval(function () {
+      while (true) {
         toastLog("脚本运行中");
-      }, 10000)
-
+        sleep(10000)
+      }
     }
+
 
   )
 
@@ -145,16 +149,20 @@ function 開始() {
     id("com.binance.dev:id/2131366852").findOne().click()
     sleep(5000)
   }
+
+
+
+
+
   // // 首次进入技术分析
 
 
   var 布林中
-
-
-  // ================================取布林值======================================
+  var 布林下
+  var 基准值
+  // ================================取布林值, 基准值 ======================================
   threads.start(function () {
     while (true) {
-
 
       if (id("com.binance.dev:id/tvPrice").exists()) {
 
@@ -163,9 +171,6 @@ function 開始() {
         var b = images.clip(a, 233.6, 432.7, 315.6 - 233.6, 460.6 - 432.7); //取小图
         images.save(b, "/storage/emulated/0/1-1.jpg") //存小图
         a.recycle(); //删图
-
-
-
         img = images.read("/storage/emulated/0/1-1.jpg")
         // let img = captureScreen(); log("截图");
         //var res = JSON.stringify(paddle.ocrText(img, 8, false));
@@ -182,11 +187,50 @@ function 開始() {
 
         sleep(500)
 
-        log("參考值= " + 布林中);
-        sleep(3000)
+        //  log("布林中= " + 布林中);
+        // sleep(3000)
         //15秒更新一次
-      }
+      };
 
+      if (id("com.binance.dev:id/tvPrice").exists()) {
+
+        images.captureScreen("/storage/emulated/0/2" + ".jpg"); //截图
+        var c = images.read("/storage/emulated/0/2.jpg"); //读图
+        var d = images.clip(c, 392.5, 432.7, 469.2 - 392.5, 466.6 - 432.7); //取小图
+        images.save(d, "/storage/emulated/0/2-1.jpg") //存小图
+        c.recycle(); //删图
+        img2 = images.read("/storage/emulated/0/2-1.jpg")
+        // let img = captureScreen(); toastLog("截图");
+        //var res = JSON.stringify(paddle.ocrText(img, 8, false));
+        var res2 = JSON.stringify(paddle.ocrText(img2));
+        img2.recycle();
+        if (res2.length == 12) {
+          res2 = res2.slice(2, 10)
+          res2 = res2.slice(0, 1) + res2.slice(-6)
+        }
+        else if (res2.length == 10) {
+          res2 = res2.slice(2, 8)
+        }
+
+        布林下 = res2
+
+          // < 基准值  在范围内 ; > 基准值 在范围外
+         基准值= Number(布林中) / Number(布林下)
+
+
+        //布林中=(Number(布林上)+Number(布林下))/2
+
+        //toastLog( "布林上= "+布林上);
+        log("布林下= " + 布林下);
+
+
+        log("布林中= " + 布林中);
+
+        log("基准值= " + 基准值);
+        // 3秒更新一次
+        sleep(3000)
+
+      }
     }
   }
 
@@ -195,15 +239,30 @@ function 開始() {
   // ================================取布林值======================================
 
 
+  while(true){
+
+    if(基准值 < 1.0020){
+      toastLog("達成運行條件")
+      break
+    }else{
+      log("等待條件中")
+      sleep(1000)
+    }
+
+  }
+
+
 
 
   // // ==============條件判斷=================
   threads.start(function () {
     while (true) {
 
+       
+
 
       // 找當前價格
-      if (Number(布林中) > 0) {
+      if (Number(布林中) > 0 && Number(布林下) > 0 ) {
         var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
@@ -223,7 +282,11 @@ function 開始() {
 
       // 找當前價格
 
-      if (Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.005)) {
+
+
+
+      if (基准值 < 1.0020 && Number(當前價格) < Number(布林中 * 1.1) && Number(當前價格) > Number(布林中 * 1.0018)) {
+        toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做空")
 
         sleep(300)
@@ -232,7 +295,8 @@ function 開始() {
         返回下單()
 
 
-      } else if (Number(當前價格) < Number(布林中 / 1.005)) {
+      } else if (基准值 < 1.0020 && Number(當前價格) < Number(布林中 / 1.0018)) {
+        toastLog(當前價格 + " " + 布林中)
         toastLog("當前價格符合---- 做多")
         sleep(300)
         id("com.binance.dev:id/2131362712").text("買入").findOne().click()
@@ -270,6 +334,7 @@ function 開始() {
 function 返回下單() {
 
   log("返回下單")
+  fun.waitId("com.binance.dev:id/2131364481")
   id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
   sleep(500)
   ///下單下單下單下單下單下單下單
@@ -295,12 +360,23 @@ function 返回下單() {
 
     var 盈亏3 = 盈亏2.toString()   //盈亏3 = 10.55
 
-    log("盈虧= " + 盈亏3)
-    log(i)
+    var 盈利值
+    var 亏损值
+    if(i>2660){
+      盈利值=15
+      亏损值=15
+    }else{
+      盈利值=25
+      亏损值=25
+    }
 
-    if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 40) {
 
-      log("+40%")
+    // log("盈虧= " + 盈亏3)
+    // log(i)
+
+    if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 盈利值) {
+      log("盈 = " + 盈亏3 + " %")
+      // log("+40%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
         id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
@@ -311,14 +387,14 @@ function 返回下單() {
         sleep(1000)
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
-        sleep(10000)
+        sleep(15000)
         break
 
       }
 
-    } else if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 40) {
-
-      log("-40%")
+    } else if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > 亏损值) {
+      log("虧 = " + 盈亏3 + " %")
+      // log("-40%")
       if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
         id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
@@ -329,7 +405,22 @@ function 返回下單() {
         sleep(1000)
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
-        sleep(1200000)
+        sleep(15000)
+
+        while(true){
+
+          if(基准值 < 1.002){
+            log("達成運行條件")
+            break
+          }else{
+            log("等待條件中")
+            sleep(1000)
+          }
+
+        }
+
+
+
         break
       }
     }
