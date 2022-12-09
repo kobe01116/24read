@@ -388,6 +388,17 @@ function 返回下單() {
         // com.binance.dev:id/2131366852 技术分析按钮
         id("com.binance.dev:id/2131366852").findOne().click()
         sleep(15000)
+        while(true){
+
+          if(基准值 < 1.003){
+            log("達成運行條件")
+            break
+          }else{
+            log("等待條件中")
+            sleep(1000)
+          }
+
+        }
         break
 
       }
