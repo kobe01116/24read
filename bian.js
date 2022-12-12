@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("布林(分段版)版-A3(更新一) !")
+toastLog("布林(分段版)版-A4(更新一) !")
 // 5分钟布林   通道 -- 4/30
 
 //================
@@ -341,7 +341,7 @@ function 開始() {
         返回下單()
 
 
-      }else if (Number(基准值) > 1.009 && Number(基准值) < 1.012   && Number(當前價格) > Number(布林下 / 1.0001)) {
+      }else if (Number(基准值) > 1.009 && Number(基准值) < 1.012   && Number(當前價格) < Number(布林下 / 1.0001)) {
        
         toastLog("當前價格符合---- 做多")
 
