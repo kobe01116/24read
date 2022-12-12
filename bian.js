@@ -296,7 +296,7 @@ function 開始() {
         返回下單()
 
 
-      }else if (Number(基准值) > 1.01  && Number(當前價格) > Number(布林上 * 1.0001)) {
+      }else if (Number(基准值) > 1.009  && Number(當前價格) > Number(布林上 * 1.0001)) {
         
         toastLog("當前價格符合---- 做空")
 
@@ -326,7 +326,7 @@ function 開始() {
         返回下單()
 
 
-      }else if (Number(基准值) > 1.01  && Number(當前價格) > Number(布林下 / 1.0001)) {
+      }else if (Number(基准值) > 1.009  && Number(當前價格) > Number(布林下 / 1.0001)) {
        
         toastLog("當前價格符合---- 做多")
 
