@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("布林0.0045 内, 1.009 外-2(更新一)!")
+toastLog("布林0.0045~0.0055 (更新一)!")
 // 5分钟布林   通道 -- 4/30
 
 //================
@@ -229,7 +229,7 @@ function 開始() {
         log("基准值= " + 基准值);
         log("布林上= " + 布林上);
 
-        // 3秒更新一次
+        // 1秒更新一次
         sleep(1000)
 
       }
@@ -267,8 +267,8 @@ function 開始() {
 
 
         log("當前價格= " + 當前價格);
-        sleep(300)
-        //0.3 秒更新一次
+        sleep(150)
+        //0.15 秒更新一次
       }
 
       // 找當前價格
@@ -276,76 +276,38 @@ function 開始() {
 
 
 
-      if (Number(基准值) < 1.0045 && Number(當前價格) > Number(布林上 * 1.0045)) {
-       
-        toastLog("當前價格符合---- 做空")
+      if (Number(基准值) < 1.0055 && Number(基准值) > 1.0045) {
 
 
-        id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
+        if (Number(當前價格) > Number(布林上/1.00015) && Number(當前價格) < Number(布林上 * 1.1)) {
+          toastLog("當前價格符合---- 做空")
 
-        返回下單()
+          id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
 
+          返回下單()
+        }
 
-      } else if (Number(基准值) > 1.009 && Number(當前價格) > Number(布林上 * 1.005)) {
-       
-        toastLog("當前價格符合---- 做空")
-
-
-        id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
-
-        返回下單()
 
 
       }
 
-      else if (Number(基准值) > 1.045 && Number(當前價格) > Number(布林中 * 1.035)) {
-       
-        toastLog("當前價格符合---- 做空")
+      else if (Number(基准值) < 1.0055 && Number(基准值) > 1.0045) {
+
+        if (Number(當前價格) < Number(布林下*1.00015) && Number(當前價格) > Number(布林下 / 1.1)) {
+          toastLog("當前價格符合---- 做多")
 
 
-        id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
+          id("com.binance.dev:id/2131362712").text("買入").findOne().click()
 
-        返回下單()
-
-
-      }
-      
-      
-      
-      
-      else if (Number(基准值) < 1.045 && Number(當前價格) < Number(布林下 / 1.0045)) {
-        
-        toastLog("當前價格符合---- 做多")
+          返回下單()
+        }
 
 
-        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-
-        返回下單()
-
-
-      } 
-      else if (Number(基准值) > 1.009 && Number(當前價格) < Number(布林下 / 1.005)) {
-        
-        toastLog("當前價格符合---- 做多")
-
-
-        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-
-        返回下單()
 
 
       }
-      else if (Number(基准值) > 1.045 && Number(當前價格) < Number(布林中 / 1.035)) {
-        
-        toastLog("當前價格符合---- 做多")
 
 
-        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-
-        返回下單()
-
-
-      }
 
     }
 
@@ -460,11 +422,11 @@ function 返回下單() {
           }
 
         }
-       
+
       }
       break
     }
-   
+
 
     else {
       log("等待中 !")
