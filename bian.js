@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("布林0.004~0.005 - 1 (更新一) - 分三段 !")
+toastLog("布林0.004~0.005 - 2 (更新一) - 分三段 !")
 // 5分钟布林   通道 -- 4/30
 
 //================
@@ -327,6 +327,29 @@ function 開始() {
 
                     返回下單()
                 } else if (Number(當前價格) < Number(布林下 * 1.0001) ) {
+                    log("當前價格= " + 當前價格);
+                    toastLog("當前價格符合条件三---- 做多")
+
+
+                    id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+
+                    返回下單()
+                }
+
+
+
+            }
+            else if(Number(基准值) > 1.008 && Number(基准值) < 1.009){
+
+                if (Number(當前價格) > Number(布林中 * 1.005)) {
+                    log("當前價格= " + 當前價格);
+
+                    toastLog("當前價格符合符合条件三---- 做空")
+
+                    id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
+
+                    返回下單()
+                } else if (Number(當前價格) < Number(布林下 / 1.005) ) {
                     log("當前價格= " + 當前價格);
                     toastLog("當前價格符合条件三---- 做多")
 
