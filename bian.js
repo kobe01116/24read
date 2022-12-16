@@ -316,7 +316,7 @@ function 開始() {
 
 
                 // 条件三
-            }else if(Number(基准值) > 1.002 && Number(基准值) < 1.003){
+            }else if(Number(基准值) > 1.0025 && Number(基准值) < 1.0035){
 
                 if (Number(當前價格) > Number(布林上 / 1.0001)) {
                     log("當前價格= " + 當前價格);
