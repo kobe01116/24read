@@ -350,7 +350,7 @@ function 開始() {
                     返回下單()
                 } else if (Number(當前價格) < Number(布林下 / 1.005)) {
                     log("當前價格= " + 當前價格);
-                    toastLog("當前價格符合条件三---- 做多")
+                    toastLog("當前價格符合条件四---- 做多")
 
 
                     id("com.binance.dev:id/2131362712").text("買入").findOne().click()
