@@ -14,25 +14,25 @@ toastLog("布林分四段 - B (更新一) -  !")
 
 //=======開始按钮========
 
-threads.start(function() {
+threads.start(function () {
     var window = floaty.window(
         <frame>
-                    <button
-                    id="action"
-                    text="開始"
-                    textSize="8sp"
-                    textColor="yellow"
-                    bg="#000000"
-                    w="150px"
-                    h="90px"
-                    >
-                </button>
-                
-                </frame>
+            <button
+                id="action"
+                text="開始"
+                textSize="8sp"
+                textColor="yellow"
+                bg="#000000"
+                w="150px"
+                h="90px"
+            >
+            </button>
+
+        </frame>
     );
     window.setPosition(device.width - 250, (device.height - 1250));
 
-    setInterval(() => {}, 1000);
+    setInterval(() => { }, 1000);
 
     var execution = null;
 
@@ -44,7 +44,7 @@ threads.start(function() {
     //记录按键被按下的时间以便判断长按等动作
     var downTime;
 
-    window.action.setOnTouchListener(function(view, event) {
+    window.action.setOnTouchListener(function (view, event) {
         switch (event.getAction()) {
             case event.ACTION_DOWN:
                 x = event.getRawX();
@@ -71,8 +71,8 @@ threads.start(function() {
                         onClick();
                     }
                 }
-                // onClick();
-                // return true; 移动放开也算点击
+            // onClick();
+            // return true; 移动放开也算点击
         }
         return true;
     });
@@ -94,7 +94,7 @@ threads.start(function() {
 
 
 // 关闭截图确认按键
-threads.start(function() {
+threads.start(function () {
 
 
     while (true) {
@@ -164,76 +164,76 @@ function 開始() {
     var 基准值
     var 布林上
 
-    threads.start(function() {
-            while (true) {
+    threads.start(function () {
+        while (true) {
 
-                if (id("com.binance.dev:id/tvPrice").exists()) {
+            if (id("com.binance.dev:id/tvPrice").exists()) {
 
-                    images.captureScreen("/storage/emulated/0/1" + ".jpg"); //截图
-                    var a = images.read("/storage/emulated/0/1.jpg"); //读图
-                    var b = images.clip(a, 233.6, 432.7, 315.6 - 233.6, 460.6 - 432.7); //取小图
-                    images.save(b, "/storage/emulated/0/1-1.jpg") //存小图
-                    a.recycle(); //删图
-                    img = images.read("/storage/emulated/0/1-1.jpg")
-                    // let img = captureScreen(); log("截图");
-                    //var res = JSON.stringify(paddle.ocrText(img, 8, false));
-                    var res = JSON.stringify(paddle.ocrText(img));
-                    img.recycle();
-                    if (res.length == 12) {
-                        res = res.slice(2, 10)
-                        res = res.slice(0, 1) + res.slice(-6)
-                    } else if (res.length == 10) {
-                        res = res.slice(2, 8)
-                    }
-
-                    布林中 = res
-
-                    // sleep(500)
-
-                    //  log("布林中= " + 布林中);
-                    // sleep(3000)
-                    //15秒更新一次
-                };
-
-                if (id("com.binance.dev:id/tvPrice").exists()) {
-
-                    images.captureScreen("/storage/emulated/0/2" + ".jpg"); //截图
-                    var c = images.read("/storage/emulated/0/2.jpg"); //读图
-                    var d = images.clip(c, 392.5, 432.7, 469.2 - 392.5, 466.6 - 432.7); //取小图
-                    images.save(d, "/storage/emulated/0/2-1.jpg") //存小图
-                    c.recycle(); //删图
-                    img2 = images.read("/storage/emulated/0/2-1.jpg")
-                    // let img = captureScreen(); toastLog("截图");
-                    //var res = JSON.stringify(paddle.ocrText(img, 8, false));
-                    var res2 = JSON.stringify(paddle.ocrText(img2));
-                    img2.recycle();
-                    if (res2.length == 12) {
-                        res2 = res2.slice(2, 10)
-                        res2 = res2.slice(0, 1) + res2.slice(-6)
-                    } else if (res2.length == 10) {
-                        res2 = res2.slice(2, 8)
-                    }
-
-                    布林下 = res2
-
-                    // < 基准值  在范围内 ; > 基准值 在范围外
-                    基准值 = Number(布林中) / Number(布林下)
-                    布林上 = Number(布林中) * Number(基准值)
-
-                    //布林中=(Number(布林上)+Number(布林下))/2
-
-                    //toastLog( "布林上= "+布林上);
-                    // log("布林下= " + 布林下);
-                    // log("布林中= " + 布林中);
-                    // log("基准值= " + 基准值);
-                    //log("布林上= " + 布林上);
-
-                    // 1秒更新一次
-                    sleep(1000)
-
+                images.captureScreen("/storage/emulated/0/1" + ".jpg"); //截图
+                var a = images.read("/storage/emulated/0/1.jpg"); //读图
+                var b = images.clip(a, 233.6, 432.7, 315.6 - 233.6, 460.6 - 432.7); //取小图
+                images.save(b, "/storage/emulated/0/1-1.jpg") //存小图
+                a.recycle(); //删图
+                img = images.read("/storage/emulated/0/1-1.jpg")
+                // let img = captureScreen(); log("截图");
+                //var res = JSON.stringify(paddle.ocrText(img, 8, false));
+                var res = JSON.stringify(paddle.ocrText(img));
+                img.recycle();
+                if (res.length == 12) {
+                    res = res.slice(2, 10)
+                    res = res.slice(0, 1) + res.slice(-6)
+                } else if (res.length == 10) {
+                    res = res.slice(2, 8)
                 }
+
+                布林中 = res
+
+                // sleep(500)
+
+                //  log("布林中= " + 布林中);
+                // sleep(3000)
+                //15秒更新一次
+            };
+
+            if (id("com.binance.dev:id/tvPrice").exists()) {
+
+                images.captureScreen("/storage/emulated/0/2" + ".jpg"); //截图
+                var c = images.read("/storage/emulated/0/2.jpg"); //读图
+                var d = images.clip(c, 392.5, 432.7, 469.2 - 392.5, 466.6 - 432.7); //取小图
+                images.save(d, "/storage/emulated/0/2-1.jpg") //存小图
+                c.recycle(); //删图
+                img2 = images.read("/storage/emulated/0/2-1.jpg")
+                // let img = captureScreen(); toastLog("截图");
+                //var res = JSON.stringify(paddle.ocrText(img, 8, false));
+                var res2 = JSON.stringify(paddle.ocrText(img2));
+                img2.recycle();
+                if (res2.length == 12) {
+                    res2 = res2.slice(2, 10)
+                    res2 = res2.slice(0, 1) + res2.slice(-6)
+                } else if (res2.length == 10) {
+                    res2 = res2.slice(2, 8)
+                }
+
+                布林下 = res2
+
+                // < 基准值  在范围内 ; > 基准值 在范围外
+                基准值 = Number(布林中) / Number(布林下)
+                布林上 = Number(布林中) * Number(基准值)
+
+                //布林中=(Number(布林上)+Number(布林下))/2
+
+                //toastLog( "布林上= "+布林上);
+                // log("布林下= " + 布林下);
+                // log("布林中= " + 布林中);
+                // log("基准值= " + 基准值);
+                //log("布林上= " + 布林上);
+
+                // 1秒更新一次
+                sleep(1000)
+
             }
         }
+    }
 
     );
 
@@ -245,136 +245,136 @@ function 開始() {
 
 
     // // ==============條件判斷=================
-    threads.start(function() {
-            while (true) {
-                // 找當前價格
-                if (Number(布林中) > 0 && Number(布林下) > 0) {
-                    var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
+    threads.start(function () {
+        while (true) {
+            // 找當前價格
+            if (Number(布林中) > 0 && Number(布林下) > 0) {
+                var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
-                    if (當前價格.length == 8) {
+                if (當前價格.length == 8) {
 
-                        當前價格 = 當前價格.slice(0, 1) + 當前價格.slice(-6)
+                    當前價格 = 當前價格.slice(0, 1) + 當前價格.slice(-6)
 
-                    } else {
-                        當前價格 = 當前價格
-                    }
-
-
-                    // log("當前價格= " + 當前價格);
-                    sleep(300)
-                    //0.15 秒更新一次
-                }
-
-                // 找當前價格
-
-
-
-                // 条件一
-                if (Number(基准值) > 1.0085 && Number(基准值) < 1.0095) {
-
-
-                    if (Number(當前價格) > Number(布林上 * 1.0002) ) {
-                        log("當前價格= " + 當前價格);
-
-                        toastLog("當前價格符合条件一---- 做空")
-
-                        id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
-
-                        返回下單()
-                    } else if (Number(當前價格) < Number(布林下 / 1.0002) ) {
-                        log("當前價格= " + 當前價格);
-                        toastLog("當前價格符合符合条件一---- 做多")
-
-
-                        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-
-                        返回下單()
-                    }
-
-
-                    // 条件二
-                } else if (Number(基准值) > 1.015 && Number(基准值) < 1.02) {
-
-                    if (Number(當前價格) > Number(布林中 * 1.01)) {
-                        log("當前價格= " + 當前價格);
-
-                        toastLog("當前價格符合符合条件二---- 做空")
-
-                        id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
-
-                        返回下單()
-                    } else if (Number(當前價格) < Number(布林中 / 1.01)) {
-                        log("當前價格= " + 當前價格);
-                        toastLog("當前價格符合条件二---- 做多")
-
-
-                        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-
-                        返回下單()
-                    }
-
-
-                    // 条件三
-                } else if (Number(基准值) > 1.004 && Number(基准值) < 1.005) {
-
-                    if (Number(當前價格) > Number(布林上 * 1.002)) {
-                        log("當前價格= " + 當前價格);
-
-                        toastLog("當前價格符合符合条件三---- 做空")
-
-                        id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
-
-                        返回下單()
-                    } else if (Number(當前價格) < Number(布林下 / 1.002)) {
-                        log("當前價格= " + 當前價格);
-                        toastLog("當前價格符合条件三---- 做多")
-
-
-                        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-
-                        返回下單()
-                    }
-
-
-                    // 条件四  
-                } else if (Number(基准值) > 1.008 && Number(基准值) < 1.01) {
-
-                    if (Number(當前價格) > Number(布林中 * 1.006)) {
-                        log("當前價格= " + 當前價格);
-
-                        toastLog("當前價格符合符合条件四---- 做空")
-
-                        id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
-
-                        返回下單()
-                    } else if (Number(當前價格) < Number(布林下 / 1.006)) {
-                        log("當前價格= " + 當前價格);
-                        toastLog("當前價格符合条件四---- 做多")
-
-
-                        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-
-                        返回下單()
-                    }
-
-
-
+                } else {
+                    當前價格 = 當前價格
                 }
 
 
+                // log("當前價格= " + 當前價格);
+                sleep(300)
+                //0.15 秒更新一次
+            }
+
+            // 找當前價格
 
 
 
+            // 条件一
+            if (Number(基准值) > 1.0085 && Number(基准值) < 1.0095) {
 
 
+                if (Number(當前價格) > Number(布林上 * 1.0002)) {
+                    log("當前價格= " + 當前價格);
 
+                    toastLog("當前價格符合条件一---- 做空")
+
+                    id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
+
+                    返回下單()
+                } else if (Number(當前價格) < Number(布林下 / 1.0002)) {
+                    log("當前價格= " + 當前價格);
+                    toastLog("當前價格符合符合条件一---- 做多")
+
+
+                    id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+
+                    返回下單()
+                }
+
+
+                // 条件二
+            } else if (Number(基准值) > 1.015 ) {
+
+                if (Number(當前價格) > Number(布林中 * 1.01)) {
+                    log("當前價格= " + 當前價格);
+
+                    toastLog("當前價格符合符合条件二---- 做空")
+
+                    id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
+
+                    返回下單()
+                } else if (Number(當前價格) < Number(布林中 / 1.01)) {
+                    log("當前價格= " + 當前價格);
+                    toastLog("當前價格符合条件二---- 做多")
+
+
+                    id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+
+                    返回下單()
+                }
+
+
+                // 条件三
+            } else if (Number(基准值) > 1.004 && Number(基准值) < 1.005) {
+
+                if (Number(當前價格) > Number(布林上 * 1.002)) {
+                    log("當前價格= " + 當前價格);
+
+                    toastLog("當前價格符合符合条件三---- 做空")
+
+                    id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
+
+                    返回下單()
+                } else if (Number(當前價格) < Number(布林下 / 1.002)) {
+                    log("當前價格= " + 當前價格);
+                    toastLog("當前價格符合条件三---- 做多")
+
+
+                    id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+
+                    返回下單()
+                }
+
+
+                // 条件四  
+            } else if (Number(基准值) > 1.008 && Number(基准值) < 1.01) {
+
+                if (Number(當前價格) > Number(布林中 * 1.006)) {
+                    log("當前價格= " + 當前價格);
+
+                    toastLog("當前價格符合符合条件四---- 做空")
+
+                    id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
+
+                    返回下單()
+                } else if (Number(當前價格) < Number(布林下 / 1.006)) {
+                    log("當前價格= " + 當前價格);
+                    toastLog("當前價格符合条件四---- 做多")
+
+
+                    id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+
+                    返回下單()
+                }
 
 
 
             }
 
+
+
+
+
+
+
+
+
+
+
         }
+
+    }
 
     );
     // // ==============條件判斷=================
@@ -479,25 +479,25 @@ function 返回下單() {
 
 
 /////////////更新////////////////////////
-threads.start(function() {
+threads.start(function () {
     var window = floaty.window(
         <frame>
-                    <button
-                    id="action"
-                    text="更新"
-                    textSize="8sp"
-                    textColor="yellow"
-                    bg="#000000"
-                    w="150px"
-                    h="90px"
-                    >
-                </button>
-                
-                </frame>
+            <button
+                id="action"
+                text="更新"
+                textSize="8sp"
+                textColor="yellow"
+                bg="#000000"
+                w="150px"
+                h="90px"
+            >
+            </button>
+
+        </frame>
     );
     window.setPosition(device.width - 250, (device.height - 1050));
 
-    setInterval(() => {}, 1000);
+    setInterval(() => { }, 1000);
 
     var execution = null;
 
@@ -509,7 +509,7 @@ threads.start(function() {
     //记录按键被按下的时间以便判断长按等动作
     var downTime;
 
-    window.action.setOnTouchListener(function(view, event) {
+    window.action.setOnTouchListener(function (view, event) {
         switch (event.getAction()) {
             case event.ACTION_DOWN:
                 x = event.getRawX();
@@ -536,8 +536,8 @@ threads.start(function() {
                         onClick();
                     }
                 }
-                // onClick();
-                // return true; 移动放开也算点击
+            // onClick();
+            // return true; 移动放开也算点击
         }
         return true;
     });
@@ -584,7 +584,7 @@ function 更新() {
 
         engines.stopAll();
 
-        events.on("exit", function() {
+        events.on("exit", function () {
             engines.execScriptFile(engines.myEngine().cwd() + "/main.js");
             // toast("更新完成！");
         });
@@ -598,25 +598,25 @@ function 更新() {
 
 
 
-threads.start(function() {
+threads.start(function () {
     var window = floaty.window(
         <frame>
-                    <button
-                    id="action"
-                    text="更新2"
-                    textSize="8sp"
-                    textColor="yellow"
-                    bg="#000000"
-                    w="150px"
-                    h="90px"
-                    >
-                </button>
-                
-                </frame>
+            <button
+                id="action"
+                text="更新2"
+                textSize="8sp"
+                textColor="yellow"
+                bg="#000000"
+                w="150px"
+                h="90px"
+            >
+            </button>
+
+        </frame>
     );
     window.setPosition(device.width - 250, (device.height - 850));
 
-    setInterval(() => {}, 1000);
+    setInterval(() => { }, 1000);
 
     var execution = null;
 
@@ -628,7 +628,7 @@ threads.start(function() {
     //记录按键被按下的时间以便判断长按等动作
     var downTime;
 
-    window.action.setOnTouchListener(function(view, event) {
+    window.action.setOnTouchListener(function (view, event) {
         switch (event.getAction()) {
             case event.ACTION_DOWN:
                 x = event.getRawX();
@@ -655,8 +655,8 @@ threads.start(function() {
                         onClick();
                     }
                 }
-                // onClick();
-                // return true; 移动放开也算点击
+            // onClick();
+            // return true; 移动放开也算点击
         }
         return true;
     });
@@ -703,7 +703,7 @@ function 更新2() {
 
         engines.stopAll();
 
-        events.on("exit", function() {
+        events.on("exit", function () {
             engines.execScriptFile(engines.myEngine().cwd() + "/main.js");
             // toast("更新完成！");
         });
@@ -717,25 +717,25 @@ function 更新2() {
 ////////////更新/////////////////////////
 
 
-threads.start(function() {
+threads.start(function () {
     var window = floaty.window(
         <frame>
-                    <button
-                    id="action"
-                    text="日志"
-                    textSize="8sp"
-                    textColor="yellow"
-                    bg="#000000"
-                    w="150px"
-                    h="90px"
-                    >
-                </button>
-                
-                </frame>
+            <button
+                id="action"
+                text="日志"
+                textSize="8sp"
+                textColor="yellow"
+                bg="#000000"
+                w="150px"
+                h="90px"
+            >
+            </button>
+
+        </frame>
     );
     window.setPosition(device.width - 250, (device.height - 650));
 
-    setInterval(() => {}, 1000);
+    setInterval(() => { }, 1000);
 
     var execution = null;
 
@@ -747,7 +747,7 @@ threads.start(function() {
     //记录按键被按下的时间以便判断长按等动作
     var downTime;
 
-    window.action.setOnTouchListener(function(view, event) {
+    window.action.setOnTouchListener(function (view, event) {
         switch (event.getAction()) {
             case event.ACTION_DOWN:
                 x = event.getRawX();
@@ -774,8 +774,8 @@ threads.start(function() {
                         onClick();
                     }
                 }
-                // onClick();
-                // return true; 移动放开也算点击
+            // onClick();
+            // return true; 移动放开也算点击
         }
         return true;
     });
@@ -825,32 +825,32 @@ function 下滑动() {
 //////////////////////////////////////
 var fun = {
     //等待出现，文本
-    wait: function(str) {
+    wait: function (str) {
         text(str).waitFor()
         sleep(500)
     },
     //等待id出现，id
-    waitId: function(str) {
+    waitId: function (str) {
         id(str).waitFor()
         sleep(1000)
     },
     //点击文本
-    点击文本: function(文本) {
+    点击文本: function (文本) {
         var weight = text(文本).findOne().bounds();
         click(weight.centerX(), weight.centerY())
     },
     //点击id，id
-    点击id: function(a) {
+    点击id: function (a) {
         var weight = id(a).findOne().bounds();
         click(weight.centerX(), weight.centerY())
     },
     //向上滑动，像素 
-    向上滑动: function(pixel) {
+    向上滑动: function (pixel) {
         swipe(device.width / 2, device.height / 2, device.width / 2, device.height / 2 - pixel, 500)
         sleep(1000)
     },
     //向上滑动，像素
-    向下滑动: function(pixel) {
+    向下滑动: function (pixel) {
         swipe(device.width / 2, device.height / 2, device.width / 2, device.height / 2 + pixel, 800)
         sleep(1000)
     }
