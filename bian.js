@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("布林補倉版 - A (更新一) -  !")
+toastLog("布林補倉版 - B (更新一) -  !")
 // 5分钟布林   通道 -- 4/30
 
 //================
@@ -154,10 +154,6 @@ function 開始() {
 
 
 
-
-
-
-
     // ================================取布林值, 基准值 ======================================
     var 布林中
     var 布林下
@@ -274,7 +270,7 @@ function 開始() {
             if (Number(基准值) > 1.003) {
 
 
-                if (Number(當前價格) > Number(布林上 * 1.006)) {
+                if (Number(當前價格) > Number(布林上 * 1.004)) {
                     log("當前價格= " + 當前價格);
 
                     toastLog("當前價格符合条件一---- 做空")
@@ -283,7 +279,7 @@ function 開始() {
 
                     返回下單()
                     盈利()
-                } else if (Number(當前價格) < Number(布林下 / 1.006)) {
+                } else if (Number(當前價格) < Number(布林下 / 1.004)) {
                     log("當前價格= " + 當前價格);
                     toastLog("當前價格符合符合条件一---- 做多")
 
@@ -481,7 +477,9 @@ function 盈利() {
                 ///下單下單下單下單下單下單下單
                 id("com.binance.dev:id/2131362797").findOne().click()
                 sleep(3600000)
-
+                if(id("com.binance.dev:id/tvPrice").exists()){
+                    break
+                }
 
             } else {
                 // log("等待中 !")
