@@ -258,6 +258,7 @@ function 開始() {
                     返回下單()
                     盈利()
                     sleep(15000)
+                    break   //1/18更新
                 } else if (Number(當前價格) < Number(布林下)) {
                     log("當前價格= " + 當前價格);
                     toastLog("當前價格符合符合条件一---- 做多")
@@ -268,6 +269,7 @@ function 開始() {
                     返回下單()
                     盈利()
                     sleep(15000)
+                    break   //1/18更新
 
                 }
 
