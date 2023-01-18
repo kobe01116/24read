@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("布林補倉版 - D (更新2) -  !")
+toastLog("布林補倉(10) - E (更新2) -  !")
 // 5分钟布林   通道 -- 4/30
 
 //================
@@ -111,42 +111,19 @@ threads.start(function () {
 // 关闭截图确认按键
 
 
-var 保證金 = 6.5
+var 保證金 = 10
 
 
 // 主脚本运行*******/ 主脚本运行********/ 主脚本运行
 
 
 function 開始() {
-    // console.show();
+   
     toastLog("開始運行")
     requestScreenCapture()
-    // 请求权限
+    
     sleep(2000)
-    // 首次进入技术分析
-    // console.show()
-
-    // sleep(500)
-
-    // console.setSize(450, 350)
-    // sleep(500)
-
-    // 侦测脚本运行
-    // threads.start(
-    //     function () {
-    //         while (true) {
-    //             toastLog("脚本运行中");
-    //             sleep(10000)
-    //         }
-    //     }
-
-
-    // )
-
-
-
-    // // 首次进入技术分析
-
+    
     if (id("com.binance.dev:id/2131366852").exists()) {
 
         id("com.binance.dev:id/2131366852").findOne().click()
@@ -325,7 +302,7 @@ function 返回下單() {
     //下滑动()
     sleep(3000)
     上滑动()
-    sleep(500)
+    sleep(3000)
     上滑动()
   
 
@@ -370,7 +347,7 @@ function 盈利() {
                     sleep(1000)
                     // com.binance.dev:id/2131366852 技术分析按钮
                     id("com.binance.dev:id/2131366852").findOne().click()
-                    sleep(2000)
+                    sleep(15000)
 
                     break
                 }
@@ -397,7 +374,7 @@ function 盈利() {
 
 
             var 亏损值 = 100
-            var 保證金 = 6.5
+            var 保證金 = 10
 
             if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > Number(亏损值)) {
                 log("虧 = " + 盈亏3 + " %")
@@ -405,8 +382,9 @@ function 盈利() {
 
                 log("補倉6.5")
                 fun.waitId("com.binance.dev:id/2131364481")
+                sleep(1000)
                 id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
-                sleep(500)
+                sleep(1000)
                 ///下單下單下單下單下單下單下單
                 id("com.binance.dev:id/2131362797").findOne().click()
                 sleep(3600000)
