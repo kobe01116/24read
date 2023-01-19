@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("布林補倉(10) - E (更新2) -  !")
+toastLog("布林補倉(10) - A (更新2) -  !")
 // 5分钟布林   通道 -- 4/30
 
 //================
@@ -118,12 +118,12 @@ var 保證金 = 10
 
 
 function 開始() {
-   
+
     toastLog("開始運行")
     requestScreenCapture()
-    
+
     sleep(2000)
-    
+
     if (id("com.binance.dev:id/2131366852").exists()) {
 
         id("com.binance.dev:id/2131366852").findOne().click()
@@ -306,7 +306,7 @@ function 返回下單() {
     上滑动()
     sleep(3000)
     上滑动()
-  
+
 
 }
 
@@ -361,53 +361,110 @@ function 盈利() {
 
         }
 
-
-    })
-
-    threads.start(function () {
-
-        while (true) {
-
-            var 盈亏 = id("com.binance.dev:id/2131371245").findOne().text()
-
-            var 盈亏2 = 盈亏.match(/\d+\.\d+/g)
-
-            var 盈亏3 = 盈亏2.toString()
+            // 1/19 新增
 
 
-            var 亏损值 = 100
-            var 保證金 = 10
 
-            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > Number(亏损值)) {
-                log("虧 = " + 盈亏3 + " %")
-                // log("-100%")
+        threads.start(function () {
 
-                log("補倉6.5")
-                fun.waitId("com.binance.dev:id/2131364481")
-                sleep(1000)
-                id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
-                sleep(1000)
-                ///下單下單下單下單下單下單下單
-                id("com.binance.dev:id/2131362797").findOne().click()
-                sleep(3600000)
-                if (id("com.binance.dev:id/tvPrice").exists()) {
-                    break
+            while (true) {
+
+                var 盈亏 = id("com.binance.dev:id/2131371245").findOne().text()
+
+                var 盈亏2 = 盈亏.match(/\d+\.\d+/g)
+
+                var 盈亏3 = 盈亏2.toString()
+
+
+                var 亏损值 = 100
+                var 保證金 = 10
+
+                if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > Number(亏损值)) {
+                    log("虧 = " + 盈亏3 + " %")
+                    // log("-100%")
+
+                    log("補倉10")
+                    fun.waitId("com.binance.dev:id/2131364481")
+                    sleep(1000)
+                    id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
+                    sleep(1000)
+                    ///下單下單下單下單下單下單下單
+                    id("com.binance.dev:id/2131362797").findOne().click()
+                    sleep(3600000)
+                    if (id("com.binance.dev:id/tvPrice").exists()) {
+                        break
+                    }
+
+                } else {
+                    // log("等待中 !")
+                    sleep(300)
+                    if (id("com.binance.dev:id/tvPrice").exists()) {
+                        break
+                    }
                 }
 
-            } else {
-                // log("等待中 !")
-                sleep(300)
-                if (id("com.binance.dev:id/tvPrice").exists()) {
-                    break
-                }
+
             }
 
 
-        }
+
+        })
+
+
+
+
+
+
 
 
 
     })
+
+
+    // threads.start(function () {
+
+    //     while (true) {
+
+    //         var 盈亏 = id("com.binance.dev:id/2131371245").findOne().text()
+
+    //         var 盈亏2 = 盈亏.match(/\d+\.\d+/g)
+
+    //         var 盈亏3 = 盈亏2.toString()
+
+
+    //         var 亏损值 = 100
+    //         var 保證金 = 10
+
+    //         if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > Number(亏损值)) {
+    //             log("虧 = " + 盈亏3 + " %")
+    //             // log("-100%")
+
+    //             log("補倉10")
+    //             fun.waitId("com.binance.dev:id/2131364481")
+    //             sleep(1000)
+    //             id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
+    //             sleep(1000)
+    //             ///下單下單下單下單下單下單下單
+    //             id("com.binance.dev:id/2131362797").findOne().click()
+    //             sleep(3600000)
+    //             if (id("com.binance.dev:id/tvPrice").exists()) {
+    //                 break
+    //             }
+
+    //         } else {
+    //             // log("等待中 !")
+    //             sleep(300)
+    //             if (id("com.binance.dev:id/tvPrice").exists()) {
+    //                 break
+    //             }
+    //         }
+
+
+    //     }
+
+
+
+    // })
 
 
 
