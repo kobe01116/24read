@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("布林補倉(10) - D (更新2) -  !")
+toastLog("布林補倉(10) - E (更新2) -  !")
 // 5分钟布林   通道 -- 4/30
 
 //================
@@ -376,18 +376,18 @@ function 盈利() {
 
         while (true) {
 
-            var 盈亏 = id("com.binance.dev:id/2131371245").findOne().text()
+            var 盈亏4 = id("com.binance.dev:id/2131371245").findOne().text()
 
-            var 盈亏2 = 盈亏.match(/\d+\.\d+/g)
+            var 盈亏5 = 盈亏4.match(/\d+\.\d+/g)
 
-            var 盈亏3 = 盈亏2.toString()
+            var 盈亏6 = 盈亏5.toString()
 
 
             var 亏损值 = 100
             var 保證金 = 10
 
-            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏3) > Number(亏损值)) {
-                log("虧 = " + 盈亏3 + " %")
+            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值)) {
+                log("虧 = " + 盈亏6 + " %")
                 // log("-100%")
 
                 log("補倉10")
