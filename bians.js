@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("布林補倉(10) - C (更新2) -  !")
+toastLog("布林補倉(10) - D (更新2) -  !")
 // 5分钟布林   通道 -- 4/30
 
 //================
@@ -405,11 +405,12 @@ function 盈利() {
             } else {
                 // log("等待中 !")
                 sleep(300)
-                if (id("com.binance.dev:id/tvPrice").exists()) {
-                    break
-                }
+                
             }
-
+            
+            if (id("com.binance.dev:id/tvPrice").exists()) {
+                break
+            }
 
         }
 
