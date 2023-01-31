@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("AJ合约交易- A (更新1) -  !")
+toastLog("AJ合约交易- B (更新1) -  !")
 
 //=======開始按钮========
 
@@ -381,7 +381,7 @@ function 盈利() {
             log("虧 = " + 盈亏6 + " %")
             // log("-100%")
 
-            log("補倉10")
+            log("補倉"+保證金)
             fun.waitId("com.binance.dev:id/2131364481")
             sleep(1000)
             id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金)
