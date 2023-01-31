@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("布林補倉(10) - B (更新1) -  !")
+toastLog("AJ合约交易- A (更新1) -  !")
 
 //=======開始按钮========
 
@@ -105,7 +105,7 @@ threads.start(function () {
 // 关闭截图确认按键
 
 
-var 保證金 = 10
+var 保證金 = 12
 
 
 // 主脚本运行*******/ 主脚本运行********/ 主脚本运行
@@ -117,7 +117,8 @@ function 開始() {
     requestScreenCapture()
 
     sleep(2000)
-
+    
+    // com.binance.dev:id/2131366852 技术分析按钮
     if (id("com.binance.dev:id/2131366852").exists()) {
 
         id("com.binance.dev:id/2131366852").findOne().click()
@@ -374,7 +375,7 @@ function 盈利() {
 
 
         var 亏损值 = 100
-        var 保證金 = 10
+        var 保證金 = 12
 
         if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值)) {
             log("虧 = " + 盈亏6 + " %")
