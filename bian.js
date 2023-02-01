@@ -123,7 +123,7 @@ function 開始() {
 
     sleep(500)
 
-    console.setSize(450, 350)
+    console.setSize(450, 750)
     sleep(500)
 
 
