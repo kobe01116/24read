@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("AJ合约交易- B (更新1) -  !")
+toastLog("AJ合约交易- A (更新1) -  !")
 
 //=======開始按钮========
 
@@ -119,12 +119,12 @@ function 開始() {
     sleep(2000)
 
 
-    console.show()
+    // console.show()
 
-    sleep(500)
+    // sleep(500)
 
-    console.setSize(450, 350)
-    sleep(500)
+    // console.setSize(450, 350)
+    // sleep(500)
 
 
 
