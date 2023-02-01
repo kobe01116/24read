@@ -3,7 +3,7 @@
 app.launchApp("币安");
 
 
-toastLog("AJ合约交易- B (更新1) -  !")
+toastLog("AJ合约交易- C (更新1) -  !")
 
 //=======開始按钮========
 
@@ -23,7 +23,7 @@ threads.start(function () {
 
         </frame>
     );
-    window.setPosition(device.width - 180, (device.height - 1250));
+    window.setPosition(device.width - 80, (device.height - 1250));
 
     setInterval(() => { }, 1000);
 
@@ -446,7 +446,7 @@ threads.start(function () {
 
         </frame>
     );
-    window.setPosition(device.width - 180, (device.height - 1050));
+    window.setPosition(device.width - 80, (device.height - 1050));
 
     setInterval(() => { }, 1000);
 
@@ -565,7 +565,7 @@ threads.start(function () {
 
         </frame>
     );
-    window.setPosition(device.width - 180, (device.height - 850));
+    window.setPosition(device.width - 80, (device.height - 850));
 
     setInterval(() => { }, 1000);
 
@@ -684,7 +684,7 @@ threads.start(function () {
 
         </frame>
     );
-    window.setPosition(device.width - 180, (device.height - 650));
+    window.setPosition(device.width - 80, (device.height - 650));
 
     setInterval(() => { }, 1000);
 
