@@ -119,12 +119,12 @@ function 開始() {
     sleep(2000)
 
 
-    console.show()
+    // console.show()
 
-    sleep(500)
+    // sleep(500)
 
-    console.setSize(450, 600)
-    sleep(500)
+    // console.setSize(450, 600)
+    // sleep(500)
 
 
 
