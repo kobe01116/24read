@@ -23,7 +23,7 @@ threads.start(function () {
 
         </frame>
     );
-    window.setPosition(device.width - 250, (device.height - 1250));
+    window.setPosition(device.width - 220, (device.height - 1250));
 
     setInterval(() => { }, 1000);
 
@@ -446,7 +446,7 @@ threads.start(function () {
 
         </frame>
     );
-    window.setPosition(device.width - 250, (device.height - 1050));
+    window.setPosition(device.width - 220, (device.height - 1050));
 
     setInterval(() => { }, 1000);
 
@@ -565,7 +565,7 @@ threads.start(function () {
 
         </frame>
     );
-    window.setPosition(device.width - 250, (device.height - 850));
+    window.setPosition(device.width - 220, (device.height - 850));
 
     setInterval(() => { }, 1000);
 
@@ -684,7 +684,7 @@ threads.start(function () {
 
         </frame>
     );
-    window.setPosition(device.width - 250, (device.height - 650));
+    window.setPosition(device.width - 220, (device.height - 650));
 
     setInterval(() => { }, 1000);
 
