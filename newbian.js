@@ -252,6 +252,9 @@ ui.layout(
             </ScrollView>
         </viewpager>
     </vertical>
+
+
+
 );
 
 threads.start(function () {
@@ -327,17 +330,18 @@ threads.start(function () {
 
 
         threads.start(日志)
-        toastLog("停止运行 + 请重新启动 !")
+
         toastLog("停止运行 + 请重新启动 !")
         engines.stopAll();
 
     }
+    function 日志() {
+        app.startActivity("console")
+
+    }
+
 });
 
-function 日志() {
-    app.startActivity("console")
-
-}
 
 
 threads.start(function () {
@@ -381,18 +385,10 @@ threads.start(function checkfd() {
         exit();
     }
 });
-
-
-var 本地存储1 = storages.create("123444555");
-for (i = 10; i < 11; i++) {
-    var content = 本地存储1.get("kb" + i);
-    if (content) {
-        ui["input" + i].setText(content);
-    }
-}
-
 ui.v.setTitles(["参数设置", "激活设备"]);
 ui.tabs.setupWithViewPager(ui.v);
+
+
 
 ui.autoService.on("check", function (checked) {
     // 用户勾选无障碍服务的选项时，跳转到页面让用户去开启
@@ -411,9 +407,19 @@ ui.emitter.on("resume", function () {
     ui.autoService.checked = auto.service != null;
 });
 
-ui.bt2.click(function () {
-    threads.start(程序3);
-});
+
+
+
+
+
+var 本地存储1 = storages.create("123444555");
+for (i = 10; i < 11; i++) {
+    var content = 本地存储1.get("kb" + i);
+    if (content) {
+        ui["input" + i].setText(content);
+    }
+}
+
 
 function get_input_list() {
     return [
@@ -459,6 +465,9 @@ function save_opt() {
 
     本地存储.put("list_ck", list_ck);
 }
+
+
+
 
 // ******************************************
 
@@ -582,6 +591,10 @@ function 程序3() {
     toastLog("已复制手机识别码,请发送给作者");
 }
 
+
+ui.bt2.click(function () {
+    threads.start(程序3);
+});
 //更新版版*********************** 必要时用
 
 ui.updata.click(() => {
@@ -638,6 +651,9 @@ ui.bt5.on("click", function () {
     toast("设置已清除");
 });
 
+var 保證金1 = ui.input1.text()
+var 基數 = ui.input2.text()
+var 止损 = ui.input4.text()
 
 
 // 主脚本页面************************
@@ -690,7 +706,7 @@ ui.start.click(function () {
             } catch (e) { }
         }
 
-        var tty = strSign;
+        var tty = strSign.slice(0, -1);
         if (zx2231982().search(tty) == -1) {
             // toast("验证失败,请联系作者");
             exit();
@@ -729,9 +745,6 @@ ui.start.click(function () {
 
 });
 
-var 保證金1 = ui.input1.text()
-var 基數 = ui.input2.text()
-var 止损 = ui.input4.text()
 
 
 
@@ -869,7 +882,7 @@ function 開始() {
 
 
             // 条件一
-            if (Number(基准值) > 基數) {
+            if (基准值 > 基數) {
 
 
                 if (Number(當前價格) > Number(布林上)) {
@@ -950,7 +963,7 @@ function 盈利() {
             // var 亏损值
             var 首止盈 = ui.input5.text()
             var 次止盈 = ui.input7.text()
-            間隔時間2 = ui.input6.text()
+            var 間隔時間2 = ui.input6.text()
             if (i > 間隔時間2 * 177.3) {
                 盈利值 = 次止盈
                 // 亏损值 = 35
