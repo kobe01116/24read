@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易-1.0 " />
+            <toolbar title="AJ 币安合约自动交易2.0 " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -76,7 +76,7 @@ ui.layout(
                                 hint="usdt"
                                 gravity="center"
                                 textSize="14sp"
-                                inputType="number|numberDecimal"
+                                inputType="number"
                             ></input>
 
                             <text text="    "></text>
@@ -101,7 +101,7 @@ ui.layout(
                             hint="usdt"
                             gravity="center"
                             textSize="14sp"
-                            inputType="number|numberDecimal"
+                            inputType="number"
                         ></input>
                         <text text="   "></text>
                         <text text=" 止损" textColor="#000000" textSize="16sp" />
@@ -114,7 +114,7 @@ ui.layout(
                             hint="金额"
                             gravity="center"
                             textSize="14sp"
-                            inputType="number|numberDecimal"
+                            inputType="number"
                         ></input>
                         <text text=" 平仓 " textColor="#000000" textSize="16sp" />
                     </horizontal>
@@ -141,7 +141,7 @@ ui.layout(
                                 hint="%"
                                 gravity="center"
                                 textSize="14sp"
-                                inputType="number|numberDecimal"
+                                inputType="number"
                             ></input>
 
                             <text text="    "></text>
@@ -152,7 +152,7 @@ ui.layout(
                                 hint="分钟"
                                 gravity="center"
                                 textSize="14sp"
-                                inputType="number|numberDecimal"
+                                inputType="number"
                             ></input>
 
                         </horizontal>
@@ -167,7 +167,7 @@ ui.layout(
                                 hint="%"
                                 gravity="center"
                                 textSize="14sp"
-                                inputType="number|numberDecimal"
+                                inputType="number"
                             ></input>
 
                             <text text="    "></text>
@@ -194,7 +194,7 @@ ui.layout(
                                 hint="%"
                                 gravity="center"
                                 textSize="14sp"
-                                inputType="number|numberDecimal"
+                                inputType="number"
                             ></input>
 
                             <text text="    "></text>
@@ -205,7 +205,7 @@ ui.layout(
                                 hint="分钟"
                                 gravity="center"
                                 textSize="14sp"
-                                inputType="number|numberDecimal"
+                                inputType="number"
                             ></input>
 
                         </horizontal>
@@ -887,7 +887,7 @@ function 開始() {
 
 
             // 条件一
-            if (Number(基准值) > Number(基數)) {
+            if (基准值 > 基數) {
 
 
                 if (Number(當前價格) > Number(布林上)) {
