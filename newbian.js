@@ -257,6 +257,11 @@ ui.layout(
 
 );
 
+
+toastLog("AJ合约交易- A - !")
+
+
+
 threads.start(function () {
     var window = floaty.window(
         <frame>
@@ -882,7 +887,7 @@ function 開始() {
 
 
             // 条件一
-            if (基准值 > 基數) {
+            if (Number(基准值) > Number(基數)) {
 
 
                 if (Number(當前價格) > Number(布林上)) {
