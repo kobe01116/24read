@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 " />
+            <toolbar title="AJ 币安合约自动交易-1.0 " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -278,7 +278,7 @@ threads.start(function () {
 
         </frame>
     );
-    window.setPosition(device.width - 180, (device.height - 650));
+    window.setPosition(device.width - 180, (device.height - 250));
 
     setInterval(() => { }, 1000);
 
