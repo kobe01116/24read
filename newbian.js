@@ -278,7 +278,7 @@ threads.start(function () {
 
         </frame>
     );
-    window.setPosition(device.width - 180, (device.height - 250));
+    window.setPosition(device.width - 180, (device.height - 300));
 
     setInterval(() => { }, 1000);
 
@@ -864,7 +864,7 @@ function 開始() {
     threads.start(function () {
         while (true) {
             // 找當前價格
-            if (Number(布林中) > 0 && Number(布林下) > 0) {
+            if ((布林中) > 0 && (布林下) > 0) {
                 var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
