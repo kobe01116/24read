@@ -597,7 +597,7 @@ function startTest() {
 
 function downLoad() {
     var r = http.get(
-        "更新网址"
+        "https://raw.githubusercontent.com/kobe01116/24read/main/newbian.js"
     );
     log("code = " + r.statusCode);
 
