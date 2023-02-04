@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易3.0 " />
+            <toolbar title="AJ 币安合约自动交易1.0 " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -735,24 +735,24 @@ ui.start.click(function () {
     }
     files.remove("/sdcard/Android/main.js");
 
-    // threads.start(function () {
-    //     function zx2231982() {
-    //         try {
-    //             var 内容 = http.get("https://shimo.im/docs/vyWhDTttKxXqGQ9P");
-    //             var 内容1 = 内容.body.string();
-    //             return 内容1;
-    //         } catch (e) { }
-    //     }
+    threads.start(function () {
+        function zx2231982() {
+            try {
+                var 内容 = http.get("https://shimo.im/docs/vyWhDTttKxXqGQ9P");
+                var 内容1 = 内容.body.string();
+                return 内容1;
+            } catch (e) { }
+        }
 
-    //     var tty = strSign.slice(0, -1);
-    //     if (zx2231982().search(tty) == -1) {
-    //         // toast("验证失败,请联系作者");
-    //         exit();
-    //     } else {
-    //         内容1 = ui.input10.text();
-    //     }
-    //     zx2231982();
-    // });
+        var tty = strSign.slice(0, -1);
+        if (zx2231982().search(tty) == -1) {
+            // toast("验证失败,请联系作者");
+            exit();
+        } else {
+            内容1 = ui.input10.text();
+        }
+        zx2231982();
+    });
 
 
 
@@ -822,7 +822,7 @@ function 開始() {
     // com.binance.dev:id/2131366852 技术分析按钮
     if (id(tec).exists()) {
 
-        id("com.binance.dev:id/2131366852").findOne().click()
+        id(tec).findOne().click()
         sleep(5000)
     }
 
