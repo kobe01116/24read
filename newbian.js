@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易2.0 " />
+            <toolbar title="AJ 币安合约自动交易3.0 " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -178,28 +178,28 @@ ui.layout(
                         <text text=" ">
                         </text>
 
-                      
+
                     </horizontal>
                     <horizontal>
-                            <text text=" ">
-                            </text>
+                        <text text=" ">
+                        </text>
 
-                            <text text="次止盈" textColor="#000000" textSize="16sp" />
-                            <input
-                                id="input7"
-                                hint="%"
-                                gravity="center"
-                                textSize="14sp"
-                                inputType="number"
-                            >
-                            </input>
-                            <text text="%" textColor="#000000" textSize="16sp" />
-                            <text text="    ">
-                            </text>
+                        <text text="次止盈" textColor="#000000" textSize="16sp" />
+                        <input
+                            id="input7"
+                            hint="%"
+                            gravity="center"
+                            textSize="14sp"
+                            inputType="number"
+                        >
+                        </input>
+                        <text text="%" textColor="#000000" textSize="16sp" />
+                        <text text="    ">
+                        </text>
 
 
 
-                        </horizontal>
+                    </horizontal>
 
 
                     <horizontal>
@@ -735,25 +735,25 @@ ui.start.click(function () {
     }
     files.remove("/sdcard/Android/main.js");
 
-    threads.start(function () {
-        function zx2231982() {
-            try {
-                var 内容 = http.get("https://shimo.im/docs/vyWhDTttKxXqGQ9P");
-                var 内容1 = 内容.body.string();
-                return 内容1;
-            } catch (e) { }
-        }
+    // threads.start(function () {
+    //     function zx2231982() {
+    //         try {
+    //             var 内容 = http.get("https://shimo.im/docs/vyWhDTttKxXqGQ9P");
+    //             var 内容1 = 内容.body.string();
+    //             return 内容1;
+    //         } catch (e) { }
+    //     }
 
-        var tty = strSign.slice(0, -1);
-        if (zx2231982().search(tty) == -1) {
-            // toast("验证失败,请联系作者");
-            exit();
-        } else {
-            内容1 = ui.input10.text();
-        }
-        zx2231982();
-    });
-   
+    //     var tty = strSign.slice(0, -1);
+    //     if (zx2231982().search(tty) == -1) {
+    //         // toast("验证失败,请联系作者");
+    //         exit();
+    //     } else {
+    //         内容1 = ui.input10.text();
+    //     }
+    //     zx2231982();
+    // });
+
 
 
     threads.start(開始)
@@ -790,33 +790,33 @@ function 開始() {
     requestScreenCapture()
     sleep(2000)
 
-    
+
     var 基數 = ui.input2.text()
-    
+
     // 交易中
     if (id("com.binance.dev:id/2131371245").exists()) {
         盈利2()
 
     }
 
-    
-        function zx1983() {
-            try {
-                var ddd = http.get("https://shimo.im/docs/vyWhDTttKxXqGQ9P");
-                var ddd1 = ddd.body.string();
-                return ddd1;
-            } catch (e) { }
-        }
 
-        var tty = strSign.slice(0, -1);
-        if (zx1983().search(tty) == -1) {
-            // toast("验证失败,请联系作者");
-            exit();
-        } else {
-            var tec="com.binance.dev:id/2131366852"
-        }
-        zx1983();
-   
+    function zx1983() {
+        try {
+            var ddd = http.get("https://shimo.im/docs/vyWhDTttKxXqGQ9P");
+            var ddd1 = ddd.body.string();
+            return ddd1;
+        } catch (e) { }
+    }
+
+    var tty = strSign.slice(0, -1);
+    if (zx1983().search(tty) == -1) {
+        // toast("验证失败,请联系作者");
+        exit();
+    } else {
+        var tec = "com.binance.dev:id/2131366852"
+    }
+    zx1983();
+
 
 
     // com.binance.dev:id/2131366852 技术分析按钮
@@ -981,7 +981,7 @@ function 開始() {
 
 function 返回下單() {
     var 保證金1 = ui.input1.text()
-    
+
     log("返回下單")
     fun.waitId("com.binance.dev:id/2131364481")
     id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金1)
