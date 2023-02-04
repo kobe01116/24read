@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易2.0 " />
+            <toolbar title="AJ 币安合约自动交易 -1.01a " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -1063,15 +1063,20 @@ function 盈利() {
 
     threads.start(function () {
 
-        var 止损值1 = id("com.binance.dev:id/2131376038").findOne().text()
-
-        var 止损值2 = 止损值1.match(/\d+\.\d+/g)
-
-        var 止损值3 = 止损值2.toString()
-
-        var 止损 = ui.input4.text()
+        
 
         while (true) {
+            var 止损值1 = id("com.binance.dev:id/2131376038").findOne().text()
+
+            var 止损值2 = 止损值1.match(/\d+\.\d+/g)
+    
+            var 止损值3 = 止损值2.toString()
+    
+            var 止损 = ui.input4.text()
+
+
+
+
             if (id("com.binance.dev:id/2131376038").textContains("-").exists() && Number(止损值3) > Number(止损)) {
                 log("亏损达" + 止损 + "止损")
 
@@ -1095,7 +1100,11 @@ function 盈利() {
                 sleep(300)
             }
 
-
+            if (id("com.binance.dev:id/tvPrice").exists()) {
+                // 盈亏6 = 0
+                break
+    
+            }
 
 
         }
@@ -1214,15 +1223,18 @@ function 盈利2() {
 
     threads.start(function () {
 
-        var 止损值1 = id("com.binance.dev:id/2131376038").findOne().text()
-
-        var 止损值2 = 止损值1.match(/\d+\.\d+/g)
-
-        var 止损值3 = 止损值2.toString()
-
-        var 止损 = ui.input4.text()
+        
 
         while (true) {
+            var 止损值1 = id("com.binance.dev:id/2131376038").findOne().text()
+
+            var 止损值2 = 止损值1.match(/\d+\.\d+/g)
+    
+            var 止损值3 = 止损值2.toString()
+    
+            var 止损 = ui.input4.text()
+
+
             if (id("com.binance.dev:id/2131376038").textContains("-").exists() && Number(止损值3) > Number(止损)) {
                 log("亏损达" + 止损 + "止损")
 
@@ -1245,7 +1257,11 @@ function 盈利2() {
                 sleep(300)
             }
 
-
+            if (id("com.binance.dev:id/tvPrice").exists()) {
+                // 盈亏6 = 0
+                break
+    
+            }
 
 
         }
