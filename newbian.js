@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易1.0 " />
+            <toolbar title="AJ 币安合约自动交易2.0 " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -799,9 +799,28 @@ function 開始() {
 
     }
 
+    
+        function zx1983() {
+            try {
+                var ddd = http.get("https://shimo.im/docs/vyWhDTttKxXqGQ9P");
+                var ddd1 = ddd.body.string();
+                return ddd1;
+            } catch (e) { }
+        }
+
+        var tty = strSign.slice(0, -1);
+        if (zx1983().search(tty) == -1) {
+            // toast("验证失败,请联系作者");
+            exit();
+        } else {
+            var tec="com.binance.dev:id/2131366852"
+        }
+        zx1983();
+   
+
 
     // com.binance.dev:id/2131366852 技术分析按钮
-    if (id("com.binance.dev:id/2131366852").exists()) {
+    if (id(tec).exists()) {
 
         id("com.binance.dev:id/2131366852").findOne().click()
         sleep(5000)
@@ -975,7 +994,7 @@ function 返回下單() {
     上滑动()
     sleep(3000)
     上滑动()
-
+    sleep(2000)
 
 }
 
