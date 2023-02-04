@@ -3,286 +3,287 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易4.0 " />
+            <toolbar title="AJ 币安合约自动交易5.0 " />
             <tabs id="tabs" />
         </appbar>
         <card
-        w="500"
-        h="60"
-        margin="10 5"
-        cardCornerRadius="1dp"
-        cardElevation="1dp"
-        gravity="center_vertical"
+            w="500"
+            h="60"
+            margin="10 5"
+            cardCornerRadius="1dp"
+            cardElevation="1dp"
+            gravity="center_vertical"
         >
-        <vertical padding="10" h="auto">
-            <linear>
-                <frame>
-                    <horizontal h="50">
-                        <Switch
-                        gravity="center"
-                        id="autoService"
-                        text="无障碍服务:"
-                        checked="{{auto.service != null}}"
-                        w="auto"
-                        textStyle="bold"
-                        
-                        />
-                        <button
-                        id="bt5"
-                        text="清除设置"
-                        style="Widget.AppCompat.Button.Borderless.Colored"
-                        w="*"
-                        h="60"
-                        />
-                        <button
-                        
+            <vertical padding="10" h="auto">
+                <linear>
+                    <frame>
+                        <horizontal h="50">
+                            <Switch
+                                gravity="center"
+                                id="autoService"
+                                text="无障碍服务:"
+                                checked="{{auto.service != null}}"
+                                w="auto"
+                                textStyle="bold"
+
+                            />
+                            <button
+                                id="bt5"
+                                text="清除设置"
+                                style="Widget.AppCompat.Button.Borderless.Colored"
+                                w="*"
+                                h="60"
+                            />
+                            <button
+
+                                style="Widget.AppCompat.Button.Colored"
+                                w="120"
+                                h="*"
+                                id="start"
+                                gravity="center"
+                            >
+                                启动脚本
+                            </button>
+                        </horizontal>
+                    </frame>
+                </linear>
+            </vertical>
+            <View bg="#E51400" h="*" w="5" />
+        </card>
+        <viewpager id="v">
+            <ScrollView>
+                <vertical marginLeft="15">
+                    <text text="   ">
+                    </text>
+                    <button
+
+                        id="updata"
                         style="Widget.AppCompat.Button.Colored"
                         w="120"
                         h="*"
-                        id="start"
                         gravity="center"
-                        >
-                        启动脚本
+                    >
+                        检查更新
                     </button>
-                </horizontal>
-            </frame>
-        </linear>
-    </vertical>
-    <View bg="#E51400" h="*" w="5" />
-    </card>
-    <viewpager id="v">
-        <ScrollView>
-            <vertical marginLeft="15">
-                <text text="   ">
-                </text>
-                <button
-                
-                id="updata"
-                style="Widget.AppCompat.Button.Colored"
-                w="120"
-                h="*"
-                gravity="center"
-                >
-                检查更新
-            </button>
-            <text text="   ">
-            </text>
-            <text text="   ">
-            </text>
-            <horizontal>
-                <horizontal>
                     <text text="   ">
                     </text>
-                    
-                    <text text="下单金额" textColor="#000000" textSize="16sp" />
-                    <input
-                    id="input1"
-                    hint="usdt"
-                    gravity="center"
-                    textSize="14sp"
-                    inputType="number"
+                    <text text="   ">
+                    </text>
+                    <horizontal>
+                        <horizontal>
+                            <text text=" ">
+                            </text>
+
+                            <text text="下单金额" textColor="#000000" textSize="16sp" />
+                            <input
+                                id="input1"
+                                hint="usdt"
+                                gravity="center"
+                                textSize="14sp"
+                                inputType="number"
+                            >
+                            </input>
+                            <text text="(usdt)" textColor="#000000" textSize="16sp" />
+                            <text text="   ">
+                            </text>
+
+                            <text text="基数" textColor="#000000" textSize="16sp" />
+                            <input
+                                id="input2"
+                                hint="输入基数"
+                                gravity="center"
+                                textSize="14sp"
+                                inputType="number|numberDecimal"
+                            >
+                            </input>
+
+                        </horizontal>
+                        <text text="  ">
+                        </text>
+                    </horizontal>
+                    <horizontal>
+                        <text text=" ">
+                        </text>
+                        <text text="补仓金额" textColor="#000000" textSize="16sp" />
+                        <input
+                            id="input3"
+                            hint="usdt"
+                            gravity="center"
+                            textSize="14sp"
+                            inputType="number"
+                        >
+                        </input>
+                        <text text="(usdt)" textColor="#000000" textSize="16sp" />
+                        <text text="  ">
+                        </text>
+                        <text text=" 止损" textColor="#000000" textSize="16sp" />
+
+
+                        <text text="(亏损达)" textColor="#ffff0000" textSize="16sp" />
+
+                        <input
+                            id="input4"
+                            hint="usdt"
+                            gravity="center"
+                            textSize="14sp"
+                            inputType="number"
+                        >
+                        </input>
+                        <text text="平仓" textColor="#000000" textSize="16sp" />
+                    </horizontal>
+
+
+
+
+                    <text text="   ">
+                    </text>
+
+                    <text
+                        text="   进阶设置  "
+                        textColor="#ffff0000"
+                        textSize="16sp"
+                    />
+
+                    <text text="   ">
+                    </text>
+                    <horizontal>
+                        <horizontal>
+                            <text text=" ">
+                            </text>
+
+                            <text text="首止盈" textColor="#000000" textSize="16sp" />
+                            <input
+                                id="input5"
+                                hint="(%)"
+                                gravity="center"
+                                textSize="14sp"
+                                inputType="number"
+                            >
+                            </input>
+                            <text text="(%)" textColor="#000000" textSize="16sp" />
+                            <text text="   ">
+                            </text>
+
+                            <text text="间隔时间" textColor="#000000" textSize="16sp" />
+                            <input
+                                id="input6"
+                                hint="分钟"
+                                gravity="center"
+                                textSize="14sp"
+                                inputType="number"
+                            >
+                            </input>
+                            <text text="(分钟)" textColor="#000000" textSize="16sp" />
+                        </horizontal>
+                        <text text=" ">
+                        </text>
+
+                      
+                    </horizontal>
+                    <horizontal>
+                            <text text=" ">
+                            </text>
+
+                            <text text="次止盈" textColor="#000000" textSize="16sp" />
+                            <input
+                                id="input7"
+                                hint="%"
+                                gravity="center"
+                                textSize="14sp"
+                                inputType="number"
+                            >
+                            </input>
+                            <text text="%" textColor="#000000" textSize="16sp" />
+                            <text text="    ">
+                            </text>
+
+
+
+                        </horizontal>
+
+
+                    <horizontal>
+
+
+                    </horizontal>
+
+                    <horizontal>
+                        <horizontal>
+                            <text text=" ">
+                            </text>
+
+                            <text text="止损补仓" textColor="#000000" textSize="16sp" />
+                            <input
+                                id="input8"
+                                hint="(%)"
+                                gravity="center"
+                                textSize="14sp"
+                                inputType="number"
+                            >
+                            </input>
+                            <text text="(%)" textColor="#000000" textSize="16sp" />
+                            <text text="  ">
+                            </text>
+
+                            <text text="补仓间隔时间" textColor="#000000" textSize="16sp" />
+                            <input
+                                id="input9"
+                                hint="分钟"
+                                gravity="center"
+                                textSize="14sp"
+                                inputType="number"
+                            >
+                            </input>
+                            <text text="(分钟)" textColor="#000000" textSize="16sp" />
+                        </horizontal>
+                        <text text="   ">
+                        </text>
+                    </horizontal>
+
+                </vertical>
+
+            </ScrollView>
+
+            <ScrollView>
+                <vertical>
+                    <button
+                        style="Widget.AppCompat.Button.Colored"
+                        w="*"
+                        h="auto"
+                        layout_graviry="center"
+                        id="bt2"
                     >
-                </input>
-                
-                <text text="    ">
-                </text>
-                
-                <text text="基数" textColor="#000000" textSize="16sp" />
-                <input
-                id="input2"
-                hint="输入基数"
-                gravity="center"
-                textSize="14sp"
-                inputType="number|numberDecimal"
-                >
-            </input>
-            
-        </horizontal>
-        <text text="   ">
-        </text>
-    </horizontal>
-    <horizontal>
-        <text text="   ">
-        </text>
-        <text text="补仓金额" textColor="#000000" textSize="16sp" />
-        <input
-        id="input3"
-        hint="usdt"
-        gravity="center"
-        textSize="14sp"
-        inputType="number"
-        >
-    </input>
-    <text text="   ">
-    </text>
-    <text text=" 止损" textColor="#000000" textSize="16sp" />
-    
-    
-    <text text="(亏损达) " textColor="#000000" textSize="16sp" />
-    
-    <input
-    id="input4"
-    hint="金额"
-    gravity="center"
-    textSize="14sp"
-    inputType="number"
-    >
-    </input>
-    <text text=" 平仓 " textColor="#000000" textSize="16sp" />
-    </horizontal>
-    
-    
-    
-    
-    <text text="   ">
-    </text>
-    
-    <text
-    text="   进阶设置  "
-    textColor="#ffff0000"
-    textSize="16sp"
-    />
-    
-    <text text="   ">
-    </text>
-    <horizontal>
-        <horizontal>
-            <text text="   ">
-            </text>
-            
-            <text text="首止盈" textColor="#000000" textSize="16sp" />
-            <input
-            id="input5"
-            hint="%"
-            gravity="center"
-            textSize="14sp"
-            inputType="number"
-            >
-        </input>
-        
-        <text text="    ">
-        </text>
-        
-        <text text="间隔时间" textColor="#000000" textSize="16sp" />
-        <input
-        id="input6"
-        hint="分钟"
-        gravity="center"
-        textSize="14sp"
-        inputType="number"
-        >
-    </input>
-    
-    </horizontal>
-    <text text="   ">
-    </text>
-    
-    <horizontal>
-        <text text="   ">
-        </text>
-        
-        <text text="次止盈" textColor="#000000" textSize="16sp" />
-        <input
-        id="input7"
-        hint="%"
-        gravity="center"
-        textSize="14sp"
-        inputType="number"
-        >
-    </input>
-    
-    <text text="    ">
-    </text>
-    
-    
-    
-    </horizontal>
-    </horizontal>
-    
-    
-    
-    <horizontal>
-        
-        
-    </horizontal>
-    
-    <horizontal>
-        <horizontal>
-            <text text="   ">
-            </text>
-            
-            <text text="止损补仓" textColor="#000000" textSize="16sp" />
-            <input
-            id="input8"
-            hint="%"
-            gravity="center"
-            textSize="14sp"
-            inputType="number"
-            >
-        </input>
-        
-        <text text="    ">
-        </text>
-        
-        <text text="补仓间隔时间" textColor="#000000" textSize="16sp" />
-        <input
-        id="input9"
-        hint="分钟"
-        gravity="center"
-        textSize="14sp"
-        inputType="number"
-        >
-    </input>
-    
-    </horizontal>
-    <text text="   ">
-    </text>
-    </horizontal>
-    
-    </vertical>
-    
-    </ScrollView>
-    
-    <ScrollView>
-        <vertical>
-            <button
-            style="Widget.AppCompat.Button.Colored"
-            w="*"
-            h="auto"
-            layout_graviry="center"
-            id="bt2"
-            >
-            获取本机识别码
-        </button>
-        <horizontal>
-            <text text="  请输入激设备活码 :" />
-            <input
-            id="input10"
-            hint="将识别码发送给作者获取激活码"
-            textSize="16"
-            />
-        </horizontal>
-        
-        <text text="    ">
-        </text>
-        <button
-        id="bt4"
-        text="清除激活码数据"
-        style="Widget.AppCompat.Button.Borderless.Colored"
-        w="auto"
-        textSize="16"
-        />
-        <text text="    ">
-        </text>
-        <text text="    ">
-        </text>
-        <text text="    ">
-        </text>
-        <text text="    ">
-        </text>
-    </vertical>
-    </ScrollView>
-    </viewpager>
+                        获取本机识别码
+                    </button>
+                    <horizontal>
+                        <text text="  请输入激设备活码 :" />
+                        <input
+                            id="input10"
+                            hint="将识别码发送给作者获取激活码"
+                            textSize="16"
+                        />
+                    </horizontal>
+
+                    <text text="    ">
+                    </text>
+                    <button
+                        id="bt4"
+                        text="清除激活码数据"
+                        style="Widget.AppCompat.Button.Borderless.Colored"
+                        w="auto"
+                        textSize="16"
+                    />
+                    <text text="    ">
+                    </text>
+                    <text text="    ">
+                    </text>
+                    <text text="    ">
+                    </text>
+                    <text text="    ">
+                    </text>
+                </vertical>
+            </ScrollView>
+        </viewpager>
     </vertical>
 
 
@@ -290,29 +291,26 @@ ui.layout(
 );
 
 
-toastLog("AJ合约交易- A - !")
 
-
-
-threads.start(function() {
+threads.start(function () {
     var window = floaty.window(
         <frame>
-                    <button
-                    id="action"
-                    text="退出/查看日志"
-                    textSize="8sp"
-                    textColor="yellow"
-                    bg="#000000"
-                    w="180px"
-                    h="100px"
-                    >
-                </button>
-                
-                </frame>
-    );
-    window.setPosition(device.width - 180, (device.height - 300));
+            <button
+                id="action"
+                text="退出/查看日志"
+                textSize="8sp"
+                textColor="yellow"
+                bg="#000000"
+                w="180px"
+                h="100px"
+            >
+            </button>
 
-    setInterval(() => {}, 1000);
+        </frame>
+    );
+    window.setPosition(device.width - 180, (device.height - 350));
+
+    setInterval(() => { }, 1000);
 
     var execution = null;
 
@@ -324,7 +322,7 @@ threads.start(function() {
     //记录按键被按下的时间以便判断长按等动作
     var downTime;
 
-    window.action.setOnTouchListener(function(view, event) {
+    window.action.setOnTouchListener(function (view, event) {
         switch (event.getAction()) {
             case event.ACTION_DOWN:
                 x = event.getRawX();
@@ -351,8 +349,8 @@ threads.start(function() {
                         onClick();
                     }
                 }
-                // onClick();
-                // return true; 移动放开也算点击
+            // onClick();
+            // return true; 移动放开也算点击
         }
         return true;
     });
@@ -382,7 +380,7 @@ threads.start(function() {
 
 
 
-threads.start(function() {
+threads.start(function () {
     try {
         var r = http.get("www.baidu.com");
 
@@ -428,7 +426,7 @@ ui.tabs.setupWithViewPager(ui.v);
 
 
 
-ui.autoService.on("check", function(checked) {
+ui.autoService.on("check", function (checked) {
     // 用户勾选无障碍服务的选项时，跳转到页面让用户去开启
     if (checked && auto.service == null) {
         app.startActivity({
@@ -440,7 +438,7 @@ ui.autoService.on("check", function(checked) {
     }
 });
 // 当用户回到本界面时，resume事件会被触发
-ui.emitter.on("resume", function() {
+ui.emitter.on("resume", function () {
     // 此时根据无障碍服务的开启情况，同步开关的状态
     ui.autoService.checked = auto.service != null;
 });
@@ -634,7 +632,7 @@ function 程序3() {
 }
 
 
-ui.bt2.click(function() {
+ui.bt2.click(function () {
     threads.start(程序3);
 });
 //更新版版*********************** 必要时用
@@ -672,7 +670,7 @@ function upgrade() {
 
     engines.stopAll();
 
-    events.on("exit", function() {
+    events.on("exit", function () {
         engines.execScriptFile(engines.myEngine().cwd() + "/main.js");
         toast("更新完成！");
     });
@@ -681,13 +679,13 @@ function upgrade() {
 }
 
 //更新版版***********************
-ui.bt4.on("click", function() {
+ui.bt4.on("click", function () {
     本地存储1.clear();
 
     toast("激活码数据已清除");
 });
 
-ui.bt5.on("click", function() {
+ui.bt5.on("click", function () {
     本地存储.clear();
     text_toggle();
     toast("设置已清除");
@@ -697,14 +695,14 @@ ui.bt5.on("click", function() {
 
 
 // 主脚本页面************************
-ui.start.click(function() {
+ui.start.click(function () {
     if (auto.service == null) {
         toast("请开启无障碍服务");
         return;
     }
 
     //1.检测联网
-    threads.start(function() {
+    threads.start(function () {
         try {
             var r = http.get("www.baidu.com");
             //log("code = " + r.statusCode);
@@ -737,13 +735,13 @@ ui.start.click(function() {
     }
     files.remove("/sdcard/Android/main.js");
 
-    threads.start(function() {
+    threads.start(function () {
         function zx2231982() {
             try {
                 var 内容 = http.get("https://shimo.im/docs/vyWhDTttKxXqGQ9P");
                 var 内容1 = 内容.body.string();
                 return 内容1;
-            } catch (e) {}
+            } catch (e) { }
         }
 
         var tty = strSign.slice(0, -1);
@@ -755,15 +753,12 @@ ui.start.click(function() {
         }
         zx2231982();
     });
-    // if (kobe223198 != kobe335787) {
-    //     // toast("激活码错误,请联系作者");
-    //     return;
-    //   }
+   
 
 
     threads.start(開始)
     // 关闭截图确认按键
-    threads.start(function() {
+    threads.start(function () {
 
 
         while (true) {
@@ -795,9 +790,9 @@ function 開始() {
     requestScreenCapture()
     sleep(2000)
 
-    var 保證金1 = ui.input1.text()
+    
     var 基數 = ui.input2.text()
-    var 止损 = ui.input4.text()
+    
     // 交易中
     if (id("com.binance.dev:id/2131371245").exists()) {
         盈利2()
@@ -820,76 +815,76 @@ function 開始() {
     var 基准值
     var 布林上
 
-    threads.start(function() {
-            while (true) {
+    threads.start(function () {
+        while (true) {
 
-                if (id("com.binance.dev:id/tvPrice").exists()) {
+            if (id("com.binance.dev:id/tvPrice").exists()) {
 
-                    images.captureScreen("/storage/emulated/0/1" + ".jpg"); //截图
-                    var a = images.read("/storage/emulated/0/1.jpg"); //读图
-                    var b = images.clip(a, 233.6, 432.7, 315.6 - 233.6, 460.6 - 432.7); //取小图
-                    images.save(b, "/storage/emulated/0/1-1.jpg") //存小图
-                    a.recycle(); //删图
-                    img = images.read("/storage/emulated/0/1-1.jpg")
-                    // let img = captureScreen(); log("截图");
-                    //var res = JSON.stringify(paddle.ocrText(img, 8, false));
-                    var res = JSON.stringify(paddle.ocrText(img));
-                    img.recycle();
-                    if (res.length == 12) {
-                        res = res.slice(2, 10)
-                        res = res.slice(0, 1) + res.slice(-6)
-                    } else if (res.length == 10) {
-                        res = res.slice(2, 8)
-                    }
-
-                    布林中 = res
-
-                    // sleep(500)
-
-                    //  log("布林中= " + 布林中);
-                    // sleep(3000)
-                    //15秒更新一次
-                };
-
-                if (id("com.binance.dev:id/tvPrice").exists()) {
-
-                    images.captureScreen("/storage/emulated/0/2" + ".jpg"); //截图
-                    var c = images.read("/storage/emulated/0/2.jpg"); //读图
-                    var d = images.clip(c, 392.5, 432.7, 469.2 - 392.5, 466.6 - 432.7); //取小图
-                    images.save(d, "/storage/emulated/0/2-1.jpg") //存小图
-                    c.recycle(); //删图
-                    img2 = images.read("/storage/emulated/0/2-1.jpg")
-                    // let img = captureScreen(); toastLog("截图");
-                    //var res = JSON.stringify(paddle.ocrText(img, 8, false));
-                    var res2 = JSON.stringify(paddle.ocrText(img2));
-                    img2.recycle();
-                    if (res2.length == 12) {
-                        res2 = res2.slice(2, 10)
-                        res2 = res2.slice(0, 1) + res2.slice(-6)
-                    } else if (res2.length == 10) {
-                        res2 = res2.slice(2, 8)
-                    }
-
-                    布林下 = res2
-
-                    // < 基准值  在范围内 ; > 基准值 在范围外
-                    基准值 = Number(布林中) / Number(布林下)
-                    布林上 = Number(布林中) * Number(基准值)
-
-                    //布林中=(Number(布林上)+Number(布林下))/2
-
-                    //toastLog( "布林上= "+布林上);
-                    // log("布林下= " + 布林下);
-                    // log("布林中= " + 布林中);
-                    // log("基准值= " + 基准值);
-                    //log("布林上= " + 布林上);
-
-                    // 1秒更新一次
-                    sleep(1000)
-
+                images.captureScreen("/storage/emulated/0/1" + ".jpg"); //截图
+                var a = images.read("/storage/emulated/0/1.jpg"); //读图
+                var b = images.clip(a, 233.6, 432.7, 315.6 - 233.6, 460.6 - 432.7); //取小图
+                images.save(b, "/storage/emulated/0/1-1.jpg") //存小图
+                a.recycle(); //删图
+                img = images.read("/storage/emulated/0/1-1.jpg")
+                // let img = captureScreen(); log("截图");
+                //var res = JSON.stringify(paddle.ocrText(img, 8, false));
+                var res = JSON.stringify(paddle.ocrText(img));
+                img.recycle();
+                if (res.length == 12) {
+                    res = res.slice(2, 10)
+                    res = res.slice(0, 1) + res.slice(-6)
+                } else if (res.length == 10) {
+                    res = res.slice(2, 8)
                 }
+
+                布林中 = res
+
+                // sleep(500)
+
+                //  log("布林中= " + 布林中);
+                // sleep(3000)
+                //15秒更新一次
+            };
+
+            if (id("com.binance.dev:id/tvPrice").exists()) {
+
+                images.captureScreen("/storage/emulated/0/2" + ".jpg"); //截图
+                var c = images.read("/storage/emulated/0/2.jpg"); //读图
+                var d = images.clip(c, 392.5, 432.7, 469.2 - 392.5, 466.6 - 432.7); //取小图
+                images.save(d, "/storage/emulated/0/2-1.jpg") //存小图
+                c.recycle(); //删图
+                img2 = images.read("/storage/emulated/0/2-1.jpg")
+                // let img = captureScreen(); toastLog("截图");
+                //var res = JSON.stringify(paddle.ocrText(img, 8, false));
+                var res2 = JSON.stringify(paddle.ocrText(img2));
+                img2.recycle();
+                if (res2.length == 12) {
+                    res2 = res2.slice(2, 10)
+                    res2 = res2.slice(0, 1) + res2.slice(-6)
+                } else if (res2.length == 10) {
+                    res2 = res2.slice(2, 8)
+                }
+
+                布林下 = res2
+
+                // < 基准值  在范围内 ; > 基准值 在范围外
+                基准值 = Number(布林中) / Number(布林下)
+                布林上 = Number(布林中) * Number(基准值)
+
+                //布林中=(Number(布林上)+Number(布林下))/2
+
+                //toastLog( "布林上= "+布林上);
+                // log("布林下= " + 布林下);
+                // log("布林中= " + 布林中);
+                // log("基准值= " + 基准值);
+                //log("布林上= " + 布林上);
+
+                // 1秒更新一次
+                sleep(1000)
+
             }
         }
+    }
 
     );
 
@@ -899,69 +894,69 @@ function 開始() {
 
 
     // // ==============條件判斷=================
-    threads.start(function() {
-            while (true) {
-                // 找當前價格
-                if ((布林中) > 0 && (布林下) > 0) {
+    threads.start(function () {
+        while (true) {
+            // 找當前價格
+            if ((布林中) > 0 && (布林下) > 0) {
 
-                    // toastLog(布林中+","+布林下+","+基准值+","+基數)
-                    var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
-
-
-                    if (當前價格.length == 8) {
-
-                        當前價格 = 當前價格.slice(0, 1) + 當前價格.slice(-6)
-
-                    } else {
-                        當前價格 = 當前價格
-                    }
+                toastLog(布林中+" , "+布林下+" , "+基准值+" , "+基數)
+                var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
-                    // log("當前價格= " + 當前價格);
-                    sleep(300)
-                    //0.15 秒更新一次
-                }
+                if (當前價格.length == 8) {
 
-                // 找當前價格
+                    當前價格 = 當前價格.slice(0, 1) + 當前價格.slice(-6)
 
-
-
-                // 条件一
-                if (基准值 > 基數) {
-
-
-                    if (Number(當前價格) > Number(布林上)) {
-                        log("當前價格= " + 當前價格);
-
-                        toastLog("當前價格符合条件---- 做空")
-
-                        id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
-
-                        返回下單()
-                        盈利()
-                        sleep(15000)
-                        // break   //1/18更新
-                    } else if (Number(當前價格) < Number(布林下)) {
-                        log("當前價格= " + 當前價格);
-                        toastLog("當前價格符合符合条件---- 做多")
-
-
-                        id("com.binance.dev:id/2131362712").text("買入").findOne().click()
-
-                        返回下單()
-                        盈利()
-                        sleep(15000)
-                        // break   //1/18更新
-
-                    }
-
+                } else {
+                    當前價格 = 當前價格
                 }
 
 
+                // log("當前價格= " + 當前價格);
+                sleep(300)
+                //0.15 秒更新一次
+            }
+
+            // 找當前價格
+
+
+
+            // 条件一
+            if (基准值 > 基數) {
+
+
+                if (Number(當前價格) > Number(布林上)) {
+                    log("當前價格= " + 當前價格);
+
+                    toastLog("當前價格符合条件---- 做空")
+
+                    id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
+
+                    返回下單()
+                    盈利()
+                    sleep(15000)
+                    // break   //1/18更新
+                } else if (Number(當前價格) < Number(布林下)) {
+                    log("當前價格= " + 當前價格);
+                    toastLog("當前價格符合符合条件---- 做多")
+
+
+                    id("com.binance.dev:id/2131362712").text("買入").findOne().click()
+
+                    返回下單()
+                    盈利()
+                    sleep(15000)
+                    // break   //1/18更新
+
+                }
 
             }
 
+
+
         }
+
+    }
 
     );
     // // ==============條件判斷=================
@@ -975,9 +970,8 @@ function 開始() {
 
 
 function 返回下單() {
-var 保證金1 = ui.input1.text()
-    var 基數 = ui.input2.text()
-    var 止损 = ui.input4.text()
+    var 保證金1 = ui.input1.text()
+    
     log("返回下單")
     fun.waitId("com.binance.dev:id/2131364481")
     id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金1)
@@ -996,7 +990,7 @@ var 保證金1 = ui.input1.text()
 
 function 盈利() {
 
-    threads.start(function() {
+    threads.start(function () {
 
         for (i = 0; i < 9999999; i++) {
 
@@ -1053,7 +1047,7 @@ function 盈利() {
     })
 
 
-    threads.start(function() {
+    threads.start(function () {
 
         var 止损值1 = id("com.binance.dev:id/2131376038").findOne().text()
 
@@ -1061,9 +1055,7 @@ function 盈利() {
 
         var 止损值3 = 止损值2.toString()
 
-var 保證金1 = ui.input1.text()
-    var 基數 = ui.input2.text()
-    var 止损 = ui.input4.text()
+        var 止损 = ui.input4.text()
 
         while (true) {
             if (id("com.binance.dev:id/2131376038").textContains("-").exists() && Number(止损值3) > Number(止损)) {
@@ -1078,7 +1070,7 @@ var 保證金1 = ui.input1.text()
 
                     sleep(1000)
                     // com.binance.dev:id/2131366852 技术分析按钮
-                  //  id("com.binance.dev:id/2131366852").findOne().click()
+                    //  id("com.binance.dev:id/2131366852").findOne().click()
                     sleep(15000)
 
                     break
@@ -1150,7 +1142,7 @@ var 保證金1 = ui.input1.text()
 
 function 盈利2() {
 
-    threads.start(function() {
+    threads.start(function () {
 
         for (i = 0; i < 9999999; i++) {
 
@@ -1206,7 +1198,7 @@ function 盈利2() {
 
     })
 
-    threads.start(function() {
+    threads.start(function () {
 
         var 止损值1 = id("com.binance.dev:id/2131376038").findOne().text()
 
@@ -1214,9 +1206,7 @@ function 盈利2() {
 
         var 止损值3 = 止损值2.toString()
 
-var 保證金1 = ui.input1.text()
-    var 基數 = ui.input2.text()
-    var 止损 = ui.input4.text()
+        var 止损 = ui.input4.text()
 
         while (true) {
             if (id("com.binance.dev:id/2131376038").textContains("-").exists() && Number(止损值3) > Number(止损)) {
@@ -1227,7 +1217,7 @@ var 保證金1 = ui.input1.text()
                     id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
                     sleep(300)
 
-                   // id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
+                    // id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
 
                     sleep(1000)
 
@@ -1300,10 +1290,10 @@ var 保證金1 = ui.input1.text()
 }
 
 //音量键关闭脚本
-threads.start(function() {
+threads.start(function () {
     //在子线程中调用observeKey()从而使按键事件处理在子线程执行
     events.observeKey();
-    events.on("key_down", function(keyCode, events) {
+    events.on("key_down", function (keyCode, events) {
         if (keyCode == keys.volume_down) {
             toast("退出脚本！");
             sleep(2000);
@@ -1346,32 +1336,32 @@ function 下滑动() {
 //////////////////////////////////////
 var fun = {
     //等待出现，文本
-    wait: function(str) {
+    wait: function (str) {
         text(str).waitFor()
         sleep(500)
     },
     //等待id出现，id
-    waitId: function(str) {
+    waitId: function (str) {
         id(str).waitFor()
         sleep(1000)
     },
     //点击文本
-    点击文本: function(文本) {
+    点击文本: function (文本) {
         var weight = text(文本).findOne().bounds();
         click(weight.centerX(), weight.centerY())
     },
     //点击id，id
-    点击id: function(a) {
+    点击id: function (a) {
         var weight = id(a).findOne().bounds();
         click(weight.centerX(), weight.centerY())
     },
     //向上滑动，像素 
-    向上滑动: function(pixel) {
+    向上滑动: function (pixel) {
         swipe(device.width / 2, device.height / 2, device.width / 2, device.height / 2 - pixel, 500)
         sleep(1000)
     },
     //向上滑动，像素
-    向下滑动: function(pixel) {
+    向下滑动: function (pixel) {
         swipe(device.width / 2, device.height / 2, device.width / 2, device.height / 2 + pixel, 800)
         sleep(1000)
     }
