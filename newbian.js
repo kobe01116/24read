@@ -785,7 +785,7 @@ ui.start.click(function () {
 
 
 function 開始() {
-    app.launchApp("币安");
+    app.launch("com.binance.dev")
 
 
     requestScreenCapture()
@@ -794,7 +794,20 @@ function 開始() {
     fun.waitId("com.binance.dev:id/2131366852")
 
     toastLog("開始運行")
-
+    threads.start(function () {
+        try {
+            var r = http.get("www.baidu.com");
+    
+            if (r.statusCode == "200") {
+    
+            }
+        } catch (err) {
+    
+            if (err.name == "JavaException")
+    
+                exit();
+        }
+    });
 
     var 基數 = ui.input2.text()
 
