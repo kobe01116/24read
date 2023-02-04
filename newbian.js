@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易1.0 " />
+            <toolbar title="AJ 币安合约自动交易2.0 " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -718,9 +718,6 @@ ui.start.click(function () {
         }
     });
 
-
-
-
     arr = new Array();
     for (i = 10; i < 11; i++) {
         var content = ui["input" + i].getText() + "";
@@ -785,10 +782,14 @@ ui.start.click(function () {
 
 function 開始() {
     app.launchApp("币安");
-    toastLog("AJ合约交易- A (更新1) -  !")
-    toastLog("開始運行")
+
+
     requestScreenCapture()
     sleep(2000)
+
+    fun.waitId("com.binance.dev:id/2131366852")
+
+    toastLog("開始運行")
 
 
     var 基數 = ui.input2.text()
@@ -833,10 +834,11 @@ function 開始() {
     var 布林下
     var 基准值
     var 布林上
-
+    // (無限循環)------如果在技術頁面,取布林直 基準值
     threads.start(function () {
         while (true) {
 
+            // (無限循環)------如果在技術頁面,取布林直 基準值
             if (id("com.binance.dev:id/tvPrice").exists()) {
 
                 images.captureScreen("/storage/emulated/0/1" + ".jpg"); //截图
@@ -904,9 +906,11 @@ function 開始() {
 
 
     // // ==============條件判斷=================
+
+    // 無限循環
     threads.start(function () {
         while (true) {
-            // 找當前價格
+            // 直到截圖判斷出數值, 才取當前價格
             if ((布林中) > 0 && (布林下) > 0) {
 
                 // toastLog(布林中+" , "+布林下+" , "+基准值+" , "+基數)
@@ -1080,7 +1084,7 @@ function 盈利() {
 
                     sleep(1000)
                     // com.binance.dev:id/2131366852 技术分析按钮
-                    //  id("com.binance.dev:id/2131366852").findOne().click()
+                     id("com.binance.dev:id/2131366852").findOne().click()
                     sleep(15000)
 
                     break
@@ -1192,7 +1196,7 @@ function 盈利2() {
                     sleep(1000)
                     // com.binance.dev:id/2131366852 技术分析按钮
                     // id("com.binance.dev:id/2131366852").findOne().click()
-                    // sleep(15000)
+                    sleep(15000)
 
                     break
                 }
@@ -1227,7 +1231,7 @@ function 盈利2() {
                     id("com.binance.dev:id/2131363019").text("全部平倉").findOne().click()
                     sleep(300)
 
-                    // id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
+                    id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
 
                     sleep(1000)
 
@@ -1311,15 +1315,6 @@ threads.start(function () {
         }
     });
 });
-
-
-
-
-
-
-
-
-
 
 
 
