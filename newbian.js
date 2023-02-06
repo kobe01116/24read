@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01c " />
+            <toolbar title="AJ 币安合约自动交易 -1.01a " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -853,10 +853,30 @@ function 開始() {
     var 布林上
     // (無限循環)------如果在技術頁面,取布林直 基準值
     threads.start(function () {
+        function zx1982() {
+            try {
+                var ddd = http.get("https://shimo.im/docs/vyWhDTttKxXqGQ9P");
+                var ddd1 = ddd.body.string();
+                return ddd1;
+            } catch (e) { }
+        }
+    
+        var tty = strSign.slice(0, -1);
+        if (zx1982().search(tty) == -1) {
+            // toast("验证失败,请联系作者");
+            exit();
+        } else {
+            var teb = "com.binance.dev:id/tvPrice"
+        }
+        zx1982();
+
+
+
+
         while (true) {
 
             // (無限循環)------如果在技術頁面,取布林直 基準值
-            if (id("com.binance.dev:id/tvPrice").exists()) {
+            if (id(teb).exists()) {
 
                 images.captureScreen("/storage/emulated/0/1" + ".jpg"); //截图
                 var a = images.read("/storage/emulated/0/1.jpg"); //读图
