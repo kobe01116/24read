@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01b " />
+            <toolbar title="AJ 币安合约自动交易 -1.01a " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -657,7 +657,7 @@ function downLoad() {
     sleep(3000);
 
     files.writeBytes("/sdcard/android/main.js", r.body.bytes());
-
+    
     sleep(8000)
 }
 
@@ -676,7 +676,7 @@ function upgrade() {
         engines.execScriptFile(engines.myEngine().cwd() + "/main.js");
         toast("更新完成！");
     });
-
+    
     sleep(3000)
     files.remove("/sdcard/Android/main.js");
 
@@ -797,14 +797,14 @@ function 開始() {
     threads.start(function () {
         try {
             var r = http.get("www.baidu.com");
-
+    
             if (r.statusCode == "200") {
-
+    
             }
         } catch (err) {
-
+    
             if (err.name == "JavaException")
-
+    
                 exit();
         }
     });
@@ -847,10 +847,10 @@ function 開始() {
 
 
     // ================================取布林值, 基准值 ======================================
-    // var 布林中
-    // var 布林下
-    // var 基准值
-    // var 布林上
+    var 布林中
+    var 布林下
+    var 基准值
+    var 布林上
     // (無限循環)------如果在技術頁面,取布林直 基準值
     threads.start(function () {
         function zx1982() {
@@ -860,7 +860,7 @@ function 開始() {
                 return ddd1;
             } catch (e) { }
         }
-
+    
         var tty = strSign.slice(0, -1);
         if (zx1982().search(tty) == -1) {
             // toast("验证失败,请联系作者");
@@ -944,16 +944,11 @@ function 開始() {
 
     // 無限循環   // 直到截圖判斷出數值, 才取當前價格
     threads.start(function () {
-
-        var 布林中
-        var 布林下
-        var 基准值
-        var 布林上
         while (true) {
             // 直到截圖判斷出數值, 才取當前價格
             if ((布林中) > 0 && (布林下) > 0) {
 
-                toastLog(布林中+" , "+布林下+" , "+基准值+" , "+基數)
+                // toastLog(布林中+" , "+布林下+" , "+基准值+" , "+基數)
                 var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
