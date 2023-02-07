@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01test " />
+            <toolbar title="AJ 币安合约自动交易 -1.01test-1 " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -946,7 +946,7 @@ function 開始() {
     threads.start(function () {
         while (true) {
             // 直到截圖判斷出數值, 才取當前價格
-            if ((布林中) > 0 && (布林下) > 0) {
+            if ((布林中) > 0 && (布林下) > 0 && 基准值!=isNaN) {
 
                 toastLog(布林中+" , "+布林下+" , "+基准值+" , "+基數)
                 var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
@@ -971,7 +971,7 @@ function 開始() {
 
 
             // 条件一
-            if (基准值 > 基數) {
+            if (基准值!=isNaN && 基准值 > 基數) {
 
 
                 if (Number(當前價格) > Number(布林上)) {
