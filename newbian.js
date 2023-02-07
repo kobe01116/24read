@@ -948,7 +948,7 @@ function 開始() {
             // 直到截圖判斷出數值, 才取當前價格
             if ((布林中) > 0 && (布林下) > 0) {
 
-                // toastLog(布林中+" , "+布林下+" , "+基准值+" , "+基數)
+                toastLog(布林中+" , "+布林下+" , "+基准值+" , "+基數)
                 var 當前價格 = id("com.binance.dev:id/tvPrice").findOne().text()
 
 
