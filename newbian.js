@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01 A " />
+            <toolbar title="AJ 币安合约自动交易 -1.01 B " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -897,7 +897,7 @@ function 開始() {
 
                 布林中 = res
 
-                sleep(500)
+                sleep(300)
 
                 //  log("布林中= " + 布林中);
                 // sleep(3000)
@@ -929,7 +929,7 @@ function 開始() {
                 基准值 = Number(布林中) / Number(布林下)
                 布林上 = Number(布林中) * Number(基准值)
 
-                sleep(1000)
+                sleep(300)
 
             }
         }
