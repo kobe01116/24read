@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01test-2 " />
+            <toolbar title="AJ 币安合约自动交易 -1.01 E " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -1080,7 +1080,7 @@ function 盈利() {
                     sleep(1000)
                     // com.binance.dev:id/2131366852 技术分析按钮
                     id("com.binance.dev:id/2131366852").findOne().click()
-                    sleep(15000)
+                    // sleep(15000)
 
                     break
                 }
@@ -1126,7 +1126,7 @@ function 盈利() {
                     sleep(1000)
                     // com.binance.dev:id/2131366852 技术分析按钮
                     id("com.binance.dev:id/2131366852").findOne().click()
-                    sleep(15000)
+                    // sleep(15000)
 
                     break
                 }
@@ -1239,7 +1239,7 @@ function 盈利2() {
                     id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
 
 
-                    sleep(15000)
+                    // sleep(15000)
 
                     break
                 }
