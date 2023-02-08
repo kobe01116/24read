@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01 D " />
+            <toolbar title="AJ 币安合约自动交易 -1.01 E " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -1179,9 +1179,6 @@ function 盈利() {
 
 
 
-
-
-
             if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值) && Number(止损值3) < Number(止损)/2) {
                 log("虧 = " + 盈亏6 + " %")
                 // log("-100%")
@@ -1205,11 +1202,6 @@ function 盈利() {
     
             }
     
-            if (id("com.binance.dev:id/tvPrice").exists()) {
-                // 盈亏6 = 0
-                break
-    
-            }
     
         }
 
@@ -1418,11 +1410,7 @@ function 盈利2() {
     
             }
     
-            if (id("com.binance.dev:id/tvPrice").exists()) {
-                // 盈亏6 = 0
-                break
-    
-            }
+           
     
         }
 
