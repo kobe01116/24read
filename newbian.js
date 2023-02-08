@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01 F " />
+            <toolbar title="AJ 币安合约自动交易 -1.01 G " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -1049,7 +1049,8 @@ function 開始() {
 
                     返回下單()
                     盈利()
-                    sleep(15000)
+                    布林上=當前價格-1
+                   // sleep(15000)
                     // break   //1/18更新
                 } else if (Number(當前價格) < Number(布林下)) {
                     log("當前價格= " + 當前價格);
@@ -1060,7 +1061,8 @@ function 開始() {
 
                     返回下單()
                     盈利()
-                    sleep(15000)
+                    布林下=當前價格+1
+                    //sleep(15000)
                     // break   //1/18更新
 
                 }
