@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01 C " />
+            <toolbar title="AJ 币安合约自动交易 -1.01 D " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -1163,11 +1163,26 @@ function 盈利() {
     
             var 盈亏6 = 盈亏5.toString()
     
+
+            var 止损值1 = id("com.binance.dev:id/2131376038").findOne().text()
+
+            var 止损值2 = 止损值1.match(/\d+\.\d+/g)
+
+            var 止损值3 = 止损值2.toString()
+
+            var 止损 = ui.input4.text()
     
             var 亏损值 = ui.input8.text()
             var 保證金2 = ui.input3.text()
             var 間隔時間 = ui.input9.text()
-            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值)) {
+
+
+
+
+
+
+
+            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值) && Number(止损值3) < Number(止损)/2) {
                 log("虧 = " + 盈亏6 + " %")
                 // log("-100%")
     
@@ -1356,48 +1371,108 @@ function 盈利2() {
 
     })
     // 補倉
-    while (true) {
 
-        var 盈亏4 = id("com.binance.dev:id/2131371245").findOne().text()
+    threads.start(function(){
+        while (true) {
 
-        var 盈亏5 = 盈亏4.match(/\d+\.\d+/g)
+            var 盈亏4 = id("com.binance.dev:id/2131371245").findOne().text()
+    
+            var 盈亏5 = 盈亏4.match(/\d+\.\d+/g)
+    
+            var 盈亏6 = 盈亏5.toString()
+    
 
-        var 盈亏6 = 盈亏5.toString()
+            var 止损值1 = id("com.binance.dev:id/2131376038").findOne().text()
+
+            var 止损值2 = 止损值1.match(/\d+\.\d+/g)
+
+            var 止损值3 = 止损值2.toString()
+
+            var 止损 = ui.input4.text()
+    
+            var 亏损值 = ui.input8.text()
+            var 保證金2 = ui.input3.text()
+            var 間隔時間 = ui.input9.text()
 
 
-        var 亏损值 = ui.input8.text()
-        var 保證金2 = ui.input3.text()
-        var 間隔時間 = ui.input9.text()
-        if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值)) {
-            log("虧 = " + 盈亏6 + " %")
-            // log("-100%")
-
-            log("補倉" + 保證金2)
-            fun.waitId("com.binance.dev:id/2131364481")
-            sleep(1000)
-            id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金2)
-            sleep(1000)
-            ///下單下單下單下單下單下單下單
-            id("com.binance.dev:id/2131362797").findOne().click()
-            sleep(間隔時間 * 60 * 1000)
+            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值) && Number(止损值3) < Number(止损)/2) {
+                log("虧 = " + 盈亏6 + " %")
+                // log("-100%")
+    
+                log("補倉" + 保證金2)
+                fun.waitId("com.binance.dev:id/2131364481")
+                sleep(1000)
+                id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金2)
+                sleep(1000)
+                ///下單下單下單下單下單下單下單
+                id("com.binance.dev:id/2131362797").findOne().click()
+                sleep(間隔時間 * 60 * 1000)
+                if (id("com.binance.dev:id/tvPrice").exists()) {
+                    // 盈亏6 = 0
+                    break
+                }
+    
+            } else {
+                // log("等待中 !")
+                sleep(300)
+    
+            }
+    
             if (id("com.binance.dev:id/tvPrice").exists()) {
                 // 盈亏6 = 0
                 break
+    
             }
-
-        } else {
-            // log("等待中 !")
-            sleep(300)
-
+    
         }
 
-        if (id("com.binance.dev:id/tvPrice").exists()) {
-            // 盈亏6 = 0
-            break
 
-        }
 
-    }
+    })
+
+
+    // while (true) {
+
+    //     var 盈亏4 = id("com.binance.dev:id/2131371245").findOne().text()
+
+    //     var 盈亏5 = 盈亏4.match(/\d+\.\d+/g)
+
+    //     var 盈亏6 = 盈亏5.toString()
+
+
+    //     var 亏损值 = ui.input8.text()
+    //     var 保證金2 = ui.input3.text()
+    //     var 間隔時間 = ui.input9.text()
+    //     if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值)) {
+    //         log("虧 = " + 盈亏6 + " %")
+    //         // log("-100%")
+
+    //         log("補倉" + 保證金2)
+    //         fun.waitId("com.binance.dev:id/2131364481")
+    //         sleep(1000)
+    //         id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金2)
+    //         sleep(1000)
+    //         ///下單下單下單下單下單下單下單
+    //         id("com.binance.dev:id/2131362797").findOne().click()
+    //         sleep(間隔時間 * 60 * 1000)
+    //         if (id("com.binance.dev:id/tvPrice").exists()) {
+    //             // 盈亏6 = 0
+    //             break
+    //         }
+
+    //     } else {
+    //         // log("等待中 !")
+    //         sleep(300)
+
+    //     }
+
+    //     if (id("com.binance.dev:id/tvPrice").exists()) {
+    //         // 盈亏6 = 0
+    //         break
+
+    //     }
+
+    // }
 
 
 }
