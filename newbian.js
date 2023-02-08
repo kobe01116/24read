@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01 B " />
+            <toolbar title="AJ 币安合约自动交易 -1.01 C " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -1042,17 +1042,17 @@ function 開始() {
 
                 if (Number(當前價格) > Number(布林上)) {
                     log("當前價格= " + 當前價格)
-log(布林上);
+
                     toastLog("當前價格符合条件---- 做空")
 
                     id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
 
                     返回下單()
                     盈利()
-                    布林上=當前價格-1
-                    log(當前價格)
-                    log(布林上);
-                   // sleep(15000)
+                    
+                    
+                    
+                    sleep(15000)
                     // break   //1/18更新
                 } else if (Number(當前價格) < Number(布林下)) {
                     log("當前價格= " + 當前價格)
@@ -1065,10 +1065,10 @@ log(布林上);
 
                     返回下單()
                     盈利()
-                    布林下=當前價格+1
-                    log(當前價格);
-                    log(布林下);
-                    //sleep(15000)
+                   
+                  
+                    
+                    leep(15000)
                     // break   //1/18更新
 
                 }
@@ -1154,6 +1154,8 @@ function 盈利() {
                     sleep(1000)
                     // com.binance.dev:id/2131366852 技术分析按钮
                     id("com.binance.dev:id/2131366852").findOne().click()
+                    布林上=3000
+                    布林下=500
                      sleep(15000)
 
                     break
