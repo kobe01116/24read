@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01 R " />
+            <toolbar title="AJ 币安合约自动交易 -1.01 A " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -126,7 +126,7 @@ ui.layout(
                             hint="usdt"
                             gravity="center"
                             textSize="14sp"
-                            inputType="number"
+                            inputType="number|numberDecimal"
                         >
                         </input>
                         <text text="平仓" textColor="#000000" textSize="16sp" />
@@ -298,7 +298,7 @@ threads.start(function () {
             <button
                 id="action"
                 text="退出"
-                textSize="12sp"
+                textSize="14sp"
                 textColor="yellow"
                 bg="#000000"
                 w="180px"
