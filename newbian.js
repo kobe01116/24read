@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01 C " />
+            <toolbar title="AJ 币安合约自动交易 -2.01 A " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -239,6 +239,19 @@ ui.layout(
                         <text text="   ">
                         </text>
                     </horizontal>
+                    <horizontal>
+                    <text text="亏损达" textColor="#000000" textSize="16sp" />
+                    <input
+                        id="input10"
+                        hint="保证金usdt"
+                        gravity="center"
+                        textSize="14sp"
+                        inputType="number"
+                    >
+                    </input>
+                    <text text="(停止补仓)" textColor="#000000" textSize="16sp" />
+
+                    </horizontal>
 
                 </vertical>
 
@@ -258,7 +271,7 @@ ui.layout(
                     <horizontal>
                         <text text="  请输入激设备活码 :" />
                         <input
-                            id="input10"
+                            id="input11"
                             hint="将识别码发送给作者获取激活码"
                             textSize="16"
                         />
@@ -449,7 +462,7 @@ ui.emitter.on("resume", function () {
 
 
 var 本地存储1 = storages.create("123444555");
-for (i = 10; i < 11; i++) {
+for (i = 11; i < 12; i++) {
     var content = 本地存储1.get("kb" + i);
     if (content) {
         ui["input" + i].setText(content);
@@ -468,7 +481,7 @@ function get_input_list() {
         ui.input7,
         ui.input8,
         ui.input9,
-
+        ui.input10,
     ];
 }
 
@@ -480,14 +493,14 @@ function text_toggle() {
 }
 
 arr = new Array();
-for (i = 10; i < 11; i++) {
+for (i = 11; i < 12; i++) {
     var content = ui["input" + i].getText() + "";
     本地存储1.put("kb" + i, content);
     arr.push(content);
 }
 
 var 本地存储 = storages.create("444444445565");
-for (i = 1; i <= 9; i++) {
+for (i = 1; i <= 10; i++) {
     var content = 本地存储.get("kb" + i);
     if (content) {
         ui["input" + i].setText(content);
@@ -537,13 +550,13 @@ var ESM = device.getAndroidId();
 var strSign = SSN(ESM + ESM.slice(4, 7) * ESM * 54321);
 
 var kobe335787 = JM;
-var kobe223198 = ui.input10.getText();
+var kobe223198 = ui.input11.getText();
 
 
 var CUSM = strSign
 var JM = encrypt(CUSM);
 var kobe335787 = JM;
-var kobe223198 = ui.input10.getText();
+var kobe223198 = ui.input11.getText();
 
 function encrypt(stringW) {
     //添加尾判断符号
@@ -723,13 +736,13 @@ ui.start.click(function () {
     });
 
     arr = new Array();
-    for (i = 10; i < 11; i++) {
+    for (i = 11; i < 12; i++) {
         var content = ui["input" + i].getText() + "";
         本地存储1.put("kb" + i, content);
         arr.push(content);
     }
     arr = new Array();
-    for (i = 1; i <= 9; i++) {
+    for (i = 1; i <= 10; i++) {
         var content = ui["input" + i].getText() + "";
         本地存储.put("kb" + i, content);
         arr.push(content);
@@ -750,7 +763,7 @@ ui.start.click(function () {
             // toast("验证失败,请联系作者");
             exit();
         } else {
-            内容1 = ui.input10.text();
+            内容1 = ui.input11.text();
         }
         zx2231982();
     });
@@ -797,24 +810,24 @@ function 開始() {
     sleep(2000)
 
 
-while(true){
-    sleep(1000)
-    if(id("com.binance.dev:id/2131366852").exists()){
-        toastLog("開始運行")
-        break
+    while (true) {
+        sleep(1000)
+        if (id("com.binance.dev:id/2131366852").exists()) {
+            toastLog("開始運行")
+            break
 
-    }else{
-        back()
-        sleep(3000)
+        } else {
+            back()
+            sleep(3000)
+        }
+
     }
-
-}
 
 
 
     fun.waitId("com.binance.dev:id/2131366852")
 
-    
+
     threads.start(function () {
         try {
             var r = http.get("www.baidu.com");
@@ -850,18 +863,18 @@ while(true){
 
             var 止损值6 = 止损值5.toString()
 
-            var 止损 = ui.input4.text()
+            var 止损 = ui.input10.text()
 
             var 亏损值 = ui.input8.text()
             var 保證金2 = ui.input3.text()
             var 間隔時間 = ui.input9.text()
 
 
-            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值) && Number(止损值6) < Number(止损) / 2) {
-                log("a-"+"虧 = " + 盈亏6 + " %")
+            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值) && Number(止损值6) < Number(止损)) {
+                log("a-" + "虧 = " + 盈亏6 + " %")
                 // log("-100%")
 
-                log("b-"+"補倉" + 保證金2)
+                log("b-" + "補倉" + 保證金2)
                 fun.waitId("com.binance.dev:id/2131364481")
                 sleep(1000)
                 id("com.binance.dev:id/2131364481").textContains("數量").findOne().setText(保證金2)
@@ -889,7 +902,7 @@ while(true){
     })
 
     // 止損
-   
+
     threads.start(function () {
 
         while (true) {
@@ -904,7 +917,7 @@ while(true){
 
             if (id("com.binance.dev:id/2131376038").textContains("-").exists() && Number(止损值3) > Number(止损)) {
 
-                log("c-"+"亏损达" + 止损 + "止损")
+                log("c-" + "亏损达" + 止损 + "止损")
 
                 if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
@@ -918,7 +931,7 @@ while(true){
                     id("com.binance.dev:id/2131366852").findOne().click()
                     sleep(5000)
 
-                   
+
                 }
 
             } else {
@@ -926,14 +939,14 @@ while(true){
                 sleep(300)
             }
 
-           
+
 
         }
 
 
     })
 
-     // 止損
+    // 止損
 
 
 
@@ -1104,9 +1117,9 @@ while(true){
                 } else {
                     當前價格 = 當前價格
                 }
-                
+
                 sleep(300)
-                
+
             }
 
             // 找當前價格
@@ -1118,9 +1131,9 @@ while(true){
 
 
                 if (Number(當前價格) > Number(布林上)) {
-                    log("d-"+"當前價格= " + 當前價格)
+                    log("d-" + "當前價格= " + 當前價格)
 
-                    toastLog("e-"+"當前價格符合条件---- 做空")
+                    toastLog("e-" + "當前價格符合条件---- 做空")
 
                     id("com.binance.dev:id/2131362780").text("賣出").findOne().click()
 
@@ -1131,10 +1144,10 @@ while(true){
 
                     // break   //1/18更新
                 } else if (Number(當前價格) < Number(布林下)) {
-                    log("f-"+"當前價格= " + 當前價格)
+                    log("f-" + "當前價格= " + 當前價格)
 
                     log(布林下);
-                    toastLog("g-"+"當前價格符合符合条件---- 做多")
+                    toastLog("g-" + "當前價格符合符合条件---- 做多")
 
 
                     id("com.binance.dev:id/2131362712").text("買入").findOne().click()
@@ -1216,7 +1229,7 @@ function 盈利() {
 
 
             if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 盈利值) {
-                toastLog("h-"+"本次盈利 = " + 盈亏3 + " %")
+                toastLog("h-" + "本次盈利 = " + 盈亏3 + " %")
                 // log("+40%")
                 if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
@@ -1281,7 +1294,7 @@ function 盈利2() {
             // log(i)
 
             if (id("com.binance.dev:id/2131371245").textContains("+").exists() && Number(盈亏3) > 盈利值) {
-                toastLog("i-"+"本次盈利 = " + 盈亏3 + " %")
+                toastLog("i-" + "本次盈利 = " + 盈亏3 + " %")
                 // log("+40%")
                 if (id("com.binance.dev:id/2131363019").text("全部平倉").exists()) {
 
@@ -1306,7 +1319,7 @@ function 盈利2() {
 
 
     })
-    
+
 
 }
 
