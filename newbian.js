@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -1.01 B " />
+            <toolbar title="AJ 币安合约自动交易 -1.01 C " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -783,6 +783,11 @@ ui.start.click(function () {
 
 });
 
+// 主脚本页面************************
+
+
+
+
 
 
 
@@ -791,9 +796,25 @@ function 開始() {
     requestScreenCapture()
     sleep(2000)
 
+
+while(true){
+    sleep(1000)
+    if(id("com.binance.dev:id/2131366852").exists()){
+        toastLog("開始運行")
+        break
+
+    }else{
+        back()
+        sleep(3000)
+    }
+
+}
+
+
+
     fun.waitId("com.binance.dev:id/2131366852")
 
-    toastLog("開始運行")
+    
     threads.start(function () {
         try {
             var r = http.get("www.baidu.com");
@@ -892,10 +913,10 @@ function 開始() {
 
                     id("com.binance.dev:id/2131375876").text("全部撤銷").findOne().click()
 
-                    sleep(1000)
+                    sleep(3000)
                     // com.binance.dev:id/2131366852 技术分析按钮
                     id("com.binance.dev:id/2131366852").findOne().click()
-                    sleep(15000)
+                    sleep(5000)
 
                    
                 }
@@ -913,10 +934,6 @@ function 開始() {
     })
 
      // 止損
-
-
-
-
 
 
 
@@ -1087,11 +1104,9 @@ function 開始() {
                 } else {
                     當前價格 = 當前價格
                 }
-
-
-                // log("當前價格= " + 當前價格);
+                
                 sleep(300)
-                //0.15 秒更新一次
+                
             }
 
             // 找當前價格
