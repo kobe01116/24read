@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -2.01 A " />
+            <toolbar title="AJ 币安合约自动交易 -2.01 B " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -240,7 +240,7 @@ ui.layout(
                         </text>
                     </horizontal>
                     <horizontal>
-                    <text text="亏损达" textColor="#000000" textSize="16sp" />
+                    <text text="保证金达" textColor="#000000" textSize="16sp" />
                     <input
                         id="input10"
                         hint="保证金usdt"
@@ -861,16 +861,17 @@ function 開始() {
 
             var 止损值5 = 止损值4.match(/\d+\.\d+/g)
 
-            var 止损值6 = 止损值5.toString()
+            var 止损值6 = 止损值5.toString()  // (虧損金額 - 這邊用不到)
 
-            var 止损 = ui.input10.text()
+            var 止损 = ui.input10.text()  //设定值 - 保证金
 
-            var 亏损值 = ui.input8.text()
+            var 亏损值 = ui.input8.text()  //100%( % 數)
             var 保證金2 = ui.input3.text()
             var 間隔時間 = ui.input9.text()
 
+            var 保證金3=id("com.binance.dev:id/2131362287").findOne().text()  //已下单保证金总额
 
-            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值) && Number(止损值6) < Number(止损)) {
+            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值) && Number(止损) < Number(保證金3)) {
                 log("a-" + "虧 = " + 盈亏6 + " %")
                 // log("-100%")
 
