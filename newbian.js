@@ -3,7 +3,7 @@
 ui.layout(
     <vertical>
         <appbar>
-            <toolbar title="AJ 币安合约自动交易 -2.01 B " />
+            <toolbar title="AJ 币安合约自动交易 -2.01 C " />
             <tabs id="tabs" />
         </appbar>
         <card
@@ -871,7 +871,7 @@ function 開始() {
 
             var 保證金3=id("com.binance.dev:id/2131362287").findOne().text()  //已下单保证金总额
 
-            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值) && Number(止损) < Number(保證金3)) {
+            if (id("com.binance.dev:id/2131371245").textContains("-").exists() && Number(盈亏6) > Number(亏损值) && Number(止损) > Number(保證金3)) {
                 log("a-" + "虧 = " + 盈亏6 + " %")
                 // log("-100%")
 
